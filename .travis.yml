@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 language: java
 dist: trusty
 group: edge
@@ -19,6 +19,7 @@ script:
     if [ -f "pom.xml" ]; then
       mvn clean install
     fi
+  - |
     if [ -f "gradlew" ]; then
       ./gradlew build
     fi
