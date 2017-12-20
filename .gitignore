@@ -27,6 +27,7 @@ hs_err_pid*
 # Generated files
 **/bin/**
 **/build/**
+**/target/**
 **/src-gen/**
 **/emf-gen/**
 **/generated/**
