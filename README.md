@@ -11,3 +11,14 @@ A collection of xtext sample projects for build integration tests
   - no Eclipse plug-in
   - no IntelliJ IDEA plug-in
   - no web integration
+
+- greetings-maven
+  - Eclipse plug-in
+  - generic IDE support
+  - testing support
+  - maven build system
+  - plain source layout
+  - no Feature
+  - no Update Site
+  - no IntelliJ IDEA plug-in
+  - no web integration
