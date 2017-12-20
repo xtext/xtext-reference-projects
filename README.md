@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/itemis/xtext-reference-projects.svg?branch=master)](https://travis-ci.org/itemis/xtext-reference-projects)
+
 # xtext-reference-projects
 A collection of xtext sample projects for build integration tests
 
