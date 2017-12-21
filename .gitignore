@@ -33,3 +33,5 @@ hs_err_pid*
 **/generated/**
 **/xtext-gen/**
 **/xtend-gen/**
+/.project
+plugin.xml_gen
