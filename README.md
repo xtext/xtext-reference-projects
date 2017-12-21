@@ -15,7 +15,7 @@ A collection of xtext sample projects for build integration tests
 
 ### Wizard configuration
 
-- greetings-gradle
+- greetings-gradle/2.12.0
   - generic IDE support
   - testing support
   - gradle build system
@@ -24,7 +24,7 @@ A collection of xtext sample projects for build integration tests
   - no IntelliJ IDEA plug-in
   - no web integration
 
-- greetings-maven
+- greetings-maven/2.12.0
   - Eclipse plug-in
   - generic IDE support
   - testing support
@@ -32,6 +32,16 @@ A collection of xtext sample projects for build integration tests
   - plain source layout
   - no Feature
   - no Update Site
+  - no IntelliJ IDEA plug-in
+  - no web integration
+
+- greetings-maven/2.13.0
+  - generic IDE support
+  - testing support
+  - maven build system
+  - regular language server
+  - maven source layout
+  - no Eclipse plug-in
   - no IntelliJ IDEA plug-in
   - no web integration
   
