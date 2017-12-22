@@ -24,7 +24,6 @@ env:
 before_install:
   - sh -e /etc/init.d/xvfb start - sleep 10
 script:
-  - ls -al ~
   - cd $PROJECT
   - set -e
   - |
@@ -35,5 +34,3 @@ script:
     if [ -f "gradlew" ]; then
       ./gradlew clean build
     fi
-  -
-  
