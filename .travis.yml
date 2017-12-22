@@ -2,8 +2,13 @@ sudo: true
 language: java
 dist: trusty
 group: edge
+addons:
+  apt:
+    packages:
+      - oracle-java9-installer
 jdk: 
  - oraclejdk8
+ - oraclejdk9
 cache:
   directories:
   - $HOME/.m2
