@@ -25,13 +25,13 @@ hs_err_pid*
 **/.gradle/**
 
 # Generated files
-**/bin/**
-**/build/**
-**/target/**
-**/src-gen/**
-**/emf-gen/**
-**/generated/**
-**/xtext-gen/**
-**/xtend-gen/**
 /.project
+bin
+build
+target
+src-gen
+emf-gen
+generated
+xtext-gen
+xtend-gen
 plugin.xml_gen
