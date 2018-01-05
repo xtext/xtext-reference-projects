@@ -20,6 +20,8 @@ env:
   - BUILDCMD=greetings-gradle-2.12.sh
   - BUILDCMD=greetings-maven-2.12.sh
   - BUILDCMD=greetings-maven-2.13.sh
+  - BUILDCMD=greetings-maven-2.14.sh
+  - BUILDCMD=greetings-tycho-2.14.sh
   - BUILDCMD=domainmodel-2.14.sh
 before_install:
   - sh -e /etc/init.d/xvfb start - sleep 10
