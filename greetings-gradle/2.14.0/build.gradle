@@ -8,7 +8,7 @@ buildscript {
 }
 
 subprojects {
-	ext.xtextVersion = 'unspecified'
+	ext.xtextVersion = '2.14.0-SNAPSHOT'
 	repositories {
 		jcenter()
 	}
