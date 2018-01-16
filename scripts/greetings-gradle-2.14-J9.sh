@@ -1,3 +1,3 @@
-cd greetings-gradle/2.14.0
+cd greetings-gradle/2.14.0-J9
 ./gradlew clean build -Dorg.gradle.daemon=false
 
