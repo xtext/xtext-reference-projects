@@ -14,9 +14,6 @@ cache:
   - $HOME/.m2
   - $HOME/.gradle
 env:
-  global:
-  - DISPLAY=:99.0
-  matrix:
   - BUILDCMD=greetings-gradle-2.12.sh
   - BUILDCMD=greetings-gradle-2.14.sh
   - BUILDCMD=greetings-gradle-2.14-J9.sh
@@ -26,6 +23,20 @@ env:
   - BUILDCMD=greetings-tycho-2.14.sh
   - BUILDCMD=greetings-tycho-2.14-J9.sh
   - BUILDCMD=domainmodel-2.14.sh
+  global:
+  - DISPLAY=:99.0
+matrix:
+ exclude:
+   - jdk: oraclejdk8
+     BUILDCMD=greetings-gradle-2.14-J9.sh
+   - jdk: oraclejdk8
+     BUILDCMD=greetings-tycho-2.14-J9.sh
+   - jdk: oraclejdk9
+     BUILDCMD=greetings-gradle-2.12.sh
+   - jdk: oraclejdk9
+     BUILDCMD=greetings-maven-2.12.sh
+   - jdk: oraclejdk9
+     BUILDCMD=greetings-maven-2.13.sh
 before_install:
   - sh -e /etc/init.d/xvfb start - sleep 10
 script:
