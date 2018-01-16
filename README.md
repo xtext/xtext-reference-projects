@@ -33,4 +33,6 @@ Projects might be configured for Java 8 or Java 9. Projects that target for Java
 
 ### Troubleshooting
   
-If the build of a gradle project fails with the output "./gradlew: Permission denied", it is possible that the execution rights for "gradlew" are not set correctly. To fix this, run "git update-index --chmod=+x gradlew" in the root folder of the project.
+If the build of a gradle project fails with the output "./gradlew: Permission denied", it is possible that the execution rights for "gradlew" are not set correctly. 
+To fix this, run "git update-index --chmod=+x gradlew" in the root folder of the project.
+
