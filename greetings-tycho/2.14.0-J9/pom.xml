@@ -7,9 +7,11 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>1.1.0-SNAPSHOT</tycho-version>
+		<tycho-version>1.0.0</tycho-version>
 		<xtextVersion>2.14.0-SNAPSHOT</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>9</maven.compiler.source>
+		<maven.compiler.target>9</maven.compiler.target>
 	</properties>
 	<modules>
 		<module>org.xtext.example.mydsl</module>
@@ -130,10 +132,6 @@
 					<configuration>
 						<filesets>
 							<fileset>
-								<directory>${basedir}/xtend-gen</directory>
-								<includes>
-									<include>**/*</include>
-								</includes>
 								<directory>${basedir}/xtend-gen</directory>
 								<includes>
 									<include>**/*</include>
