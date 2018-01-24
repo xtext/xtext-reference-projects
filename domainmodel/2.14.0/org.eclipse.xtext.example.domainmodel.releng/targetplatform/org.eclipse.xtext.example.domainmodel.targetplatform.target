@@ -21,5 +21,10 @@
 <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/nightly/"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.objectweb.asm" version="6.0.0.v20170929-1901"/>
+<unit id="org.objectweb.asm.tree" version="6.0.0.v20170929-1901"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20180119201206/repository"/>
+</location>
 </locations>
 </target>
