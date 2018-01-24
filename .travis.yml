@@ -1,6 +1,5 @@
 sudo: true
 language: java
-dist: trusty
 group: edge
 addons:
   apt:
