@@ -8,7 +8,7 @@
 
 	<properties>
 		<tycho-version>1.0.0</tycho-version>
-		<xtextVersion>2.14.0-SNAPSHOT</xtextVersion>
+		<xtextVersion>unspecified</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -132,10 +132,6 @@
 					<configuration>
 						<filesets>
 							<fileset>
-								<directory>${basedir}/xtend-gen</directory>
-								<includes>
-									<include>**/*</include>
-								</includes>
 								<directory>${basedir}/xtend-gen</directory>
 								<includes>
 									<include>**/*</include>
