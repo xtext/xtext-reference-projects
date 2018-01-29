@@ -27,7 +27,7 @@ matrix:
     - jdk: oraclejdk8
       env: BUILDCMD=greetings-gradle-2.14-J9.sh
     - jdk: oraclejdk8
-      env: BUILDCMD=greetings-tycho-2.14-J9.sh
+      env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
     - jdk: oraclejdk9
       env: BUILDCMD=greetings-gradle-2.12.sh
     - jdk: oraclejdk9
