@@ -7,7 +7,6 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>1.0.0</tycho-version>
 		<xtextVersion>2.12.0</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -16,51 +15,8 @@
 	<modules>
 		<module>org.xtext.example.mydsl</module>
 		<module>org.xtext.example.mydsl.ide</module>
-		<module>org.xtext.example.mydsl.ui</module>
-		<module>org.xtext.example.mydsl.target</module>
-		<module>org.xtext.example.mydsl.tests</module>
-		<module>org.xtext.example.mydsl.ui.tests</module>
 	</modules>
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<target>
-						<artifact>
-							<groupId>org.xtext.example.mydsl</groupId>
-							<artifactId>org.xtext.example.mydsl.target</artifactId>
-							<version>${project.version}</version>
-						</artifact>
-					</target>
-					<environments>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
-			</plugin>
-		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -78,8 +34,8 @@
 						</execution>
 					</executions>
 					<configuration>
-						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
-						<testOutputDirectory>${basedir}/xtend-gen</testOutputDirectory>
+						<outputDirectory>${basedir}/src/main/xtend-gen</outputDirectory>
+						<testOutputDirectory>${basedir}/src/test/xtend-gen</testOutputDirectory>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -89,11 +45,11 @@
 					<configuration>
 						<filesets>
 							<fileset>
-								<directory>${basedir}/xtend-gen</directory>
+								<directory>${basedir}/src/main/xtend-gen</directory>
 								<includes>
 									<include>**/*</include>
 								</includes>
-								<directory>${basedir}/xtend-gen</directory>
+								<directory>${basedir}/src/test/xtend-gen</directory>
 								<includes>
 									<include>**/*</include>
 								</includes>
@@ -150,61 +106,8 @@
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.eclipse.tycho
-										</groupId>
-										<artifactId>
-											tycho-compiler-plugin
-										</artifactId>
-										<versionRange>
-											[0.23.1,)
-										</versionRange>
-										<goals>
-											<goal>compile</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.eclipse.tycho
-										</groupId>
-										<artifactId>
-											tycho-packaging-plugin
-										</artifactId>
-										<versionRange>
-											[0.23.1,)
-										</versionRange>
-										<goals>
-											<goal>build-qualifier</goal>
-											<goal>build-qualifier-aggregator</goal>
-											<goal>validate-id</goal>
-											<goal>validate-version</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-				<plugin>
-					<!-- 
-						Can be removed after first generator execution
-						https://bugs.eclipse.org/bugs/show_bug.cgi?id=480097
-					-->
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-compiler-plugin</artifactId>
-					<version>${tycho-version}</version>
-					<configuration>
-						<compilerArgument>-err:-forbidden</compilerArgument>
 					</configuration>
 				</plugin>
 			</plugins>
