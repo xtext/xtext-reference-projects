@@ -45,43 +45,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>jdk8-or-older-macos</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-				<jdk>[,8)</jdk>
-			</activation>
-			<properties>
-				<tycho.testArgLine>-XstartOnFirstThread</tycho.testArgLine>
-			</properties>
-		</profile>
-		<profile>
-			<id>jdk9-or-newer</id>
-			<activation>
-				<os>
-					<family>!mac</family>
-				</os>
-				<jdk>[9,)</jdk>
-			</activation>
-			<properties>
-				<tycho.testArgLine>--add-modules=ALL-SYSTEM</tycho.testArgLine>
-			</properties>
-		</profile>
-		<profile>
-			<id>jdk9-or-newer-macos</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-				<jdk>[9,)</jdk>
-			</activation>
-			<properties>
-				<tycho.testArgLine>-XstartOnFirstThread --add-modules=ALL-SYSTEM</tycho.testArgLine>
-			</properties>
-		</profile>
-	</profiles>
 </project>
