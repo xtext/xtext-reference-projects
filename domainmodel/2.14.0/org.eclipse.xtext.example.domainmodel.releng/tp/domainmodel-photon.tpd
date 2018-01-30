@@ -3,9 +3,9 @@ target "Xtext Domainmodel Example - Eclipse Oxygen"
 with source allEnvironments
 
 location "http://download.eclipse.org/eclipse/updates/4.8-I-builds" {
-	org.eclipse.jdt.feature.group
-	org.eclipse.platform.feature.group
-	org.eclipse.pde.feature.group
+	org.eclipse.jdt.feature.group lazy
+	org.eclipse.platform.feature.group lazy
+	org.eclipse.pde.feature.group lazy
 }
 
 location "http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1/" {
@@ -15,7 +15,7 @@ location "http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1/"
 }
 
 location "http://download.eclipse.org/modeling/tmf/xtext/updates/nightly" {
-	org.eclipse.xtext.sdk.feature.group
+	org.eclipse.xtext.sdk.feature.group lazy
 }
 
 location "http://download.eclipse.org/tools/orbit/downloads/drops/S20180119201206/repository" {
@@ -33,9 +33,9 @@ location "http://download.eclipse.org/tools/gef/updates/legacy/releases" {
 location "http://download.eclipse.org/modeling/tmf/xtext/updates/releases/xpand/R201406030414" {
 	org.eclipse.xpand
 	org.eclipse.xtend
-	org.eclipse.xtend.typesystem.emf		
+	org.eclipse.xtend.typesystem.emf	
 }
 
 location "http://download.eclipse.org/modeling/emf/emf/builds/nightly/latest" {
-	org.eclipse.emf.sdk.feature.group	
+	org.eclipse.emf.sdk.feature.group lazy
 }
