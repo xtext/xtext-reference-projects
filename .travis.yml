@@ -21,7 +21,10 @@ env:
   - BUILDCMD=greetings-maven-2.14.sh
   - BUILDCMD=greetings-tycho-2.14.sh      DISPLAY=:99.0
   - BUILDCMD=greetings-tycho-2.14-J9.sh   DISPLAY=:99.0
-  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0
+  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=luna
+  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=mars
+  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=oxygen
+  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=photon
 matrix:
   exclude:
     - jdk: oraclejdk8

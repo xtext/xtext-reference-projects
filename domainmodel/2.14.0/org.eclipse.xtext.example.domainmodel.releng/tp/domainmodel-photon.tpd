@@ -1,0 +1,41 @@
+target "Xtext Domainmodel Example - Eclipse Oxygen"
+
+with source allEnvironments
+
+location "http://download.eclipse.org/eclipse/updates/4.8-I-builds" {
+	org.eclipse.jdt.feature.group
+	org.eclipse.platform.feature.group
+	org.eclipse.pde.feature.group
+}
+
+location "http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1/" {
+	org.eclipse.emf.mwe.sdk.feature.group
+	org.eclipse.emf.mwe2.runtime.sdk.feature.group
+	org.eclipse.emf.mwe2.language.sdk.feature.group
+}
+
+location "http://download.eclipse.org/modeling/tmf/xtext/updates/nightly" {
+	org.eclipse.xtext.sdk.feature.group
+}
+
+location "http://download.eclipse.org/tools/orbit/downloads/drops/S20180119201206/repository" {
+	org.objectweb.asm [6.0.0,7.0.0)
+	org.objectweb.asm.tree [6.0.0,7.0.0)
+	com.google.inject [3.0.0,4.0.0)
+	org.apache.commons.cli
+	com.google.guava [21.0.0,22.0.0)
+}
+
+location "http://download.eclipse.org/tools/gef/updates/legacy/releases" {
+	org.eclipse.draw2d.feature.group	
+}
+
+location "http://download.eclipse.org/modeling/tmf/xtext/updates/releases/xpand/R201406030414" {
+	org.eclipse.xpand
+	org.eclipse.xtend
+	org.eclipse.xtend.typesystem.emf		
+}
+
+location "http://download.eclipse.org/modeling/emf/emf/builds/nightly/latest" {
+	org.eclipse.emf.sdk.feature.group	
+}
