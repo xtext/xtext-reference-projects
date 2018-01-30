@@ -1,6 +1,7 @@
 target "Xtext Domainmodel Example - Eclipse Mars"
 
-with source allEnvironments
+environment linux gtk x86_64
+with source
 
 location "http://download.eclipse.org/releases/mars/201602261000" {
 	org.eclipse.jdt.feature.group

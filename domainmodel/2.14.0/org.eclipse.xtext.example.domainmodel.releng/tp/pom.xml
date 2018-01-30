@@ -27,14 +27,24 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>domainmodel-luna.target</file>
+									<file>domainmodel-luna-linux.target</file>
 									<type>target</type>
-									<classifier>domainmodel-luna</classifier>
+									<classifier>domainmodel-luna-linux</classifier>
 								</artifact>
 								<artifact>
-									<file>domainmodel-mars.target</file>
+									<file>domainmodel-luna-macos.target</file>
 									<type>target</type>
-									<classifier>domainmodel-mars</classifier>
+									<classifier>domainmodel-luna-macos</classifier>
+								</artifact>
+								<artifact>
+									<file>domainmodel-mars-linux.target</file>
+									<type>target</type>
+									<classifier>domainmodel-mars-linux</classifier>
+								</artifact>
+								<artifact>
+									<file>domainmodel-mars-macos.target</file>
+									<type>target</type>
+									<classifier>domainmodel-mars-macos</classifier>
 								</artifact>
 								<artifact>
 									<file>domainmodel-oxygen.target</file>

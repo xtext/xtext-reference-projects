@@ -1,17 +1,23 @@
 target "Xtext Domainmodel Example - Eclipse Luna"
+environment macosx cocoa x86_64
+with source
 
-with source allEnvironments
-
-location "http://download.eclipse.org/releases/luna/201502271000" {
+location "http://download.eclipse.org/releases/luna" {
 	org.eclipse.jdt.feature.group
-	org.eclipse.platform.feature.group
+	org.eclipse.platform.feature.group [4.4.0,4.4.1)
 	org.eclipse.pde.feature.group
 	org.eclipse.draw2d.feature.group
 	org.eclipse.emf.sdk.feature.group
 	org.eclipse.xpand
 	org.eclipse.xtend
-	org.eclipse.xtend.typesystem.emf	
+	org.eclipse.xtend.typesystem.emf
 }
+
+/*
+Problem with 'all environments':
+[ERROR]      Unable to satisfy dependency from org.eclipse.platform.feature.group 4.4.2.v20150204-1700 to org.eclipse.core.filesystem.linux.ppc64le [1.4.0.v20140808-1353].
+[ERROR]      Unable to satisfy dependency from org.eclipse.e4.rcp.feature.group 1.3.101.v20150204-1353 to org.eclipse.equinox.launcher.gtk.linux.ppc64le [1.0.200.v20140409-1208].
+[ERROR]      Unable to satisfy dependency from org.eclipse.e4.rcp.feature.group 1.3.101.v20150204-1353 to org.eclipse.swt.gtk.linux.ppc64le [3.103.2.v20150203-1351]. */
 
 location "http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1/" {
 	org.eclipse.emf.mwe.sdk.feature.group
@@ -29,4 +35,5 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/S2018011920120
 	com.google.inject [3.0.0,4.0.0)
 	org.apache.commons.cli
 	com.google.guava [21.0.0,22.0.0)
+	org.junit [4.12.0,5.0.0)
 }
