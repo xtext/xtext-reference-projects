@@ -19,24 +19,28 @@ env:
   - BUILDCMD=greetings-maven-2.12.sh
   - BUILDCMD=greetings-maven-2.13.sh
   - BUILDCMD=greetings-maven-2.14.sh
-  - BUILDCMD=greetings-tycho-2.14.sh      DISPLAY=:99.0
-  - BUILDCMD=greetings-tycho-2.14-J9.sh   DISPLAY=:99.0
-  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=luna-linux
-  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=mars-linux
-  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=oxygen
-  - BUILDCMD=domainmodel-2.14.sh          DISPLAY=:99.0 TP=photon
+  - BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+  - BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
+  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
+  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
+  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=oxygen
+  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=photon
 matrix:
   exclude:
     - jdk: oraclejdk8
       env: BUILDCMD=greetings-gradle-2.14-J9.sh
     - jdk: oraclejdk8
-      env: BUILDCMD=greetings-tycho-2.14-J9.sh   DISPLAY=:99.0
+      env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
     - jdk: oraclejdk9
       env: BUILDCMD=greetings-gradle-2.12.sh
     - jdk: oraclejdk9
       env: BUILDCMD=greetings-maven-2.12.sh
     - jdk: oraclejdk9
       env: BUILDCMD=greetings-maven-2.13.sh
+    - jdk: oraclejdk9
+      env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
+    - jdk: oraclejdk9
+      env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
 before_install:
   - sh -e /etc/init.d/xvfb start - sleep 10
 script:
