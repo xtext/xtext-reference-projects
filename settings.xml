@@ -4,6 +4,18 @@
                           https://maven.apache.org/xsd/settings-1.0.0.xsd">
 	<profiles>
 		<profile>
+			<id>tycho_staging</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>tycho-staged</id>
+					<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1046/</url>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+		<profile>
 			<id>tycho_snapshots</id>
 			<pluginRepositories>
 				<pluginRepository>
@@ -18,14 +30,22 @@
 				<pluginRepository>
 					<id>central-snapshots</id>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-					<releases><enabled>false</enabled></releases>
-					<snapshots><enabled>true</enabled></snapshots>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
 				</pluginRepository>
 				<pluginRepository>
 					<id>sonatype-snapshots</id>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-					<releases><enabled>false</enabled></releases>
-					<snapshots><enabled>true</enabled></snapshots>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
 				</pluginRepository>
 			</pluginRepositories>
 			<repositories>
@@ -36,8 +56,12 @@
 				<repository>
 					<id>sonatype-snapshots</id>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-					<releases><enabled>false</enabled></releases>
-					<snapshots><enabled>true</enabled></snapshots>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
 				</repository>
 				<repository>
 					<id>xtext-lib-ci</id>
