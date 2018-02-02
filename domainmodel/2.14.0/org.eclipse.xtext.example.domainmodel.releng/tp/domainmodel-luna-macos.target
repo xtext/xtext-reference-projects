@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Xtext Domainmodel Example - Eclipse Luna" sequenceNumber="1517322973">
+<target name="Xtext Domainmodel Example - Eclipse Luna" sequenceNumber="1517548855">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.jdt.feature.group" version="3.10.1.v20150204-1700"/>
@@ -21,7 +21,7 @@
       <repository location="http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.14.0.v20180130-0209"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
       <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/nightly"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

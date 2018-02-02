@@ -21,7 +21,7 @@ location "http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.9.1/"
 }
 
 location "http://download.eclipse.org/modeling/tmf/xtext/updates/nightly" {
-	org.eclipse.xtext.sdk.feature.group
+	org.eclipse.xtext.sdk.feature.group lazy
 }
 
 location "http://download.eclipse.org/tools/orbit/downloads/drops/S20180119201206/repository" {
