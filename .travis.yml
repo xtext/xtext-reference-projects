@@ -4,15 +4,18 @@ group: edge
 addons:
   apt:
     packages:
-      - oracle-java9-installer
-jdk: 
-  - oraclejdk8
-  - oraclejdk9
+    - oracle-java9-installer
+jdk:
+- oraclejdk8
+- oraclejdk9
+notifications:
+    slack: itemis:SCVUSYm0euU7PqHlaXXO0fKU
 cache:
   directories:
-    - $HOME/.m2
-    - $HOME/.gradle
+  - "$HOME/.m2"
+  - "$HOME/.gradle"
 env:
+  matrix:
   - BUILDCMD=greetings-gradle-2.12.sh
   - BUILDCMD=greetings-gradle-2.14.sh
   - BUILDCMD=greetings-gradle-2.14-J9.sh
@@ -25,24 +28,26 @@ env:
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=oxygen
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=photon
+  global:
+    secure: tbaduKReOECuPkUOXTndUFvzzS6POwgL/s466eLkhGK5zwwtSCjmLbU8/ZqOn3D7FEy12IXcn+Vu/JO3QOGxI3Fm90m19+excGWMf7Q+1y7Lgxem3WLhZSsM/F9v8Izoma3qns2juS2aQsCK4K3fDiXctVNEpwSrrhSDJJnlQGEBR74u+2/xl9xzwpcacxAW9/Jd5V6+DKad8hlH7tfQGlxOXv2wdgV+9xnReZn7N1NZo+DAFS5I4hP+ZJO0Hl7wjurki9AH3+lu/N4izhEFGTtxGI5vjZXF6lDW4M/HMIbzIa+0rT/sU4cNhg7v9iQFDwi8IFfy/39qQfQHpXI5SMPoJwC229iGZ5wWEVQf0G6l/hlxVJVcDvm+n6abrUCEgXLtpGZDw0mcXORuFW2q/pKu8aVMf4o0nBOcjkCg7TbNgIfOfLq/CjCdRYtMaRf/4o7fpKXxJjxDvJDNfVGoWcP8TqsAnba145dfBnx8e0m744Ey284u+nyWC/girSZQYgDy8RKxpjOdQ8kdqXpZzAbh1vgQUDUTIC1teaIDweYllcH266VtJ58RUXEar8B4oZXEjL1+r9TiTFvr5kr01qSnUDn3j2ZCtpPzfPwNFnVl09NpX85u+LTcLf2JaAW/B880oxHwlwttDjh4FD/Wgy4QpcEnVX0wFbGS6UPnroM=
 matrix:
   exclude:
-    - jdk: oraclejdk8
-      env: BUILDCMD=greetings-gradle-2.14-J9.sh
-    - jdk: oraclejdk8
-      env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
-    - jdk: oraclejdk9
-      env: BUILDCMD=greetings-gradle-2.12.sh
-    - jdk: oraclejdk9
-      env: BUILDCMD=greetings-maven-2.12.sh
-    - jdk: oraclejdk9
-      env: BUILDCMD=greetings-maven-2.13.sh
-    - jdk: oraclejdk9
-      env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
-    - jdk: oraclejdk9
-      env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.14-J9.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.12.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.12.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.13.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
+  - jdk: oraclejdk9
+    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
 before_install:
-  - sh -e /etc/init.d/xvfb start - sleep 10
+- sh -e /etc/init.d/xvfb start - sleep 10
 script:
-  - set -e
-  - sh -e scripts/$BUILDCMD
+- set -e
+- sh -e scripts/$BUILDCMD
