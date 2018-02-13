@@ -9,7 +9,10 @@ jdk:
 - oraclejdk8
 - oraclejdk9
 notifications:
-    slack: itemis:SCVUSYm0euU7PqHlaXXO0fKU
+  slack:
+    secure: "rGKjvTTCBMkSIvvZipcmwrlBXeVdRYf/I4f/nxold/7wxoo46GB5A3Pc2xdB21m5NJP4ukn6HfJROT1AWhbWCcuqkOlmwDIBKTy6ozV4Mw11IeHiF3OB4x5+5hlZxXw/7a4CIpab81odcorQxHaMWFfyHW5KGHUw+iOcBICuQ+w69GejafR3uGEjeNUToO99dv8t0ipw0ATWOf+gcPNyi7X/iEC7Cf64i+kJ7IYGzHUxydtXWFmOHTC6Gw+IvfIs9vgpEKaqV9Spty07v6EFlg12sfDmfqPcgO/Dne+jUqLCyDEYgnCn3p687FbfCz72UKOGJ7fcWW5tDY0cOGhTk4p8OI+HzsDMHEsyPFlemK29chDMcyJgYt1WdiR/4AM9eCx3ZAIvBRRLy8JNMnvpokCJFA0uF6NIYyB2KoGIF5xpjAp+WjgUU61IlnxG2ZB8K8kqqMBntgf78byWL19atDu6Jx11JK5QCxfol3korusVInSlCemhRuvuml4DZpYANi1bdIqHQVd+lJvC/xuB6sDkLN/BU1DJ8gqMnIjKQp+mr3TCH6SokVpqzdehnSLJ7AOyI4/Jr+nrHmPEuNIMLYZNF8TudAADtBc8JkgI0pguMG0f5hLpFR7p/olpOb5pD9pX8poaf3lKvjh0BKu6HuD9PKo5psA787Gx55fVVfw="
+    on_success: change
+    on_failure: always
 cache:
   directories:
   - "$HOME/.m2"
@@ -28,8 +31,6 @@ env:
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=oxygen
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=photon
-  global:
-    secure: tbaduKReOECuPkUOXTndUFvzzS6POwgL/s466eLkhGK5zwwtSCjmLbU8/ZqOn3D7FEy12IXcn+Vu/JO3QOGxI3Fm90m19+excGWMf7Q+1y7Lgxem3WLhZSsM/F9v8Izoma3qns2juS2aQsCK4K3fDiXctVNEpwSrrhSDJJnlQGEBR74u+2/xl9xzwpcacxAW9/Jd5V6+DKad8hlH7tfQGlxOXv2wdgV+9xnReZn7N1NZo+DAFS5I4hP+ZJO0Hl7wjurki9AH3+lu/N4izhEFGTtxGI5vjZXF6lDW4M/HMIbzIa+0rT/sU4cNhg7v9iQFDwi8IFfy/39qQfQHpXI5SMPoJwC229iGZ5wWEVQf0G6l/hlxVJVcDvm+n6abrUCEgXLtpGZDw0mcXORuFW2q/pKu8aVMf4o0nBOcjkCg7TbNgIfOfLq/CjCdRYtMaRf/4o7fpKXxJjxDvJDNfVGoWcP8TqsAnba145dfBnx8e0m744Ey284u+nyWC/girSZQYgDy8RKxpjOdQ8kdqXpZzAbh1vgQUDUTIC1teaIDweYllcH266VtJ58RUXEar8B4oZXEjL1+r9TiTFvr5kr01qSnUDn3j2ZCtpPzfPwNFnVl09NpX85u+LTcLf2JaAW/B880oxHwlwttDjh4FD/Wgy4QpcEnVX0wFbGS6UPnroM=
 matrix:
   exclude:
   - jdk: oraclejdk8

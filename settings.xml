@@ -66,7 +66,7 @@
 				<repository>
 					<id>xtext-lib-ci</id>
 					<layout>p2</layout>
-					<url>http://services.typefox.io/open-source/jenkins/job/xtext-lib/job/master/lastSuccessfulBuild/artifact/build/p2-repository/</url>
+					<url>http://ci.eclipse.org/xtext/job/xtext-lib/job/master/lastSuccessfulBuild/artifact/build/p2-repository</url>
 				</repository>
 			</repositories>
 		</profile>
