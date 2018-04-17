@@ -75,6 +75,8 @@ matrix:
 # Java 10
   - env: JDK='OpenJDK 10' BUILDCMD=greetings-gradle-2.14.sh
     install: . ./install-jdk.sh -F 10 -L GPL -C    
+  - env: JDK='OpenJDK 10' BUILDCMD=greetings-gradle-2.14-J10.sh
+    install: . ./install-jdk.sh -F 10 -L GPL -C    
   - env: JDK='OpenJDK 10' BUILDCMD=greetings-maven-2.14.sh
     install: . ./install-jdk.sh -F 10 -L GPL -C    
 script:
