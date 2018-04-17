@@ -14,6 +14,10 @@ subprojects {
 		maven {
 			url 'https://ci.eclipse.org/xtext/job/xtext-core/job/java-10-integration/lastSuccessfulBuild/artifact/build/maven-repository/'
 		}
+		maven {
+			url 'https://ci.eclipse.org/xtext/job/xtext-extras/job/java-10-integration/lastSuccessfulBuild/artifact/build/maven-repository/'
+		}
+		maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 	}
 	
 	apply plugin: 'java'
