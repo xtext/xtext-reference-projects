@@ -1,42 +1,47 @@
 sudo: true
 language: java
 group: edge
+
 addons:
   apt:
     packages:
     - oracle-java9-installer
+
 before_install:
 - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+# Get latest install-jdk.sh script
 - sh -e /etc/init.d/xvfb start - sleep 10
+
 jdk:
 - oraclejdk8
 - oraclejdk9
+
 notifications:
   slack:
     secure: "rGKjvTTCBMkSIvvZipcmwrlBXeVdRYf/I4f/nxold/7wxoo46GB5A3Pc2xdB21m5NJP4ukn6HfJROT1AWhbWCcuqkOlmwDIBKTy6ozV4Mw11IeHiF3OB4x5+5hlZxXw/7a4CIpab81odcorQxHaMWFfyHW5KGHUw+iOcBICuQ+w69GejafR3uGEjeNUToO99dv8t0ipw0ATWOf+gcPNyi7X/iEC7Cf64i+kJ7IYGzHUxydtXWFmOHTC6Gw+IvfIs9vgpEKaqV9Spty07v6EFlg12sfDmfqPcgO/Dne+jUqLCyDEYgnCn3p687FbfCz72UKOGJ7fcWW5tDY0cOGhTk4p8OI+HzsDMHEsyPFlemK29chDMcyJgYt1WdiR/4AM9eCx3ZAIvBRRLy8JNMnvpokCJFA0uF6NIYyB2KoGIF5xpjAp+WjgUU61IlnxG2ZB8K8kqqMBntgf78byWL19atDu6Jx11JK5QCxfol3korusVInSlCemhRuvuml4DZpYANi1bdIqHQVd+lJvC/xuB6sDkLN/BU1DJ8gqMnIjKQp+mr3TCH6SokVpqzdehnSLJ7AOyI4/Jr+nrHmPEuNIMLYZNF8TudAADtBc8JkgI0pguMG0f5hLpFR7p/olpOb5pD9pX8poaf3lKvjh0BKu6HuD9PKo5psA787Gx55fVVfw="
     on_success: change
     on_failure: always
+
 cache:
   directories:
   - "$HOME/.m2"
   - "$HOME/.gradle"
-env:
-  matrix:
-  - BUILDCMD=greetings-gradle-2.12.sh
-  - BUILDCMD=greetings-gradle-2.14.sh
-  - BUILDCMD=greetings-gradle-2.14-J9.sh
-  - BUILDCMD=greetings-maven-2.12.sh
-  - BUILDCMD=greetings-maven-2.13.sh
-  - BUILDCMD=greetings-maven-2.14.sh
-  - BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
-  - BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
-  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
-  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
-  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=oxygen
-  - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=photon
+
 matrix:
 # **** INCLUDE ****
   include:
+# Java 10
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.14.sh
+    install: . ./install-jdk.sh -F 10 -L BCL 
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.14-J10.sh
+    install: . ./install-jdk.sh -F 10 -L BCL
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.14.sh
+    install: . ./install-jdk.sh -F 10 -L BCL   
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.14-J10.sh
+    install: . ./install-jdk.sh -F 10 -L BCL
+# Java 11 "Oracle JDK"
+  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
+    install: . ./install-jdk.sh -F 11 -L BCL
 # Java 8
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-gradle-2.12.sh
@@ -73,32 +78,11 @@ matrix:
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
-# Java 10
-  - env: JDK='OpenJDK 10' BUILDCMD=greetings-gradle-2.14.sh
-    install: . ./install-jdk.sh -F 10 -L GPL -C    
-  - env: JDK='OpenJDK 10' BUILDCMD=greetings-gradle-2.14-J10.sh
-    install: . ./install-jdk.sh -F 10 -L GPL -C    
-  - env: JDK='OpenJDK 10' BUILDCMD=greetings-maven-2.14.sh
-    install: . ./install-jdk.sh -F 10 -L GPL -C    
-  - env: JDK='OpenJDK 10' BUILDCMD=greetings-maven-2.14-J10.sh
-    install: . ./install-jdk.sh -F 10 -L GPL -C    
-# **** EXCLUDE ****
-  exclude:
-# Java 8
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-gradle-2.14-J9.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-gradle-2.12.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-maven-2.12.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-maven-2.13.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=luna-linux
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=mars-linux
+# The following environments are known to fail
+  allow_failures:
+    - env: JDK='Oracle JDK 11'
+
+
 script:
 - set -e
 - sh -e scripts/$BUILDCMD
