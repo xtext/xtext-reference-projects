@@ -5,6 +5,9 @@ addons:
   apt:
     packages:
     - oracle-java9-installer
+before_install:
+- wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+- sh -e /etc/init.d/xvfb start - sleep 10
 jdk:
 - oraclejdk8
 - oraclejdk9
@@ -33,33 +36,48 @@ env:
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=oxygen
   - BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=photon
 matrix:
-  exclude:
+  include:
+# Java 8
   - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.12.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.14.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.12.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.13.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.14.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=luna-linux
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=mars-linux
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+# Java 9
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.14.sh
+  - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.14-J9.sh
-  - jdk: oraclejdk8
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.14.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+  - jdk: oraclejdk9
     env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
   - jdk: oraclejdk9
-    env: BUILDCMD=greetings-gradle-2.12.sh
-  - jdk: oraclejdk10
-    env: BUILDCMD=greetings-gradle-2.12.sh
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
   - jdk: oraclejdk9
-    env: BUILDCMD=greetings-maven-2.12.sh
-  - jdk: oraclejdk10
-    env: BUILDCMD=greetings-maven-2.12.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-maven-2.13.sh
-  - jdk: oraclejdk10
-    env: BUILDCMD=greetings-maven-2.13.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
-  - jdk: oraclejdk10
-    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
-  - jdk: oraclejdk9
-    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
-  - jdk: oraclejdk10
-    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
-before_install:
-- sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+# Java 10
+  - env: JDK='OpenJDK 10' BUILDCMD=greetings-gradle-2.14.sh
+    install: . ./install-jdk.sh -F 10 -L GPL -C    
+  - env: JDK='OpenJDK 10' BUILDCMD=greetings-maven-2.14.sh
+    install: . ./install-jdk.sh -F 10 -L GPL -C    
 script:
 - set -e
 - sh -e scripts/$BUILDCMD
