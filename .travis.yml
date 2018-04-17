@@ -8,6 +8,7 @@ addons:
 jdk:
 - oraclejdk8
 - oraclejdk9
+- oraclejdk10
 notifications:
   slack:
     secure: "rGKjvTTCBMkSIvvZipcmwrlBXeVdRYf/I4f/nxold/7wxoo46GB5A3Pc2xdB21m5NJP4ukn6HfJROT1AWhbWCcuqkOlmwDIBKTy6ozV4Mw11IeHiF3OB4x5+5hlZxXw/7a4CIpab81odcorQxHaMWFfyHW5KGHUw+iOcBICuQ+w69GejafR3uGEjeNUToO99dv8t0ipw0ATWOf+gcPNyi7X/iEC7Cf64i+kJ7IYGzHUxydtXWFmOHTC6Gw+IvfIs9vgpEKaqV9Spty07v6EFlg12sfDmfqPcgO/Dne+jUqLCyDEYgnCn3p687FbfCz72UKOGJ7fcWW5tDY0cOGhTk4p8OI+HzsDMHEsyPFlemK29chDMcyJgYt1WdiR/4AM9eCx3ZAIvBRRLy8JNMnvpokCJFA0uF6NIYyB2KoGIF5xpjAp+WjgUU61IlnxG2ZB8K8kqqMBntgf78byWL19atDu6Jx11JK5QCxfol3korusVInSlCemhRuvuml4DZpYANi1bdIqHQVd+lJvC/xuB6sDkLN/BU1DJ8gqMnIjKQp+mr3TCH6SokVpqzdehnSLJ7AOyI4/Jr+nrHmPEuNIMLYZNF8TudAADtBc8JkgI0pguMG0f5hLpFR7p/olpOb5pD9pX8poaf3lKvjh0BKu6HuD9PKo5psA787Gx55fVVfw="
@@ -39,13 +40,23 @@ matrix:
     env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.12.sh
+  - jdk: oraclejdk10
+    env: BUILDCMD=greetings-gradle-2.12.sh
   - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.12.sh
+  - jdk: oraclejdk10
     env: BUILDCMD=greetings-maven-2.12.sh
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-maven-2.13.sh
+  - jdk: oraclejdk10
+    env: BUILDCMD=greetings-maven-2.13.sh
   - jdk: oraclejdk9
     env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
+  - jdk: oraclejdk10
+    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=luna-linux
   - jdk: oraclejdk9
+    env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
+  - jdk: oraclejdk10
     env: BUILDCMD=domainmodel-2.14.sh DISPLAY=:99.0 TP=mars-linux
 before_install:
 - sh -e /etc/init.d/xvfb start - sleep 10
