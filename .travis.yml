@@ -31,6 +31,18 @@ matrix:
 # **** INCLUDE ****
   include:
 # Java 10
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.15.sh
+    install: . ./install-jdk.sh -F 10 -L BCL 
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.15-J10.sh
+    install: . ./install-jdk.sh -F 10 -L BCL
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.15.sh
+    install: . ./install-jdk.sh -F 10 -L BCL   
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.15-J10.sh
+    install: . ./install-jdk.sh -F 10 -L BCL
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-tycho-2.15.sh
+    install: . ./install-jdk.sh -F 10 -L BCL
+  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-tycho-2.15-J10.sh
+    install: . ./install-jdk.sh -F 10 -L BCL
   - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.14.sh
     install: . ./install-jdk.sh -F 10 -L BCL 
   - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.14-J10.sh
@@ -48,13 +60,19 @@ matrix:
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-gradle-2.14.sh
   - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.15.sh
+  - jdk: oraclejdk8
     env: BUILDCMD=greetings-maven-2.12.sh
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-maven-2.13.sh
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-maven-2.14.sh
   - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.15.sh
+  - jdk: oraclejdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=luna-linux
   - jdk: oraclejdk8
@@ -62,22 +80,38 @@ matrix:
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
   - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
 # Java 9
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.14.sh
   - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.15.sh
+  - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.14-J9.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.15-J9.sh
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-maven-2.14.sh
   - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.15.sh
+  - jdk: oraclejdk9
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
   - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk9
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
 # The following environments are known to fail
   allow_failures:
     - env: JDK='Oracle JDK 11'

@@ -1,0 +1,2 @@
+includeFlat 'org.eclipse.xtext.example.mydsl'
+includeFlat 'org.eclipse.xtext.example.mydsl.ide'
