@@ -10,6 +10,6 @@
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.buildship.core.classpathprovider"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipse.xtext.xtext.wizard.cli.CliProjectsCreator"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-targetDir=${project_loc:xtext-reference-projects}/greetings-tycho/2.15.0&#10;-languageName=org.xtext.example.mydsl.MyDsl&#10;-baseName=org.eclipse.xtext.example.mydsl&#10;-extension=mydsl&#10;-enabledProjects=GenericIDE,RuntimeTest,UIProject,UITest,P2Project&#10;-buildSystem=MAVEN&#10;-sourceLayout=PLAIN&#10;-languageServer=APP&#10;-xtextVersion=2.15.0&#10;-projectLayout=FLAT"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-targetDir=${project_loc:xtext-reference-projects}/greetings-tycho/2.15.0&#10;-languageName=org.xtext.example.mydsl.MyDsl&#10;-baseName=org.eclipse.xtext.example.mydsl&#10;-extension=mydsl&#10;-enabledProjects=GenericIDE,RuntimeTest,UIProject,UITest,P2Project&#10;-buildSystem=MAVEN&#10;-sourceLayout=PLAIN&#10;-languageServer=APP&#10;-xtextVersion=2.15.0-SNAPSHOT&#10;-projectLayout=FLAT"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.eclipse.xtext.xtext.wizard"/>
 </launchConfiguration>
