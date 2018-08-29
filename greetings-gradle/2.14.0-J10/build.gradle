@@ -8,16 +8,9 @@ buildscript {
 }
 
 subprojects {
-	ext.xtextVersion = '2.14.0-SNAPSHOT'
+	ext.xtextVersion = '2.14.0'
 	repositories {
 		jcenter()
-		maven {
-			url 'https://ci.eclipse.org/xtext/job/xtext-core/job/java-10-integration/lastSuccessfulBuild/artifact/build/maven-repository/'
-		}
-		maven {
-			url 'https://ci.eclipse.org/xtext/job/xtext-extras/job/java-10-integration/lastSuccessfulBuild/artifact/build/maven-repository/'
-		}
-		maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 	}
 	
 	apply plugin: 'java'
