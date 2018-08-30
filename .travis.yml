@@ -14,10 +14,7 @@ before_install:
 
 notifications:
   slack:
-    secure: "cdUf9GS1WF5I7kEmQlU33sjpaIyExMFYGgnJNMUu3N7n0KWNR6TJKCpZxG9CTLE9xdlJbcBT219+YdSbPReKEdMxPeJSBvGkihS/ncaB//LIgd4BKIdiH/VJ1ok8geIzdM2dXit+oh5pL7ImDwfr6jcxIKVARP8bHX5+lcOUmhspDJK3VgqIevvhLxJuIANgNf9EJNiVfQpmm2r5J3AleomVWw/qzcrZFmH9f7jZlgj3sFGj2030evWAiGRnct98V/WEFD6DBMetI2jrlJwrlYHM7R4qiGqie4bWxxZ/PIhgvPMfaa9DJN9dPiAzXXID+JIC0BR6ccYN61X4VUt+J19YVY8NusbyqmtSPSEpX1D70at8Gz2HoZ2g9HFp04BQl73cfLpvsEgWJ+yO6SdI9d34VybLfzL4NNMPvB00h5Hw/h9M9q/KX72j5psNQetD65pAZVTDoADa6LJvsBsPKr0285FdlENTc3teSNiqpJwZ+EAqJ9GvJN0162Ejn7HQFuhzRShCMxsABUQGcJZ+ypczkPbfum5JmdKbg92o/VnEhc3kuf+gwmM9gulH+DB5mBafqI+LVxji46CFrM/iat4eeDOpCWxv/cb1gE/3HI/pT1i7Ln60Fsd0pybSANCxcZPnFw5Vn5xbvTvdLriguUpzwRrgN/ZYqKqJx+46LMo="
-    on_success: change
-    on_failure: always
-
+    secure: uFneXyNpi9IoCBQOAWraaJkL7tiMglXkh/YWfB3UJzrNYut0WqiAx72JbqV0kTl/7XA0EY6hYknP16YYqAquGEPh1mKNrg1pbeCiSedp6pKQ1CWUPU6gH1mAU+SCokeNsPSDyGlqD/OHK6YsskklEGyIslnmSu/9O5Vjviqk9z2BFASWq4BCHNN6Vqj8aqKZOviHiOkLPAK67lzXcg6oE+BP758Yr5k3jnvwMUZEEVzJZf8QTN1WAPhpQOUzMse+DA8wef8sdvdDCw86jUYVUk+3Ss0Hs4BlFScG/zNWl5JCFXR5MWPFPu9CXr7Wq87qpTc2TAe/RXM4TuZ2VLRlyAUhpJ1OEAXLLWjxyd+ZyVD9UNTkr4J6BcjPVGNUQYsSgJ/wgePtgRbDpwaCXLX6ycBCKFKaItRqON9501EIQssObUhy0C8nkmZOeVyr6DFXwbpB2RF3Ey69yZ97+FtU+MJ9myWFUsmI0dSrnvZT7vmRAGwtDm94WcrjFKEWoDZctGeqcLMmn08j1IUXf6sXeANO6ArG1tnaErONYQg6TBf7XmSfLeEagxG95zOztXTxaNXQuDPccDfbg1rB/1jZY8TRmypbD+QBIRPAXHYTKdUPk8/1iekVws4HfhJLJ57a894LsOoiKQlNe5mQUoY3vwGYotz1rxFM4rPCz7LFSGU=
 cache:
   directories:
   - "$HOME/.m2"
@@ -27,96 +24,94 @@ matrix:
 # **** INCLUDE ****
   include:
 # Java 10
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-gradle-2.14.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-gradle-2.15.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-gradle-2.14-J10.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-gradle-2.15-J10.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-maven-2.14.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-maven-2.15.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-maven-2.14-J10.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-maven-2.15-J10.sh
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
-  - jdk: oraclejdk10 
-    env: BUILDCMD=greetings-tycho-2.15-J10.sh DISPLAY=:99.0
-  - jdk: oraclejdk10 
+#  - jdk: oraclejdk10 
+#    env: BUILDCMD=greetings-gradle-2.14.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-gradle-2.15.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-gradle-2.14-J10.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-gradle-2.15-J10.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-maven-2.14.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-maven-2.15.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-maven-2.14-J10.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-maven-2.15-J10.sh
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
+#  - jdk: oraclejdk10
+#    env: BUILDCMD=greetings-tycho-2.15-J10.sh DISPLAY=:99.0
+  - jdk: oraclejdk10
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
 # Java 11 "Oracle JDK"
 #  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
 #    install: . ./install-jdk.sh -F 11 -L BCL
 # Java 8
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-gradle-2.12.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-gradle-2.14.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-gradle-2.15.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-maven-2.12.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-maven-2.13.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-maven-2.14.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-maven-2.15.sh
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=luna-linux
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=mars-linux
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
-  - jdk: oraclejdk8
-    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
-  - jdk: oraclejdk8
-    env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-gradle-2.12.sh
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-gradle-2.14.sh
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-gradle-2.15.sh
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-maven-2.12.sh
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-maven-2.13.sh
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-maven-2.14.sh
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-maven-2.15.sh
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=luna-linux
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=mars-linux
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
+#  - jdk: oraclejdk8
+#    env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
 # Java 9
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-gradle-2.14.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-gradle-2.15.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-gradle-2.14-J9.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-gradle-2.15-J9.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-maven-2.14.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-maven-2.15.sh
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
-  - jdk: oraclejdk9
-    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-gradle-2.14.sh
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-gradle-2.15.sh
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-gradle-2.14-J9.sh
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-gradle-2.15-J9.sh
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-maven-2.14.sh
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-maven-2.15.sh
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+#  - jdk: oraclejdk9
+#    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
 # The following environments are known to fail
   allow_failures:
-    - env: JDK='Oracle JDK 11'
-
-
+  - env: JDK='Oracle JDK 11'
 script:
 - set -e
 - sh -e scripts/$BUILDCMD
