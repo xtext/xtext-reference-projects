@@ -9,11 +9,11 @@
 // This target definition was defined with the Target Platform DSL
 // See https://github.com/mbarbero/fr.obeo.releng.targetplatform for details
 
-target "Xtext Domainmodel Example - Eclipse Photon"
+target "Xtext Domainmodel Example - Eclipse 2018-09"
 
 with source allEnvironments
 
-location "http://download.eclipse.org/releases/photon" {
+location "http://download.eclipse.org/releases/2018-09" {
 	org.eclipse.jdt.feature.group lazy
 	org.eclipse.platform.feature.group lazy
 	org.eclipse.pde.feature.group lazy
