@@ -47,6 +47,8 @@ matrix:
     env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
   - jdk: oraclejdk10 
     env: BUILDCMD=greetings-tycho-2.15-J10.sh DISPLAY=:99.0
+  - jdk: oraclejdk10 
+    env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
 # Java 11 "Oracle JDK"
 #  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
 #    install: . ./install-jdk.sh -F 11 -L BCL
@@ -81,6 +83,8 @@ matrix:
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk8
+    env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
 # Java 9
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.14.sh
