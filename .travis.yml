@@ -31,26 +31,26 @@ matrix:
 # **** INCLUDE ****
   include:
 # Java 10
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.14.sh
-    install: . ./install-jdk.sh -F 10 -L BCL 
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.15.sh
-    install: . ./install-jdk.sh -F 10 -L BCL 
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.14-J10.sh
-    install: . ./install-jdk.sh -F 10 -L BCL
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-gradle-2.15-J10.sh
-    install: . ./install-jdk.sh -F 10 -L BCL
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.14.sh
-    install: . ./install-jdk.sh -F 10 -L BCL   
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.15.sh
-    install: . ./install-jdk.sh -F 10 -L BCL   
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.14-J10.sh
-    install: . ./install-jdk.sh -F 10 -L BCL
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-maven-2.15-J10.sh
-    install: . ./install-jdk.sh -F 10 -L BCL
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-tycho-2.15.sh
-    install: . ./install-jdk.sh -F 10 -L BCL
-  - env: JDK='Oracle JDK 10' BUILDCMD=greetings-tycho-2.15-J10.sh
-    install: . ./install-jdk.sh -F 10 -L BCL
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-gradle-2.14.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-gradle-2.15.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-gradle-2.14-J10.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-gradle-2.15-J10.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-maven-2.14.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-maven-2.15.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-maven-2.14-J10.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-maven-2.15-J10.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-tycho-2.15.sh
+  - jdk: oraclejdk10 
+    env: BUILDCMD=greetings-tycho-2.15-J10.sh
 # Java 11 "Oracle JDK"
   - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
     install: . ./install-jdk.sh -F 11 -L BCL
