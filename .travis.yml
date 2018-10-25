@@ -24,27 +24,27 @@ matrix:
 # **** INCLUDE ****
   include:
 # Java 10
-  - jdk: oraclejdk10 
+  - jdk: openjdk10 
     env: BUILDCMD=greetings-gradle-2.14.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-gradle-2.15.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-gradle-2.14-J10.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-gradle-2.15-J10.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-maven-2.14.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-maven-2.15.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-maven-2.14-J10.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-maven-2.15-J10.sh
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=greetings-tycho-2.15-J10.sh DISPLAY=:99.0
-  - jdk: oraclejdk10
+  - jdk: openjdk10
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
 # Java 11 "Oracle JDK"
 #  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
