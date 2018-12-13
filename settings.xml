@@ -38,6 +38,16 @@
 					</snapshots>
 				</pluginRepository>
 				<pluginRepository>
+					<id>bom-snapshots</id>
+					<url>https://projects.itemis.de/nexus/content/groups/xtext-bom</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+				<pluginRepository>
 					<id>sonatype-snapshots</id>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 					<releases>
@@ -52,6 +62,10 @@
 				<repository>
 					<id>central-snapshots</id>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</repository>
+				<repository>
+					<id>bom-snapshots</id>
+					<url>https://projects.itemis.de/nexus/content/groups/xtext-bom</url>
 				</repository>
 				<repository>
 					<id>sonatype-snapshots</id>

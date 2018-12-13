@@ -13,11 +13,9 @@ subprojects {
 	repositories {
 		jcenter()
 		maven {
-			url 'https://oss.sonatype.org/content/repositories/snapshots'
+			url 'https://projects.itemis.de/nexus/content/groups/xtext-bom'
 		}
-		maven {
-			url 'https://ci.eclipse.org/xtext/job/xtext-lib/job/bom_issue1249/lastSuccessfulBuild/artifact/build/maven-repository/'
-		}
+
 	}
 	
 	apply plugin: 'java'
