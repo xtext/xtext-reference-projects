@@ -9,7 +9,7 @@ buildscript {
 }
 
 subprojects {
-	ext.xtextVersion = '2.16.0-SNAPSHOT'
+	ext.xtextVersion = '2.17.0-SNAPSHOT'
 	repositories {
 		jcenter()
 		maven {
@@ -21,7 +21,7 @@ subprojects {
 	apply plugin: "io.spring.dependency-management"
 	dependencyManagement {
 		imports {
-			mavenBom "org.eclipse.xtext:xtext-dev.bom:2.16.0-SNAPSHOT"
+			mavenBom "org.eclipse.xtext:xtext-dev.bom:2.17.0-SNAPSHOT"
 		}
 	}
 	apply plugin: 'org.xtext.xtend'

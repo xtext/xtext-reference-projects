@@ -1,4 +1,4 @@
-cd greetings-tycho/2.16.0-bom
+cd greetings-tycho/2.17.0
 
 export PROFILES=-Pxtext_snapshots
 export SETTINGS="-s $TRAVIS_BUILD_DIR/settings.xml"
