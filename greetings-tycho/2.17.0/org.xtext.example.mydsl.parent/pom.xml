@@ -7,12 +7,12 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<xtextVersion>2.16.0-SNAPSHOT</xtextVersion>
+		<xtextVersion>2.17.0-SNAPSHOT</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- Tycho settings -->
-		<tycho-version>1.3.0-SNAPSHOT</tycho-version>
+		<tycho-version>1.3.0</tycho-version>
 		<!-- Define overridable properties for tycho-surefire-plugin -->
 		<platformSystemProperties></platformSystemProperties>
 		<moduleProperties></moduleProperties>
@@ -33,7 +33,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.eclipse.xtext</groupId>
-				<artifactId>xtext-dev.bom</artifactId>
+				<artifactId>xtext-dev-bom</artifactId>
 				<version>${xtextVersion}</version>
 				<type>pom</type>
 				<scope>import</scope>
