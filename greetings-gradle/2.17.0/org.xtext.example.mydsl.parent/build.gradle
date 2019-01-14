@@ -1,0 +1,42 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'org.xtext:xtext-gradle-plugin:2.0.2'
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+	}
+}
+
+subprojects {
+	ext.xtextVersion = '2.17.0-SNAPSHOT'
+	repositories {
+		jcenter()
+		maven {
+			url 'https://projects.itemis.de/nexus/content/groups/xtext-bom'
+		}
+
+	}
+	
+	apply plugin: 'java'
+	apply plugin: "io.spring.dependency-management"
+	dependencyManagement {
+		imports {
+			mavenBom "org.eclipse.xtext:xtext-dev-bom:2.17.0-SNAPSHOT"
+		}
+	}
+	apply plugin: 'org.xtext.xtend'
+	apply from: "${rootDir}/gradle/source-layout.gradle"
+	apply from: "${rootDir}/gradle/maven-deployment.gradle"
+	apply plugin: 'eclipse'
+	
+	group = 'org.xtext.example.mydsl'
+	version = '1.0.0-SNAPSHOT'
+	
+	sourceCompatibility = '1.8'
+	targetCompatibility = '1.8'
+	
+	configurations.all {
+		exclude group: 'asm'
+	}
+}
