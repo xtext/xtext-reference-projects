@@ -127,6 +127,12 @@ matrix:
       - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
       - sh -e /etc/init.d/xvfb start - sleep 10
     env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+      - sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=domainmodel-2.17.sh DISPLAY=:99.0
 # Java 11 "Oracle JDK"
 #  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
 #    install: . ./install-jdk.sh -F 11 -L BCL
@@ -183,6 +189,8 @@ matrix:
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
   - jdk: oraclejdk8
     env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=domainmodel-2.17.sh DISPLAY=:99.0
 # Java 9
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.14.sh
