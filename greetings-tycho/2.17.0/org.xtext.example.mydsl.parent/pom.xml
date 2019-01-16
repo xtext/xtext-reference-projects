@@ -20,14 +20,14 @@
 		<tycho.testArgLine></tycho.testArgLine>
 	</properties>
 	<modules>
-		<module>org.xtext.example.mydsl</module>
-		<module>org.xtext.example.mydsl.ide</module>
-		<module>org.xtext.example.mydsl.ui</module>
-		<module>org.xtext.example.mydsl.target</module>
-		<module>org.xtext.example.mydsl.feature</module>
-		<module>org.xtext.example.mydsl.repository</module>
-		<module>org.xtext.example.mydsl.tests</module>
-		<module>org.xtext.example.mydsl.ui.tests</module>
+		<module>../org.xtext.example.mydsl</module>
+		<module>../org.xtext.example.mydsl.ide</module>
+		<module>../org.xtext.example.mydsl.ui</module>
+		<module>../org.xtext.example.mydsl.target</module>
+		<module>../org.xtext.example.mydsl.feature</module>
+		<module>../org.xtext.example.mydsl.repository</module>
+		<module>../org.xtext.example.mydsl.tests</module>
+		<module>../org.xtext.example.mydsl.ui.tests</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -318,10 +318,6 @@
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 			<releases><enabled>false</enabled></releases>
 			<snapshots><enabled>true</enabled></snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>tycho-snapshots</id>
-			<url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<profiles>
