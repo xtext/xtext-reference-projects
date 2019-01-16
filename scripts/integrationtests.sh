@@ -1,5 +1,3 @@
-pwd
-ls -al
 cd integrationtests
 
 export SETTINGS="-s $TRAVIS_BUILD_DIR/settings.xml"
