@@ -51,7 +51,7 @@
 					<target>
 						<artifact>
 							<groupId>org.eclipse.xtext</groupId>
-							<artifactId>org.eclipse.xtext.swtbot.target</artifactId>
+							<artifactId>org.eclipse.xtext.integrationtests.target</artifactId>
 							<version>${project.parent.version}</version>
 						</artifact>
 					</target>
