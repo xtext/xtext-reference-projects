@@ -18,12 +18,11 @@ subprojects {
 	
 	apply plugin: 'java'
 	dependencies {
-		compile platform ("org.eclipse.xtext:xtext-dev-bom:2.17.0-SNAPSHOT")
+		compile platform("org.eclipse.xtext:xtext-dev-bom:2.17.0-SNAPSHOT")
 	}
 
 	apply plugin: 'org.xtext.xtend'
 	apply from: "${rootDir}/gradle/source-layout.gradle"
-	apply from: "${rootDir}/gradle/maven-deployment.gradle"
 	apply plugin: 'eclipse'
 	
 	group = 'org.xtext.example.mydsl'
