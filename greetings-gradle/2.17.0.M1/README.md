@@ -1,0 +1,1 @@
+First version with xtext-dev-bom and Spring dependency management plugin.
