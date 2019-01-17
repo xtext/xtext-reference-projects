@@ -18,7 +18,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * Tests for the formatter preference page.
+ * Integration tests that create Xtext projects using the NewProjectWizard. The builds are triggered and ensured there are no compile
+ * errors. Unit tests are executed as well. The different options are iterated through (for eclipse, with LSP, with maven, gradle, source
+ * layout ...
  * 
  * @author Arne Deutsch - Initial contribution and API
  */

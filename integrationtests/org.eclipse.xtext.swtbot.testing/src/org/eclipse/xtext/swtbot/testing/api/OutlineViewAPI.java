@@ -7,7 +7,9 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotView;
+import java.util.Arrays;
+
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 
 public final class OutlineViewAPI {
 
@@ -18,6 +20,7 @@ public final class OutlineViewAPI {
 	}
 
 	public void deleteItem(String... path) {
+		System.out.println("Delete outline item " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Delete").click();
 		view.bot().shell("Delete").bot().button("OK").click();
 	}

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Xtext SWTBot Testing
 Bundle-SymbolicName: org.eclipse.xtext.swtbot.testing
-Bundle-Version: 2.17.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.eclipse.ui.swtbot.testing
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.junit;version="4.12.0",

@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package org.eclipse.xtext.swtbot.testing.lowlevel;
+package org.eclipse.xtext.swtbot.testing.internal;
 
 import org.eclipse.swt.widgets.*;
 import org.eclipse.swtbot.swt.finder.SWTBot;
@@ -22,6 +22,7 @@ import org.hamcrest.Matcher;
  */
 public class XtextSWTBotTree extends SWTBotTree {
 
+	@SuppressWarnings("rawtypes")
 	XtextSWTBotTree(Tree widget, Matcher matcher) {
 		super(widget, matcher);
 	}

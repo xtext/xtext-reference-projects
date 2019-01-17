@@ -8,6 +8,7 @@
 package org.eclipse.xtext.swtbot.testing.api;
 
 import java.io.File;
+import java.util.Arrays;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -16,8 +17,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotView;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTWorkbenchBot;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTWorkbenchBot;
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil;
 
 /**
@@ -58,18 +59,22 @@ public class EclipseAPI {
 	}
 
 	public static void closeAllShells() {
+		System.out.println("Close all shells");
 		bot.closeAllShells();
 	}
 
 	public static void closeAllEditors() {
+		System.out.println("Close all editors");
 		Display.getDefault().syncExec(() -> PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closeAllEditors(false));
 	}
 
 	public static void deleteAllProjects() {
+		System.out.println("Close all delete all projects");
 		packageExplorer().deleteAllProjects();
 	}
 
 	public static void touchFile(String path) {
+		System.out.println("Touch file '" + path + "'");
 		try {
 			ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(path)).touch(null);
 		} catch (CoreException e) {
@@ -78,28 +83,35 @@ public class EclipseAPI {
 	}
 
 	public static void waitForBuild() {
+		System.out.println("Execute 'Eclipse Build'");
 		IResourcesSetupUtil.waitForBuild();
 	}
 
 	public static void cleanBuild() throws Exception {
+		System.out.println("Execute 'Clean Build'");
 		IResourcesSetupUtil.cleanBuild();
 	}
 
 	public static void sleep(long millis) {
+		System.out.println("Sleep " + millis + "ms");
 		bot.sleep(millis);
 	}
 
 	public static long calculateFolderSize(String relativeFolder) {
-		return getFolderSize(ResourcesPlugin.getWorkspace().getRoot().getFolder(new Path(relativeFolder)).getRawLocation().toFile());
+		long result = getFolderSize(ResourcesPlugin.getWorkspace().getRoot().getFolder(new Path(relativeFolder)).getRawLocation().toFile());
+		System.out.println("Folder size for '" + relativeFolder + "': " + result);
+		return result;
 	}
 
 	public static void runJunitTests(String... path) {
+		System.out.println("Run JUnit tests for " + Arrays.toString(path));
 		junitView().clearHistory();
 		packageExplorer().runJUnitTests(path);
 		junitView().waitForTestrunToFinish();
 	}
 
 	public static void runJunitPluginTests(String... path) {
+		System.out.println("Run JUnit Plugin tests for " + Arrays.toString(path));
 		junitView().clearHistory();
 		packageExplorer().runJUnitPluginTests(path);
 		junitView().waitForTestrunToFinish();

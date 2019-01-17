@@ -13,7 +13,7 @@ import java.util.List;
 
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotView;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 
 /**
  * API to access functionality through the Problems View UI.
@@ -38,9 +38,11 @@ public class ProblemsViewAPI {
 				text = text.substring("Errors (".length());
 				text = text.substring(0, text.indexOf(" "));
 				i.expand(); // debugging ... get more meaningful screenshots
+				System.out.println("Get error count: '" + text + "'");
 				return Integer.parseInt(text);
 			}
 		}
+		System.out.println("Get error count: '0'");
 		return 0;
 	}
 
@@ -56,9 +58,12 @@ public class ProblemsViewAPI {
 				for (SWTBotTreeItem e : i.getItems()) {
 					result.add(e.cell(0) + "\n");
 				}
+				// Make debugging ón server more easy
+				System.out.println("Get error messages: " + result);
 				return result;
 			}
 		}
+		System.out.println("Get error messages: []");
 		return Collections.emptyList();
 	}
 

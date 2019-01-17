@@ -7,7 +7,7 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotShell;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 
 /**
  * API to access functionality from the preference dialog through SWTBot.
@@ -23,10 +23,12 @@ public class PreferencesDialogAPI {
 	}
 
 	public void cancel() {
+		System.out.println("Press 'Cancel'");
 		shell.bot().button("Cancel").click();
 	}
 
 	public XtendFormatterPreferencePageAPI activateXtendFormatterPage() {
+		System.out.println("Activate 'Xtend Formatter Page'");
 		shell.bot().tree().expandNode("Xtend").select("Formatter");
 		return new XtendFormatterPreferencePageAPI(shell.bot());
 	}

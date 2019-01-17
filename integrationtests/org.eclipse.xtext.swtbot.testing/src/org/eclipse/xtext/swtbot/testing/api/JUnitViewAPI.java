@@ -10,8 +10,8 @@ package org.eclipse.xtext.swtbot.testing.api;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
 import org.eclipse.swtbot.swt.finder.widgets.*;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotTree;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotView;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotTree;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 
 public class JUnitViewAPI {
 
@@ -22,11 +22,14 @@ public class JUnitViewAPI {
 	}
 
 	public void focus() {
+		System.out.println("Focus JUnit view");
 		view.setFocus();
 	}
 
 	public boolean isTestrunErrorFree() {
-		return atLeastOneTestIsRun() && errorCount() == 0 && failureCount() == 0;
+		boolean result = atLeastOneTestIsRun() && errorCount() == 0 && failureCount() == 0;
+		System.out.println("Check if test run is error free: '" + result + "'");
+		return result;
 	}
 
 	void clearHistory() {

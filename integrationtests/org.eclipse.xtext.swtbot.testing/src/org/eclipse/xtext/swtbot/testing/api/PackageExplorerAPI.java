@@ -7,12 +7,14 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
+import java.util.Arrays;
+
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.Conditions;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotShell;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotView;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTWorkbenchBot;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTWorkbenchBot;
 
 public class PackageExplorerAPI {
 
@@ -23,11 +25,14 @@ public class PackageExplorerAPI {
 	}
 
 	public boolean projectExist(String projectName) {
+		System.out.print("Check is project '" + projectName + "' exists: ");
 		for (SWTBotTreeItem i : view.bot().tree().getAllItems()) {
 			if (projectName.equals(i.getText())) {
+				System.out.println("true");
 				return true;
 			}
 		}
+		System.out.println("false");
 		return false;
 	}
 
@@ -37,11 +42,13 @@ public class PackageExplorerAPI {
 	}
 
 	public PackageExplorerAPI runMWE2(String... path) {
+		System.out.println("Run MWE2 for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Run As").menuWithRegex("MWE2 Workflow").click();
 		return this;
 	}
 
 	public void runMavenInstall(String... path) {
+		System.out.println("Run maven for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Run As").menu("Run Configurations...").click();
 		RunConfigurationsDialogAPI dialog = new RunConfigurationsDialogAPI(view.bot().shell("Run Configurations"));
 		dialog.newMavenBuildRunConfiguration().setBaseDirectoryToProject(path[0]).setGoals("clean install").enableUpdateSnapshots()
@@ -49,6 +56,7 @@ public class PackageExplorerAPI {
 	}
 
 	public void runGradleInstallTest(String... path) {
+		System.out.println("Run Gradle for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Run As").menu("Run Configurations...").click();
 		RunConfigurationsDialogAPI dialog = new RunConfigurationsDialogAPI(view.bot().shell("Run Configurations"));
 		dialog.newGradleProjectRunConfiguration().setGradleTasks("install test").setWorkingDirectoryToProject(path[0])
@@ -56,31 +64,37 @@ public class PackageExplorerAPI {
 	}
 
 	public XtextEditorAPI openXtextFile(String... path) {
+		System.out.println("Open Xtext editor for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Open").click();
 		return new XtextEditorAPI(new XtextSWTWorkbenchBot().editorByTitle(path[path.length - 1]));
 	}
 
 	public TextEditorAPI openTextFile(String... path) {
+		System.out.println("Open Text Editor for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Open").click();
 		return new TextEditorAPI(new XtextSWTWorkbenchBot().editorByTitle(path[path.length - 1]));
 	}
 
 	public TextEditorAPI openWithTextEditor(String... path) {
+		System.out.println("Open Text Editor for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Open With").menu("Text Editor").click();
 		return new TextEditorAPI(new XtextSWTWorkbenchBot().editorByTitle(path[path.length - 1]));
 	}
 
 	public JavaEditorAPI openJavaFile(String... path) {
+		System.out.println("Open Java Editor for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Open With").menu("Java Editor").click();
 		return new JavaEditorAPI(new XtextSWTWorkbenchBot().editorByTitle(path[path.length - 1]));
 	}
 
 	public void deleteFile(String... path) {
+		System.out.println("Delete file " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Delete").click();
 		view.bot().shell("Delete").bot().button("OK").click();
 	}
 
 	public void deleteAllProjects() {
+		System.out.println("Delete all projects");
 		EclipseAPI.waitForBuild();
 		if (view.bot().tree().getAllItems().length == 0) {
 			return;
@@ -96,6 +110,7 @@ public class PackageExplorerAPI {
 	}
 
 	public void refreshAllProjects() {
+		System.out.println("Refresh all projects");
 		if (view.bot().tree().getAllItems().length == 0) {
 			return;
 		}
@@ -106,6 +121,7 @@ public class PackageExplorerAPI {
 	}
 
 	public void collapseAllProjects() {
+		System.out.println("Collapse all projects");
 		SWTBotTreeItem[] allItems = view.bot().tree().getAllItems();
 		if (allItems.length == 0) {
 			return;
@@ -119,6 +135,7 @@ public class PackageExplorerAPI {
 	}
 
 	public PackageExplorerAPI expand(String... path) {
+		System.out.println("Expand in 'Package Explorer' " + Arrays.toString(path));
 		view.bot().tree().expandNode(path);
 		return this;
 	}

@@ -9,7 +9,7 @@ package org.eclipse.xtext.swtbot.testing.api;
 
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotShell;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 
 /**
  * @author Arne Deutsch - Initial contribution and API
@@ -23,12 +23,14 @@ public class RunConfigurationsDialogAPI {
 	}
 
 	public MavenBuildRunConfigurationAPI newMavenBuildRunConfiguration() {
+		System.out.println("New maven build run configuration");
 		shell.bot().tree().select("Maven Build");
 		shell.bot().toolbarButtonWithTooltip("New launch configuration").click();
 		return new MavenBuildRunConfigurationAPI(shell);
 	}
 
 	public GradleBuildRunConfigurationAPI newGradleProjectRunConfiguration() {
+		System.out.println("New gradle build run configuration");
 		shell.bot().tree().select("Gradle Project");
 		shell.bot().toolbarButtonWithTooltip("New launch configuration").click();
 		return new GradleBuildRunConfigurationAPI(shell);
@@ -43,21 +45,25 @@ public class RunConfigurationsDialogAPI {
 		}
 
 		public MavenBuildRunConfigurationAPI setBaseDirectoryToProject(String projectName) {
+			System.out.println("Set base directory: '" + projectName + "'");
 			shell.bot().textWithLabel("Base directory:").setText("${workspace_loc:/" + projectName + "}");
 			return this;
 		}
 
 		public MavenBuildRunConfigurationAPI setGoals(String goals) {
+			System.out.println("Set goals: '" + goals + "'");
 			shell.bot().textWithLabel("Goals:").setText(goals);
 			return this;
 		}
 
 		public MavenBuildRunConfigurationAPI enableUpdateSnapshots() {
+			System.out.println("Enable update snapshots");
 			shell.bot().checkBox("Update Snapshots").select();
 			return this;
 		}
 
 		public MavenBuildRunConfigurationAPI useLocalRepository() {
+			System.out.println("Use local repository");
 			shell.bot().button("Add...").click();
 			SWTBot dialogBot = shell.bot().shell("Add Parameter").bot();
 			dialogBot.text(0).setText("maven.repo.local");
@@ -67,11 +73,13 @@ public class RunConfigurationsDialogAPI {
 		}
 
 		public MavenBuildRunConfigurationAPI apply() {
+			System.out.println("Press 'Apply'");
 			shell.bot().button("Apply").click();
 			return this;
 		}
 
 		public void run() {
+			System.out.println("Press 'Run'");
 			shell.bot().button("Run").click();
 		}
 
@@ -86,26 +94,31 @@ public class RunConfigurationsDialogAPI {
 		}
 
 		public GradleBuildRunConfigurationAPI setWorkingDirectoryToProject(String projectName) {
+			System.out.println("Set 'Working Directory' to project '" + projectName + "'");
 			shell.bot().textInGroup("Working Directory:").setText("${workspace_loc:/" + projectName + "}");
 			return this;
 		}
 
 		public GradleBuildRunConfigurationAPI setGradleTasks(String tasks) {
+			System.out.println("Set 'Gradle Tasks': '" + tasks + "'");
 			shell.bot().textInGroup("Gradle Tasks:").setText(tasks);
 			return this;
 		}
 
 		public GradleBuildRunConfigurationAPI disableShowExecutionView() {
+			System.out.println("Disable 'Show Execution View'");
 			shell.bot().checkBox("Show Execution View").deselect();
 			return this;
 		}
 
 		public GradleBuildRunConfigurationAPI apply() {
+			System.out.println("Press 'Apply'");
 			shell.bot().button("Apply").click();
 			return this;
 		}
 
 		public void run() {
+			System.out.println("Press 'Run'");
 			shell.bot().button("Run").click();
 		}
 	}

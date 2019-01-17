@@ -19,6 +19,7 @@ public class JavaEditorAPI extends TextEditorAPI {
 	}
 
 	public JavaEditorAPI organizeImports() {
+		System.out.println("Organize imports for editor '" + editor.getTitle() + "'");
 		editor.bot().styledText().contextMenu("Source").menu("Organize Imports").click();
 		return this;
 	}

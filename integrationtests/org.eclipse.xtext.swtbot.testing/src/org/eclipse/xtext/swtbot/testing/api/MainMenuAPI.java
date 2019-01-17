@@ -19,9 +19,9 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotShell;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotView;
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTWorkbenchBot;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTWorkbenchBot;
 
 /**
  * Main menu of eclipse. Can be used to start all kind of actions, e.g. open the preferences.
@@ -42,6 +42,7 @@ public class MainMenuAPI {
 	 * Opens the Eclipse Preferences dialog. On MacOS the preferences are in the system menu which is not accessible via SWTBot.
 	 */
 	public PreferencesDialogAPI openPreferences() {
+		System.out.println("Open 'Preferences'");
 		// see https://www.eclipse.org/forums/index.php/t/854280/
 		if (Platform.getOS().equals(Platform.OS_MACOSX)) {
 			// On Mac, the Preferences menu is under the system menu
@@ -70,11 +71,13 @@ public class MainMenuAPI {
 	}
 
 	public NewProjectWizardAPI openNewProjectWizard() {
+		System.out.println("Open 'New Project Wizard'");
 		bot.menu("File").menu("New").menu("Project...").click();
 		return new NewProjectWizardAPI(bot.shell("New Project"));
 	}
 
 	public void openJavaPerspective() {
+		System.out.println("Open 'Java Perspective'");
 		openPerspective("Java");
 	}
 
@@ -89,18 +92,22 @@ public class MainMenuAPI {
 	}
 
 	public PackageExplorerAPI openPackageExplorer() {
+		System.out.println("Open 'Package Explorer'");
 		return new PackageExplorerAPI(openAndActivateView("Java", "Package Explorer", "org.eclipse.jdt.ui.PackageExplorer"));
 	}
 
 	public ProblemsViewAPI openProblemsView() {
+		System.out.println("Open 'Problems View'");
 		return new ProblemsViewAPI(openAndActivateView("General", "Problems", "org.eclipse.ui.views.ProblemView"));
 	}
 
 	public JUnitViewAPI openJunitView() {
+		System.out.println("Open 'JUnit View'");
 		return new JUnitViewAPI(openAndActivateView("Java", "JUnit", "org.eclipse.jdt.junit.ResultView"));
 	}
 
 	public ConsoleViewAPI openConsoleView() {
+		System.out.println("Open 'Console View'");
 		return new ConsoleViewAPI(openAndActivateView("General", "Console", "org.eclipse.ui.console.ConsoleView"));
 	}
 

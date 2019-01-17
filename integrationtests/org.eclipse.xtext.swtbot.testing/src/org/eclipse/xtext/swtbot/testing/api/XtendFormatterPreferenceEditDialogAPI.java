@@ -7,7 +7,7 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
-import org.eclipse.xtext.swtbot.testing.lowlevel.XtextSWTBotShell;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 
 /**
  * API to access functionality from the xtend formatter preference edit dialog through SWTBot.

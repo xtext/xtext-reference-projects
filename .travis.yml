@@ -23,17 +23,219 @@ cache:
 matrix:
 # **** INCLUDE ****
   include:
+# Java 11
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.16.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.16.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0
+# Java 10
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-gradle-2.14.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-gradle-2.15.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-gradle-2.16.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-gradle-2.14-J10.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-gradle-2.15-J10.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-gradle-2.16-J10.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-maven-2.14.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-maven-2.15.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-maven-2.16.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-maven-2.14-J10.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-maven-2.15-J10.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+    env: BUILDCMD=greetings-maven-2.16-J10.sh
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+      - sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+      - sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+      - sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=greetings-tycho-2.15-J10.sh DISPLAY=:99.0
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+      - sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=greetings-tycho-2.16-J10.sh DISPLAY=:99.0
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+      - sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
+  - jdk: openjdk10
+    before_install:
+      - rm "${JAVA_HOME}/lib/security/cacerts"
+      - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+      - sh -e /etc/init.d/xvfb start - sleep 10
+    env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
+# Java 11 "Oracle JDK"
+#  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
+#    install: . ./install-jdk.sh -F 11 -L BCL
+# Java 8
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.12.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.14.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.15.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.16.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.17.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.12.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.13.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.14.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.15.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.16.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-maven-2.17.sh
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=luna-linux
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=mars-linux
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=latest
+  - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.17.sh DISPLAY=:99.0 TP=latest
+  - jdk: oraclejdk8
+    env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
+# Java 9
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.14.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.15.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.16.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.17.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.14-J9.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.15-J9.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-gradle-2.16-J9.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.14.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.15.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.16.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-maven-2.17.sh
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.14-J9.sh DISPLAY=:99.0
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=oxygen
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=photon
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=latest
+  - jdk: oraclejdk9
+    env: BUILDCMD=greetings-tycho-2.17.sh DISPLAY=:99.0 TP=latest
 # integrationtests
-#  - jdk: oraclejdk8
-#    env: BUILDCMD=integrationtests.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=integrationtests.sh DISPLAY=:99.0
 # The following environments are known to fail
   allow_failures:
   - env: JDK='Oracle JDK 11'
 script:
 - set -e
-#- sh -e scripts/$BUILDCMD
-# call integrationtests
-- cd "$(pwd)/integrationtests"
-- export SETTINGS="-s $TRAVIS_BUILD_DIR/settings.xml"
-- export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
-- travis_wait 30 mvn $DISABLE_DOWNLOAD_PROGRESS $SETTINGS -Dtycho.showEclipseLog=true clean install
+- sh -e scripts/$BUILDCMD

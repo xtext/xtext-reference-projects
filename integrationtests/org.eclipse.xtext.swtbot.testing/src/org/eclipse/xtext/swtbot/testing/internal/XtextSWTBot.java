@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package org.eclipse.xtext.swtbot.testing.lowlevel;
+package org.eclipse.xtext.swtbot.testing.internal;
 
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.*;
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.*;
@@ -57,6 +57,7 @@ public class XtextSWTBot extends SWTBot {
 	}
 
 	@Override
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public XtextSWTBotTree tree(int index) {
 		Matcher matcher = allOf(widgetOfType(Tree.class));
 		return new XtextSWTBotTree((Tree) widget(matcher, index), matcher);

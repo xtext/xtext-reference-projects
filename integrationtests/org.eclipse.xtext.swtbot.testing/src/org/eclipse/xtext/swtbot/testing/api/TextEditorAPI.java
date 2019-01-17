@@ -21,16 +21,19 @@ public class TextEditorAPI {
 	}
 
 	public TextEditorAPI replaceContent(String newContent) {
+		System.out.println("Replace content in editor with '" + newContent + "'");
 		editor.bot().styledText().setText(newContent);
 		return this;
 	}
 
 	public TextEditorAPI save() {
+		System.out.println("Save editor");
 		editor.bot().styledText().contextMenu().menu("Save").click();
 		return this;
 	}
 
 	public TextEditorAPI deleteRange(String startText, String endText) {
+		System.out.println("Delete lines:");
 		int lineIndex = 0;
 		boolean deleting = false;
 		for (String line : editor.bot().styledText().getLines()) {
@@ -38,6 +41,7 @@ public class TextEditorAPI {
 				deleting = true;
 			if (deleting) {
 				editor.bot().styledText().selectLine(lineIndex);
+				System.out.println("  " + editor.bot().styledText().getSelection());
 				editor.bot().styledText().contextMenu("Cut").click();
 				if (line.contains(endText))
 					break;
@@ -52,6 +56,7 @@ public class TextEditorAPI {
 		for (String line : editor.bot().styledText().getLines()) {
 			if (line.equals(lineText)) {
 				editor.bot().styledText().selectLine(lineIndex);
+				System.out.println("Delete line: " + editor.bot().styledText().getSelection());
 				editor.bot().styledText().contextMenu("Cut").click();
 				return this;
 			}
