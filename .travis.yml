@@ -146,6 +146,8 @@ matrix:
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-gradle-2.16.sh
   - jdk: oraclejdk8
+    env: BUILDCMD=greetings-gradle-2.17.M1.sh
+  - jdk: oraclejdk8
     env: BUILDCMD=greetings-gradle-2.17.sh
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-maven-2.12.sh

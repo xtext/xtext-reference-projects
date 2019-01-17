@@ -1,2 +1,2 @@
-include 'org.xtext.example.mydsl'
-include 'org.xtext.example.mydsl.ide'
+includeFlat 'org.xtext.example.mydsl'
+includeFlat 'org.xtext.example.mydsl.ide'
