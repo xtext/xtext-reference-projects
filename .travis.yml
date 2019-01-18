@@ -240,6 +240,9 @@ matrix:
     env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=latest
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-tycho-2.17.sh DISPLAY=:99.0 TP=latest
+# integrationtests
+  - jdk: oraclejdk8
+    env: BUILDCMD=integrationtests.sh DISPLAY=:99.0
 # The following environments are known to fail
   allow_failures:
   - env: JDK='Oracle JDK 11'
