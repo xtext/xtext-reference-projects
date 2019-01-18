@@ -58,7 +58,7 @@ public class ProblemsViewAPI {
 				for (SWTBotTreeItem e : i.getItems()) {
 					result.add(e.cell(0) + "\n");
 				}
-				// Make debugging ón server more easy
+				// Make debugging on server more easy
 				System.out.println("Get error messages: " + result);
 				return result;
 			}
