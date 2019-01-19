@@ -234,7 +234,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
 
 		// run the maven build and wait for successful termination
-		packageExplorer().runGradleInstallTest("org.xtext.example.mydsl.parent", "build.gradle");
+		packageExplorer().runGradleTest("org.xtext.example.mydsl.parent", "build.gradle");
 		consoleView().waitForGradleToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
 		waitForBuild();
@@ -323,7 +323,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
 
 		// run the maven build and wait for successful termination
-		packageExplorer().runGradleInstallTest("org.xtext.example.mydsl.parent", "build.gradle");
+		packageExplorer().runGradleTest("org.xtext.example.mydsl.parent", "build.gradle");
 		consoleView().waitForGradleToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
 		waitForBuild();
@@ -350,7 +350,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
 
 		// run the maven build and wait for successful termination
-		packageExplorer().runGradleInstallTest("org.xtext.example.mydsl.parent", "build.gradle");
+		packageExplorer().runGradleTest("org.xtext.example.mydsl.parent", "build.gradle");
 		consoleView().waitForGradleToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
 		waitForBuild();

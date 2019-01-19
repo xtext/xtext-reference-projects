@@ -55,11 +55,11 @@ public class PackageExplorerAPI {
 				.useLocalRepository().apply().run();
 	}
 
-	public void runGradleInstallTest(String... path) {
+	public void runGradleTest(String... path) {
 		System.out.println("Run Gradle for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Run As").menu("Run Configurations...").click();
 		RunConfigurationsDialogAPI dialog = new RunConfigurationsDialogAPI(view.bot().shell("Run Configurations"));
-		dialog.newGradleProjectRunConfiguration().setGradleTasks("install test").setWorkingDirectoryToProject(path[0])
+		dialog.newGradleProjectRunConfiguration().setGradleTasks("test").setWorkingDirectoryToProject(path[0])
 				.disableShowExecutionView().apply().run();
 	}
 
