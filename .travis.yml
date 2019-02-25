@@ -33,6 +33,12 @@ matrix:
     env: BUILDCMD=greetings-maven-2.16.sh
   - jdk: openjdk11
     env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.17-J11.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.17-J11.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.17-J11.sh DISPLAY=:99.0
 # Java 10
   - jdk: openjdk10
     before_install:
