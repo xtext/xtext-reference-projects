@@ -222,6 +222,8 @@ matrix:
     env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
   - jdk: oraclejdk8
     env: BUILDCMD=domainmodel-2.17.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=domainmodel-2.18.sh DISPLAY=:99.0
 # Java 9
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.14.sh
