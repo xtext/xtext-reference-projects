@@ -39,6 +39,20 @@ matrix:
     env: BUILDCMD=greetings-maven-2.17-J11.sh
   - jdk: openjdk11
     env: BUILDCMD=greetings-tycho-2.17-J11.sh DISPLAY=:99.0
+  # Build with Java 11 against Java 8 targets
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.18.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.18.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.18.sh DISPLAY=:99.0
+  # Build with Java 11 against Java 11 targets
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.18-J11.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.18-J11.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.18-J11.sh DISPLAY=:99.0
 # Java 10
   - jdk: openjdk10
     before_install:
@@ -158,6 +172,8 @@ matrix:
     env: BUILDCMD=greetings-gradle-2.17.M1.sh
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-gradle-2.17.sh
+  - jdk: oraclejdk8 
+    env: BUILDCMD=greetings-gradle-2.18.sh
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-maven-2.12.sh
   - jdk: oraclejdk8
@@ -170,6 +186,8 @@ matrix:
     env: BUILDCMD=greetings-maven-2.16.sh
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-maven-2.17.sh
+  - jdk: oraclejdk8 
+    env: BUILDCMD=greetings-maven-2.18.sh
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
   - jdk: oraclejdk8
@@ -197,11 +215,15 @@ matrix:
   - jdk: oraclejdk8
     env: BUILDCMD=greetings-tycho-2.17.sh DISPLAY=:99.0 TP=latest
   - jdk: oraclejdk8
+    env: BUILDCMD=greetings-tycho-2.18.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
   - jdk: oraclejdk8
     env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
   - jdk: oraclejdk8
     env: BUILDCMD=domainmodel-2.17.sh DISPLAY=:99.0
+  - jdk: oraclejdk8
+    env: BUILDCMD=domainmodel-2.18.sh DISPLAY=:99.0
 # Java 9
   - jdk: oraclejdk9
     env: BUILDCMD=greetings-gradle-2.14.sh
