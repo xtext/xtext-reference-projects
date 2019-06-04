@@ -26,7 +26,7 @@ location "https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.10.0
 	org.eclipse.emf.mwe2.language.sdk.feature.group
 }
 
-location "https://download.eclipse.org/modeling/tmf/xtext/updates/nightly" {
+location "https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.18.0/" {
 	org.eclipse.xtext.sdk.feature.group lazy
 }
 
