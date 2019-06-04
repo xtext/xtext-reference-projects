@@ -1,2 +1,0 @@
-includeFlat 'org.xtext.example.mydsl'
-includeFlat 'org.xtext.example.mydsl.ide'
