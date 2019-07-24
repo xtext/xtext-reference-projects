@@ -2,15 +2,11 @@ sudo: true
 language: java
 group: edge
 
-addons:
-  apt:
-    packages:
-    - oracle-java9-installer
+services:
+  - xvfb
 
 before_install:
 - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-# Get latest install-jdk.sh script
-- sh -e /etc/init.d/xvfb start - sleep 10
 
 notifications:
   slack:
@@ -24,7 +20,7 @@ matrix:
 # **** INCLUDE ****
   include:
 # integrationtests
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=integrationtests.sh DISPLAY=:99.0
 # Java 11
   - jdk: openjdk11 
@@ -69,77 +65,77 @@ matrix:
 #  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
 #    install: . ./install-jdk.sh -F 11 -L BCL
 # Java 8
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-gradle-2.12.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-gradle-2.14.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-gradle-2.15.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-gradle-2.16.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-gradle-2.17.M1.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-gradle-2.17.sh
-  - jdk: oraclejdk8 
+  - jdk: openjdk8 
     env: BUILDCMD=greetings-gradle-2.18.sh
-  - jdk: oraclejdk8 
+  - jdk: openjdk8 
     env: BUILDCMD=greetings-gradle-2.19.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.12.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.13.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.14.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.15.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.16.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.17.sh
-  - jdk: oraclejdk8 
+  - jdk: openjdk8 
     env: BUILDCMD=greetings-maven-2.18.sh
-  - jdk: oraclejdk8 
+  - jdk: openjdk8 
     env: BUILDCMD=greetings-maven-2.19.sh
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=luna-linux
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=mars-linux
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=oxygen
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=oxygen
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=oxygen
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0 TP=photon
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.15.sh DISPLAY=:99.0 TP=photon
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=photon
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.16.sh DISPLAY=:99.0 TP=latest
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.17.sh DISPLAY=:99.0 TP=latest
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.18.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.19.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.17.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.18.sh DISPLAY=:99.0
-  - jdk: oraclejdk8
+  - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.19.sh DISPLAY=:99.0
 # The following environments are known to fail
 #  allow_failures:
