@@ -48,6 +48,12 @@ matrix:
     env: BUILDCMD=greetings-maven-2.19.sh
   - jdk: openjdk11
     env: BUILDCMD=greetings-tycho-2.19.sh DISPLAY=:99.0
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.20.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.20.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.20.sh DISPLAY=:99.0
   # Build with Java 11 against Java 11 targets
   - jdk: openjdk11 
     env: BUILDCMD=greetings-gradle-2.18-J11.sh
@@ -61,6 +67,12 @@ matrix:
     env: BUILDCMD=greetings-maven-2.19-J11.sh
   - jdk: openjdk11
     env: BUILDCMD=greetings-tycho-2.19-J11.sh DISPLAY=:99.0
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.20-J11.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.20-J11.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.20-J11.sh DISPLAY=:99.0
 # Java 11 "Oracle JDK"
 #  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
 #    install: . ./install-jdk.sh -F 11 -L BCL
@@ -81,6 +93,8 @@ matrix:
     env: BUILDCMD=greetings-gradle-2.18.sh
   - jdk: openjdk8 
     env: BUILDCMD=greetings-gradle-2.19.sh
+  - jdk: openjdk8 
+    env: BUILDCMD=greetings-gradle-2.20.sh
   - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.12.sh
   - jdk: openjdk8
@@ -97,6 +111,8 @@ matrix:
     env: BUILDCMD=greetings-maven-2.18.sh
   - jdk: openjdk8 
     env: BUILDCMD=greetings-maven-2.19.sh
+  - jdk: openjdk8 
+    env: BUILDCMD=greetings-maven-2.20.sh
   - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
   - jdk: openjdk8
@@ -128,6 +144,8 @@ matrix:
   - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.19.sh DISPLAY=:99.0
   - jdk: openjdk8
+    env: BUILDCMD=greetings-tycho-2.20.sh DISPLAY=:99.0
+  - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
   - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
@@ -137,6 +155,8 @@ matrix:
     env: BUILDCMD=domainmodel-2.18.sh DISPLAY=:99.0
   - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.19.sh DISPLAY=:99.0
+  - jdk: openjdk8
+    env: BUILDCMD=domainmodel-2.20.sh DISPLAY=:99.0
 # The following environments are known to fail
 #  allow_failures:
 #  - env: JDK='Oracle JDK 11'
