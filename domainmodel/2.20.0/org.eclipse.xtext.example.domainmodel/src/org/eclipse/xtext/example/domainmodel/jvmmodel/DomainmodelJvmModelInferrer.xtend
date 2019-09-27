@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 2011, 2019 itemis AG (http://www.itemis.eu) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *******************************************************************************/
 package org.eclipse.xtext.example.domainmodel.jvmmodel
 
 import com.google.inject.Inject
@@ -11,7 +18,7 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1
 
 class DomainmodelJvmModelInferrer extends AbstractModelInferrer {
-	
+
 	@Inject extension JvmTypesBuilder
 	@Inject extension IQualifiedNameProvider
 
@@ -20,10 +27,10 @@ class DomainmodelJvmModelInferrer extends AbstractModelInferrer {
 			documentation = entity.documentation
 			if (entity.superType !== null)
 				superTypes += entity.superType.cloneWithProxies
-			
+
 			// let's add a default constructor
 			members += entity.toConstructor []
-			
+
 			// and one which can be called with a lambda for initialization.
 			val procedureType = typeRef(Procedure1, typeRef(it)) /* Procedure<MyEntity> */
 			members += entity.toConstructor [
@@ -33,11 +40,11 @@ class DomainmodelJvmModelInferrer extends AbstractModelInferrer {
 					initializer.apply(this);
 				'''
 			]
-			
+
 			// now let's go over the features
 			for ( f : entity.features ) {
 				switch f {
-			
+
 					// for properties we create a field, a getter and a setter
 					Property : {
 						val field = f.toField(f.name, f.type)
@@ -45,7 +52,7 @@ class DomainmodelJvmModelInferrer extends AbstractModelInferrer {
 						members += f.toGetter(f.name, f.type)
 						members += f.toSetter(f.name, f.type)
 					}
-			
+
 					// operations are mapped to methods
 					Operation : {
 						members += f.toMethod(f.name, f.type ?: inferredType) [
@@ -61,7 +68,7 @@ class DomainmodelJvmModelInferrer extends AbstractModelInferrer {
 					}
 				}
 			}
-			
+
 			// finally we want to have a nice toString methods.
 			members += entity.toToStringMethod(it)
 		]

@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 2018, 2019 itemis AG (http://www.itemis.eu) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *******************************************************************************/
 package org.eclipse.xtext.example.domainmodel.ui.tests
 
 import com.google.inject.Inject
@@ -7,6 +14,7 @@ import org.eclipse.xtext.example.domainmodel.domainmodel.DomainmodelFactory
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.ui.IImageHelper
+import org.eclipse.xtext.xtype.XtypeFactory
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -23,9 +31,18 @@ class LabelProviderTest {
 	@Inject IImageHelper imageHelper
 
 	val extension DomainmodelFactory = DomainmodelFactory.eINSTANCE
+	val extension XtypeFactory = XtypeFactory.eINSTANCE
 
 	@Test def package_image() {
 		createPackageDeclaration.hasImage("PackageDeclaration.gif")
+	}
+	
+	@Test def import_section_image() {
+		createXImportSection.hasImage("XImportSection.gif")
+	}
+
+	@Test def import_declaration_image() {
+		createXImportDeclaration.hasImage("XImportDeclaration.gif")
 	}
 
 	@Test def entity_image() {
@@ -42,7 +59,7 @@ class LabelProviderTest {
 
 	private def hasImage(EObject eObject, String image) {
 		val actual = labelProvider.getImage(eObject)
-		val expected = imageHelper.getImage(image) 
+		val expected = imageHelper.getImage(image)
 		expected.assertEquals(actual)
 	}
 
