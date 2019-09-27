@@ -12,9 +12,9 @@
 		<memory-settings>-Xmx2G</memory-settings>
 		<debug-settings>-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y</debug-settings>
 		<surefire-jvmargs></surefire-jvmargs>
-		<xtend-maven-plugin-version>2.17.0.M1</xtend-maven-plugin-version>
+		<xtend-maven-plugin-version>2.19.0</xtend-maven-plugin-version>
 		<JENKINS_URL>https://ci.eclipse.org/xtext/</JENKINS_URL>
-		<tycho-version>1.4.0</tycho-version>
+		<tycho-version>1.5.0</tycho-version>
 
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>
