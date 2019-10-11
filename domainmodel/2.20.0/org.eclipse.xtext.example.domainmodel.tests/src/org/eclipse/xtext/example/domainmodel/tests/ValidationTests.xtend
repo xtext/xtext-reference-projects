@@ -16,8 +16,12 @@ import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.junit.Test
 import org.junit.runner.RunWith
 
+import static org.eclipse.xtext.example.domainmodel.domainmodel.DomainmodelPackage.Literals.PROPERTY
+import static org.eclipse.xtext.example.domainmodel.validation.IssueCodes.DUPLICATE_PROPERTY
 import static org.eclipse.xtext.xbase.validation.IssueCodes.*
 import static org.eclipse.xtext.xtype.XtypePackage.Literals.*
+
+import static extension org.junit.Assert.assertEquals
 
 @RunWith(XtextRunner)
 @InjectWith(DomainmodelInjectorProvider)
@@ -26,30 +30,28 @@ import static org.eclipse.xtext.xtype.XtypePackage.Literals.*
  */
 class ValidationTests {
 
-	@Inject extension ParseHelper<DomainModel> parseHelper
+	@Inject extension ParseHelper<DomainModel>
 
-	@Inject extension ValidationTestHelper validationTestHelper
+	@Inject extension ValidationTestHelper
 
 	@Test def testImportUnused() {
-		val model = parse('''
+		'''
 			import java.util.List
 			entity X {}
-		''');
-		assertWarning(model, XIMPORT_DECLARATION, IMPORT_UNUSED);
+		'''.parse.assertWarning(XIMPORT_DECLARATION, IMPORT_UNUSED)
 	}
 
 	@Test def testImportUnused_1() {
-		val model = parse('''
+		'''
 			import java.util.List
 			entity X {
 				sb: java.util.List<String>
 			}
-		''');
-		assertWarning(model, XIMPORT_DECLARATION, IMPORT_UNUSED);
+		'''.parse.assertWarning(XIMPORT_DECLARATION, IMPORT_UNUSED)
 	}
 
 	@Test def testImportUnused_2() {
-		val model = parse('''
+		'''
 			import java.util.List
 			entity X {
 				sb : List<String>
@@ -57,12 +59,11 @@ class ValidationTests {
 					sb
 				}
 			}
-		''');
-		assertNoIssues(model);
+		'''.parse.assertNoIssues
 	}
 
 	@Test def testImportUnused_3() {
-		val model = parse('''
+		'''
 			import java.util.Map$Entry
 			entity X {
 				sb: Entry<String, String>
@@ -70,12 +71,11 @@ class ValidationTests {
 					sb
 				}
 			}
-		''');
-		assertNoIssues(model);
+		'''.parse.assertNoIssues
 	}
 
 	@Test def testImportUnused_4() {
-		val model = parse('''
+		'''
 			import java.util.Map
 			entity X { 
 				sb: Map$Entry<String, String> 
@@ -83,12 +83,11 @@ class ValidationTests {
 					sb
 				}
 			}
-		''');
-		assertNoIssues(model);
+		'''.parse.assertNoIssues
 	}
 
 	@Test def testImportUnused_5() {
-		val model = parse('''
+		'''
 			import java.util.Map$Entry
 			entity X {
 				sb: Map$Entry<String, String>
@@ -96,30 +95,27 @@ class ValidationTests {
 					sb
 				}
 			}
-		''');
-		assertNoIssues(model);
+		'''.parse.assertNoIssues
 	}
 
 	@Test def testImportUnused_6() {
-		val model = parse('''
+		'''
 			import java.awt.Label
 			/** {@link Label} */ 
 			entity X{}
-		''');
-		assertNoIssues(model);
+		'''.parse.assertNoIssues
 	}
 
 	@Test def testImportUnused_7() {
-		val model = parse('''
+		'''
 			import java.awt.Label
 			/** @see Label */
 			entity X{}
-		''');
-		assertNoIssues(model);
+		'''.parse.assertNoIssues
 	}
 
 	@Test def testImportDuplicate() {
-		val model = parse('''
+		'''
 			import java.util.List
 			import java.util.List
 			entity X {
@@ -128,12 +124,11 @@ class ValidationTests {
 					sb
 				}
 			}
-		''');
-		assertWarning(model, XIMPORT_DECLARATION, IMPORT_UNUSED);
+		'''.parse.assertWarning(XIMPORT_DECLARATION, IMPORT_UNUSED)
 	}
 
 	@Test def testImportCollision() {
-		val model = parse('''
+		'''
 			import java.util.List
 			import java.awt.List
 			entity X {
@@ -142,12 +137,11 @@ class ValidationTests {
 					sb
 				}
 			}
-		''');
-		assertError(model, XIMPORT_DECLARATION, IMPORT_COLLISION);
+		'''.parse.assertError(XIMPORT_DECLARATION, IMPORT_COLLISION)
 	}
 
 	@Test def testImportWildcard() {
-		val model = parse('''
+		'''
 			import java.util.*
 			import java.util.List
 			entity X {
@@ -156,30 +150,41 @@ class ValidationTests {
 					sb
 				}
 			}
-		''');
-		assertWarning(model, XIMPORT_DECLARATION, IMPORT_WILDCARD_DEPRECATED);
+		'''.parse.assertWarning(XIMPORT_DECLARATION, IMPORT_WILDCARD_DEPRECATED)
 	}
 
 	@Test def testImportConflictWithTypeInSameFile() {
-		val model = parse('''
+		'''
 			import java.util.List 
 			entity List {
 				
 			}
-		''');
-		assertError(model, XIMPORT_DECLARATION, IMPORT_CONFLICT);
+		'''.parse.assertError(XIMPORT_DECLARATION, IMPORT_CONFLICT)
 	}
 
 	@Test def testImportNoConflictWithTypeInSameFile() {
-		val model = parse('''
+		'''
 			import java.util.List
 			entity List2 {
 			}
-		''');
-		assertNoErrors(model);
+		'''.parse.assertNoErrors
 	}
 
-	def protected parse(CharSequence modelAsText) {
-		parseHelper.parse(modelAsText)
+	@Test def void testDuplicatedProperty() {
+		val model = '''
+			entity E {
+				p : String
+				p : String
+			}
+		'''
+		model.parse => [
+			assertNumberOfIssues(2)
+			assertError(PROPERTY, DUPLICATE_PROPERTY, model.indexOf("p"), 1, "Duplicate property p")
+			assertError(PROPERTY, DUPLICATE_PROPERTY, model.lastIndexOf("p"), 1, "Duplicate property p")
+		]
+	}
+
+	private def assertNumberOfIssues(DomainModel domainModel, int expectedNumberOfIssues) {
+		expectedNumberOfIssues.assertEquals(domainModel.validate.size)
 	}
 }
