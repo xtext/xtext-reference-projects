@@ -4,18 +4,6 @@
                           https://maven.apache.org/xsd/settings-1.0.0.xsd">
 	<profiles>
 		<profile>
-			<id>tycho_staging</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<pluginRepositories>
-				<pluginRepository>
-					<id>tycho-staged</id>
-					<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1046/</url>
-				</pluginRepository>
-			</pluginRepositories>
-		</profile>
-		<profile>
 			<id>tycho_snapshots</id>
 			<pluginRepositories>
 				<pluginRepository>
