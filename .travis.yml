@@ -8,6 +8,8 @@ services:
 before_install:
 - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
 
+install: travis_retry
+
 notifications:
   slack:
     secure: N2waajxdsxS72W4zwrahdtFGH2UZUTboL+RXXy8fmOizD4cm19C8BuSgBWmlxG/EgE1dctrG1sW+jhtPV8t0Jnxi/kdfPLFaB1sqJUJfnP32/0KSgwaH/YpGrphjgY/bZl//pKVpA1THapv0+rBO9+bwcCV0oBmFGDJRZi9dQbJ6qoAGLv1T3EVXzt1Rn+Woh+fl5o8C/Sq5pBHCVWp1ruJxYXAyhSbjcxNTsWvQ9wK1rdBKXrOtyAZjLtFQHCnPfyN3em7zyG6IyQQDUoLxkpuqruKzns9x4U00XuiluQcAIruCgyrO4/4N1wP4wYaE66OLpSnqKVKpOFq8M0kbO+RCdxH5unV6G+G3IYCbaVv0gskcEE00N2eEmZ/YVKND2nPmDfz6yF+WmCXKi8kpZybSxWR6UKd4lwEf27lI1F3SVvMk7xsfVFD487YtJ0v+xCA6Tsv2IjWoCrPtUdzd6Kz7ebomNhefhdhtTVMBJQf7lHHpI6C+2+EMUqGJUBYdD80JJ7vOb4xGFikil3yv7FH9YTstb14FnxaNrZtDrr4kEjCx3P81FkQYVvW+MGF+XtUnhT26rPOE/8qN4CDo1ZnmS2WrICoGRUdz8atlIvLVrfalLTb8Caa/9FLPhjYQunHvdem5PH3VRi7aeSktaKSUlOCeTi7F7D7sxIxBsQ0=
@@ -21,7 +23,7 @@ matrix:
   include:
 # integrationtests
   - jdk: openjdk8
-    env: BUILDCMD=integrationtests-wizard.sh DISPLAY=:99.0
+    env: TRAVIS_RETRY=travis_retry BUILDCMD=integrationtests-wizard.sh DISPLAY=:99.0
   - jdk: openjdk8
     env: BUILDCMD=integrationtests-xtend-examples.sh DISPLAY=:99.0
   - jdk: openjdk8
@@ -166,4 +168,4 @@ matrix:
 #  - env: JDK='Oracle JDK 11'
 script:
 - set -e
-- sh -e scripts/$BUILDCMD
+- $TRAVIS_RETRY sh -e scripts/$BUILDCMD
