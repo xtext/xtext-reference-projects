@@ -31,7 +31,7 @@
 		<moduleProperties></moduleProperties>
 		<systemProperties></systemProperties>
 		<tycho.testArgLine></tycho.testArgLine>
-		<xtextVersion>${project.version}</xtextVersion>
+		<xtextVersion>2.20.0</xtextVersion>
 	</properties>
 	<modules>
 		<module>tp</module>
@@ -307,12 +307,6 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>sonatype-snapshots</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases><enabled>false</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
-		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -325,12 +319,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>sonatype-snapshots</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases><enabled>false</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 
