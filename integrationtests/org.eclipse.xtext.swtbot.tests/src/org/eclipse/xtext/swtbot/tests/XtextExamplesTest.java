@@ -153,7 +153,86 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void simpleArithmeticsExample() throws Exception {
-		standardXtextExample("Xtext Simple Arithmetics Example", "org.eclipse.xtext.example.arithmetics", "GenerateArithmetics.mwe2");
+		// create example projects
+		mainMenu().openNewProjectWizard().selectXtextExample("Xtext Simple Arithmetics Example").finish();
+		sleep(500); // wait for asynchronous updates
+		waitForBuild();
+
+		// check example projects are created
+		assertTrue(packageExplorer().projectExist("org.eclipse.xtext.example.arithmetics"));
+		assertTrue(packageExplorer().projectExist("org.eclipse.xtext.example.arithmetics" + ".ide"));
+		assertTrue(packageExplorer().projectExist("org.eclipse.xtext.example.arithmetics" + ".tests"));
+		assertTrue(packageExplorer().projectExist("org.eclipse.xtext.example.arithmetics" + ".ui"));
+		assertTrue(packageExplorer().projectExist("org.eclipse.xtext.example.arithmetics" + ".ui.tests"));
+
+		// expand projects to get more meaningful screenshots for trouble shooting
+		packageExplorer().expand("org.eclipse.xtext.example.arithmetics");
+		packageExplorer().expand("org.eclipse.xtext.example.arithmetics" + ".ide");
+		packageExplorer().expand("org.eclipse.xtext.example.arithmetics" + ".tests");
+		packageExplorer().expand("org.eclipse.xtext.example.arithmetics" + ".ui");
+		packageExplorer().expand("org.eclipse.xtext.example.arithmetics" + ".ui.tests", "Plug-in Dependencies");
+
+		// remove code mining provider (oxygen target)
+		// TODO remove as soon as target platform is Photon+
+		packageExplorer().deleteFile("org.eclipse.xtext.example.arithmetics.ui", "src",
+				"org.eclipse.xtext.example.arithmetics.ui.codemining", "ArithmeticsCodeMiningProvider.java");
+		packageExplorer()
+				.openWithTextEditor("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
+						"AbstractArithmeticsUiModule.java")
+				.deleteLine("import org.eclipse.xtext.example.arithmetics.ui.codemining.ArithmeticsCodeMiningProvider;")
+				.deleteLine("import org.eclipse.xtext.ui.codemining.XtextCodeMiningReconcileStrategy;")
+				.deleteLine("import org.eclipse.jface.text.codemining.ICodeMiningProvider;").save();
+		packageExplorer().openJavaFile("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
+				"AbstractArithmeticsUiModule.java");
+		outlineView().deleteItem("AbstractArithmeticsUiModule", "configureCodeMinding(Binder) : void");
+		packageExplorer().openWithTextEditor("org.eclipse.xtext.example.arithmetics.ui", "plugin.xml")
+				.deleteRange("<extension point=\"org.eclipse.ui.workbench.texteditor.codeMiningProviders\">", "</extension>").save();
+		// end removing codemining
+
+		// work around PDE bug (missing log4j.jar)
+		touchFile("org.eclipse.xtext.example.arithmetics" + "/META-INF/MANIFEST.MF");
+		waitForBuild();
+		// check example projects are error free
+		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
+
+		// run all unit tests and check there are no test failures
+		runJunitTests("org.eclipse.xtext.example.arithmetics" + ".tests", "xtend-gen");
+		assertTrue(junitView().isTestrunErrorFree());
+
+		// run all plugin tests and check there are no test failures
+		runJunitPluginTests("org.eclipse.xtext.example.arithmetics" + ".ui.tests", "xtend-gen");
+		assertTrue(junitView().isTestrunErrorFree());
+
+		// check that after a regeneration the projects source folders have not changed
+		long oldBytes = calculateFolderSize("org.eclipse.xtext.example.arithmetics" + "/src");
+		oldBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ide/src");
+		oldBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".tests/src");
+		oldBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ui/src");
+		oldBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ui.tests/src");
+		packageExplorer().runMWE2("org.eclipse.xtext.example.arithmetics", "src", "org.eclipse.xtext.example.arithmetics",
+				"GenerateArithmetics.mwe2");
+		consoleView().waitForMWE2ToFinish();
+		waitForBuild();
+		// remove code mining provider (oxygen target)
+		// TODO remove as soon as target platform is Photon+
+		packageExplorer().deleteFile("org.eclipse.xtext.example.arithmetics.ui", "src",
+				"org.eclipse.xtext.example.arithmetics.ui.codemining", "ArithmeticsCodeMiningProvider.java");
+		packageExplorer()
+				.openWithTextEditor("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
+						"AbstractArithmeticsUiModule.java")
+				.deleteLine("import org.eclipse.xtext.example.arithmetics.ui.codemining.ArithmeticsCodeMiningProvider;")
+				.deleteLine("import org.eclipse.xtext.ui.codemining.XtextCodeMiningReconcileStrategy;")
+				.deleteLine("import org.eclipse.jface.text.codemining.ICodeMiningProvider;").save();
+		packageExplorer().openJavaFile("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
+				"AbstractArithmeticsUiModule.java");
+		outlineView().deleteItem("AbstractArithmeticsUiModule", "configureCodeMinding(Binder) : void");
+		// end removing codemining
+		long newBytes = calculateFolderSize("org.eclipse.xtext.example.arithmetics" + "/src");
+		newBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ide/src");
+		newBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".tests/src");
+		newBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ui/src");
+		newBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ui.tests/src");
+		assertEquals(oldBytes, newBytes);
 	}
 
 	@Test
