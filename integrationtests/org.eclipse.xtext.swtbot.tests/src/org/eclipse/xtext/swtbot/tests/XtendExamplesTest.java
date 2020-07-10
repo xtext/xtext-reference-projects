@@ -41,10 +41,15 @@ public class XtendExamplesTest extends AbstractSwtBotTest {
 		closeAllShells();
 		closeAllEditors();
 		deleteAllProjects();
+		System.out.println("#####################################");
+		System.out.println();
+		System.out.println();
 	}
 
 	@Test
 	public void xtendActiveAnnotationExamples() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtendActiveAnnotationExamples'");
 		// create example projects
 		mainMenu().openNewProjectWizard().selectXtendExample("Xtend Active Annotation Examples").finish();
 		sleep(500); // wait for asynchronous updates
@@ -68,11 +73,15 @@ public class XtendExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtendIntroductoryExamples() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtendIntroductoryExamples'");
 		standardXtendExample("Xtend Introductory Examples", "xtend-examples");
 	}
 
 	@Test
 	public void xtendSolutionsForEuler() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtendSolutionsForEuler'");
 		standardXtendExample("Xtend Solutions for Euler", "xtend-euler");
 	}
 

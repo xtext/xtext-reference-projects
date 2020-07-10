@@ -7,11 +7,17 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
-import java.util.Arrays;
+import static org.eclipse.swtbot.swt.finder.waits.Conditions.*;
+import static org.hamcrest.Matchers.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.waits.Conditions;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
+import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTWorkbenchBot;
@@ -26,6 +32,8 @@ public class PackageExplorerAPI {
 
 	public boolean projectExist(String projectName) {
 		System.out.print("Check is project '" + projectName + "' exists: ");
+		if (isTreeEmpty())
+			return false;
 		for (SWTBotTreeItem i : view.bot().tree().getAllItems()) {
 			if (projectName.equals(i.getText())) {
 				System.out.println("true");
@@ -59,8 +67,8 @@ public class PackageExplorerAPI {
 		System.out.println("Run Gradle for " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Run As").menu("Run Configurations...").click();
 		RunConfigurationsDialogAPI dialog = new RunConfigurationsDialogAPI(view.bot().shell("Run Configurations"));
-		dialog.newGradleProjectRunConfiguration().setGradleTasks("test").setWorkingDirectoryToProject(path[0])
-				.disableShowExecutionView().apply().run();
+		dialog.newGradleProjectRunConfiguration().setGradleTasks("test").setWorkingDirectoryToProject(path[0]).disableShowExecutionView()
+				.apply().run();
 	}
 
 	public XtextEditorAPI openXtextFile(String... path) {
@@ -95,25 +103,68 @@ public class PackageExplorerAPI {
 
 	public void deleteAllProjects() {
 		System.out.println("Delete all projects");
-		EclipseAPI.waitForBuild();
-		if (view.bot().tree().getAllItems().length == 0) {
+		if (isTreeEmpty())
 			return;
-		}
+		EclipseAPI.waitForBuild();
 		refreshAllProjects(); // avoid dialog with refresh message + collapse all projects
+		deleteMavenProjects();
+		if (isTreeEmpty())
+			return;
 		SWTBotTreeItem[] allItems = view.bot().tree().getAllItems();
 		view.bot().tree().select(allItems).contextMenu("Delete").click();
 		XtextSWTBotShell shell = view.bot().shell("Delete Resources");
 		SWTBot shellBot = shell.bot();
 		shellBot.checkBox().click();
 		shellBot.button("OK").click();
-		view.bot().waitUntil(Conditions.shellCloses(shell), 30 * 1000);
+		view.bot().waitUntil(shellCloses(shell), 30 * 1000);
+	}
+
+	private void deleteMavenProjects() {
+		List<String> deleteList = new ArrayList<String>();
+		for (SWTBotTreeItem i : view.bot().tree().getAllItems()) {
+			String actualProject = i.getText();
+			if (actualProject.contains(".parent"))
+				deleteList.add(actualProject);
+		}
+		for (String project : deleteList)
+			deleteMavenProject(project.substring(0, project.indexOf(".parent")));
+	}
+
+	private void deleteMavenProject(String projectNamePrefix) {
+		String parentProjectName = projectNamePrefix + ".parent";
+		if (projectExist(parentProjectName)) {
+			// delete subprojects without deleting from disk
+			collapseAllProjects();
+			for (SWTBotTreeItem i : view.bot().tree().getAllItems()) {
+				String actualProject = i.getText();
+				if (!parentProjectName.equals(actualProject) && actualProject.startsWith(projectNamePrefix)) {
+					view.bot().tree().select(actualProject).contextMenu("Delete").click();
+					XtextSWTBotShell shell = view.bot().shell("Delete Resources");
+					SWTBot shellBot = shell.bot();
+					shellBot.button("OK").click();
+					shell.bot().waitUntil(shellCloses(shell), 10 * 1000);
+				}
+			}
+			refreshAllProjects();
+			// delete parent project and delete all resources
+			for (SWTBotTreeItem i : view.bot().tree().getAllItems()) {
+				String actualProject = i.getText();
+				if (parentProjectName.equals(actualProject)) {
+					view.bot().tree().select(actualProject).contextMenu("Delete").click();
+					XtextSWTBotShell shell = view.bot().shell("Delete Resources");
+					SWTBot shellBot = shell.bot();
+					shellBot.checkBox().click();
+					shellBot.button("OK").click();
+					shell.bot().waitUntil(shellCloses(shell), 10 * 1000);
+				}
+			}
+		}
 	}
 
 	public void refreshAllProjects() {
 		System.out.println("Refresh all projects");
-		if (view.bot().tree().getAllItems().length == 0) {
+		if (isTreeEmpty())
 			return;
-		}
 		collapseAllProjects();
 		SWTBotTreeItem[] allItems = view.bot().tree().getAllItems();
 		view.bot().tree().select(allItems).contextMenu("Refresh").click();
@@ -122,10 +173,9 @@ public class PackageExplorerAPI {
 
 	public void collapseAllProjects() {
 		System.out.println("Collapse all projects");
-		SWTBotTreeItem[] allItems = view.bot().tree().getAllItems();
-		if (allItems.length == 0) {
+		if (isTreeEmpty())
 			return;
-		}
+		SWTBotTreeItem[] allItems = view.bot().tree().getAllItems();
 		int index = 0;
 		while (index < allItems.length) {
 			allItems[index].collapse();
@@ -144,6 +194,15 @@ public class PackageExplorerAPI {
 	PackageExplorerAPI runJUnitTests(String... path) {
 		view.bot().tree().expandNode(path).select().contextMenu("Run As").menuWithRegex("? JUnit Test").click();
 		return this;
+	}
+
+	private boolean isTreeEmpty() {
+		try {
+			view.bot().waitUntil(waitForWidget(isA(Tree.class)), 200);
+		} catch (TimeoutException e) {
+			return true;
+		}
+		return view.bot().tree().getAllItems().length == 0;
 	}
 
 }

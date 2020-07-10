@@ -9,6 +9,8 @@ package org.eclipse.xtext.swtbot.testing.api;
 
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotText;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 
 /**
@@ -31,7 +33,7 @@ public class RunConfigurationsDialogAPI {
 
 	public GradleBuildRunConfigurationAPI newGradleProjectRunConfiguration() {
 		System.out.println("New gradle build run configuration");
-		shell.bot().tree().select("Gradle Project");
+		shell.bot().tree().select("Gradle Task");
 		shell.bot().toolbarButtonWithTooltip("New launch configuration").click();
 		return new GradleBuildRunConfigurationAPI(shell);
 	}
@@ -101,13 +103,20 @@ public class RunConfigurationsDialogAPI {
 
 		public GradleBuildRunConfigurationAPI setGradleTasks(String tasks) {
 			System.out.println("Set 'Gradle Tasks': '" + tasks + "'");
-			shell.bot().textInGroup("Gradle Tasks:").setText(tasks);
+			// TODO make this work for more than one task
+			shell.bot().buttonInGroup("Add", "Gradle Tasks:").click();
+			SWTBotTable tableInGroup = shell.bot().tableInGroup("Gradle Tasks:");
+			tableInGroup.click(0, 0);
+			SWTBotText cellEditor = new SWTBot(tableInGroup.widget).text();
+			cellEditor.setText(tasks);
+			shell.bot().button("Apply").click();
 			return this;
 		}
 
 		public GradleBuildRunConfigurationAPI disableShowExecutionView() {
-			System.out.println("Disable 'Show Execution View'");
-			shell.bot().checkBox("Show Execution View").deselect();
+			shell.bot().cTabItem("Project Settings").activate();
+			shell.bot().checkBox("Override project settings").select();
+			shell.bot().checkBox("Show Executions View").deselect();
 			return this;
 		}
 

@@ -22,11 +22,11 @@ matrix:
 # **** INCLUDE ****
   include:
 # integrationtests
-  - jdk: openjdk8
+  - jdk: openjdk11
     env: TRAVIS_RETRY=travis_retry BUILDCMD=integrationtests-wizard.sh DISPLAY=:99.0
-  - jdk: openjdk8
+  - jdk: openjdk11
     env: BUILDCMD=integrationtests-xtend-examples.sh DISPLAY=:99.0
-  - jdk: openjdk8
+  - jdk: openjdk11
     env: BUILDCMD=integrationtests-xtext-examples.sh DISPLAY=:99.0
 # Java 11
   - jdk: openjdk11 

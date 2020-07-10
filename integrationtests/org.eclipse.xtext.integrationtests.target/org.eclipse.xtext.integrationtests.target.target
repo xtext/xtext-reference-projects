@@ -13,6 +13,7 @@
         <unit id="org.eclipse.emf.mwe2.lib" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.launch.ui" version="0.0.0"/>
+        <unit id="org.eclipse.emf.mwe2.language" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.language.ui" version="0.0.0"/>
         <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/milestones/S202005051610"/>
     </location>
@@ -26,25 +27,27 @@
 		<unit id="org.antlr.runtime.source" version="3.2.0.v201101311130"/>
 		<unit id="org.junit" version="4.12.0.v201504281640"/>
 		<unit id="org.junit.source" version="4.12.0.v201504281640"/>
-		<unit id="org.junit.jupiter.api" version="5.5.1.v20190826-0900"/>
-		<unit id="org.junit.jupiter.api.source" version="5.5.1.v20190826-0900"/>
-		<unit id="org.junit.jupiter.engine" version="5.5.1.v20190826-0900"/>
-		<unit id="org.junit.jupiter.engine.source" version="5.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.commons" version="1.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.commons.source" version="1.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.engine" version="1.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.engine.source" version="1.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.launcher" version="1.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.launcher.source" version="1.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.runner" version="1.5.1.v20190826-0900"/>
-		<unit id="org.junit.platform.runner.source" version="1.5.1.v20190826-0900"/>
+		<unit id="org.junit.jupiter.api" version="5.6.0.v20200203-2009"/>
+		<unit id="org.junit.jupiter.api.source" version="5.6.0.v20200203-2009"/>
+		<unit id="org.junit.jupiter.engine" version="5.6.0.v20200203-2009"/>
+		<unit id="org.junit.jupiter.engine.source" version="5.6.0.v20200203-2009"/>
+		<unit id="org.junit.jupiter.migrationsupport" version="5.6.0.v20200203-2009"/>
+		<unit id="org.junit.jupiter.migrationsupport.source" version="5.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.commons" version="1.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.commons.source" version="1.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.engine" version="1.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.engine.source" version="1.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.launcher" version="1.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.launcher.source" version="1.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.runner" version="1.6.0.v20200203-2009"/>
+		<unit id="org.junit.platform.runner.source" version="1.6.0.v20200203-2009"/>
 		<unit id="org.opentest4j" version="1.2.0.v20190826-0900"/>
 		<unit id="org.opentest4j.source" version="1.2.0.v20190826-0900"/>
-		<unit id="org.objectweb.asm" version="7.2.0.v20191010-1910"/>
-		<unit id="org.objectweb.asm.source" version="7.2.0.v20191010-1910"/>
-		<unit id="org.objectweb.asm.tree" version="7.2.0.v20191010-1910"/>
-		<unit id="org.objectweb.asm.tree.source" version="7.2.0.v20191010-1910"/>
-		<repository location="https://download.eclipse.org/tools/orbit/downloads/2019-12"/>
+		<unit id="org.objectweb.asm" version="8.0.1.v20200420-1007"/>
+		<unit id="org.objectweb.asm.source" version="8.0.1.v20200420-1007"/>
+		<unit id="org.objectweb.asm.tree" version="8.0.1.v20200420-1007"/>
+		<unit id="org.objectweb.asm.tree.source" version="8.0.1.v20200420-1007"/>
+		<repository location="https://download.eclipse.org/tools/orbit/downloads/2020-06"/>
 	</location>
 	
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
@@ -59,7 +62,7 @@
 		<unit id="org.eclipse.emf.mwe2.lib" version="0.0.0"/>-->
 		<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.buildship.feature.group" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/releases/oxygen/201804111000"/>
+		<repository location="https://download.eclipse.org/releases/2019-12"/>
 	</location>
 
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
