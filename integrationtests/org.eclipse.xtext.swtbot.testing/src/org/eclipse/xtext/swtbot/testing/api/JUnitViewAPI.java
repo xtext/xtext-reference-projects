@@ -7,9 +7,13 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
+import static org.eclipse.swtbot.swt.finder.waits.Conditions.*;
+
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
-import org.eclipse.swtbot.swt.finder.widgets.*;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
+import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotTree;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 
@@ -29,14 +33,20 @@ public class JUnitViewAPI {
 	public boolean isTestrunErrorFree() {
 		boolean result = atLeastOneTestIsRun() && errorCount() == 0 && failureCount() == 0;
 		System.out.println("Check if test run is error free: '" + result + "'");
+		if (!result) {
+			for (SWTBotTreeItem item : view.bot().tree().getAllItems())
+				System.out.println("  " + item.getText());
+		}
 		return result;
 	}
 
 	void clearHistory() {
 		view.toolbarDropDownButton("Test Run History...").click();
-		SWTBot shellBot = view.bot().shell("Test Runs").bot();
+		XtextSWTBotShell shell = view.bot().shell("Test Runs");
+		SWTBot shellBot = shell.bot();
 		shellBot.button("Remove All").click();
 		shellBot.button("OK").click();
+		shellBot.waitUntil(shellCloses(shell));
 	}
 
 	/** package projected by intention, usage is tricky ... use {@link EclipseAPI#runJunitTests(String...)} **/

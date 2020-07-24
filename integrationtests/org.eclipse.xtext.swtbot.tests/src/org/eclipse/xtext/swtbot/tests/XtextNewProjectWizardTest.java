@@ -35,6 +35,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		mainMenu().openPackageExplorer();
 		closeAllShells();
 		closeAllEditors();
+		consoleView().resetAndClearAllConsoles();
 		deleteAllProjects();
 	}
 
@@ -42,14 +43,20 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 	public void tearDown() {
 		closeAllShells();
 		closeAllEditors();
+		consoleView().resetAndClearAllConsoles();
 		deleteAllProjects();
+		System.out.println("#####################################");
+		System.out.println();
+		System.out.println();
 	}
 
 	@Test
 	public void simpleXtextProject() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'simpleXtextProject'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().toggleGenericIdeSupport().toggleTestingSupport()
-				.finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleGenericIdeSupport()
+				.toggleTestingSupport().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -60,6 +67,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
 
 		// generate the language
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMWE2("org.xtext.example.mydsl", "src", "org.xtext.example.mydsl", "GenerateMyDsl.mwe2");
 		consoleView().waitForMWE2ToFinish();
 		waitForBuild();
@@ -73,6 +81,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		waitForBuild();
 
 		// generate the language again
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMWE2("org.xtext.example.mydsl", "src", "org.xtext.example.mydsl", "GenerateMyDsl.mwe2");
 		consoleView().waitForMWE2ToFinish();
 		waitForBuild();
@@ -83,9 +92,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void simpleXtextProject_withMaven() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'simpleXtextProject_withMaven'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().toggleGenericIdeSupport().toggleTestingSupport()
-				.setMavenBuildType().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleGenericIdeSupport()
+				.toggleTestingSupport().setMavenBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -98,6 +109,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl.parent");
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMavenInstall("org.xtext.example.mydsl.parent", "pom.xml");
 		consoleView().waitForMavenToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -107,6 +119,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 				.replaceContent(helloWorldGrammerWithXbase()).save();
 
 		// generate the language again
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMavenInstall("org.xtext.example.mydsl.parent", "pom.xml");
 		consoleView().waitForMavenToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -120,8 +133,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_forEclipse() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_forEclipse'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleFeature().toggleUpdateSite().toggleTestingSupport().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleFeature().toggleUpdateSite()
+				.toggleTestingSupport().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -136,6 +152,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
 
 		// generate the language
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMWE2("org.xtext.example.mydsl", "src", "org.xtext.example.mydsl", "GenerateMyDsl.mwe2");
 		consoleView().waitForMWE2ToFinish();
 		waitForBuild();
@@ -149,8 +166,10 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_forEclipse_withTesting() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -165,6 +184,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
 
 		// generate the language
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMWE2("org.xtext.example.mydsl", "src", "org.xtext.example.mydsl", "GenerateMyDsl.mwe2");
 		consoleView().waitForMWE2ToFinish();
 		waitForBuild();
@@ -182,8 +202,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_forEclipse_withTesting_withMaven() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting_withMaven'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleFeature().toggleUpdateSite().setMavenBuildType().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleFeature().toggleUpdateSite().setMavenBuildType()
+				.finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -200,6 +223,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMavenInstall("org.xtext.example.mydsl.parent", "pom.xml");
 		consoleView().waitForMavenToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -214,8 +238,10 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_forEclipse_withTesting_withGradle() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting_withGradle'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleUpdateSite().setGradleBuildType().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleUpdateSite().setGradleBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -234,6 +260,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runGradleTest("org.xtext.example.mydsl.parent", "build.gradle");
 		consoleView().waitForGradleToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -248,9 +275,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_webIntegration_withMaven_plain() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_webIntegration_withMaven_plain'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().toggleWebIntegration().setMavenBuildType()
-				.finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+				.setMavenBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -265,6 +294,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl.web", "Maven Dependencies");
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMavenInstall("org.xtext.example.mydsl.parent", "pom.xml");
 		consoleView().waitForMavenToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -279,9 +309,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_webIntegration_withMaven_nested() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_webIntegration_withMaven_nested'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().toggleWebIntegration().setMavenBuildType()
-				.setMavenSourceLayout().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+				.setMavenBuildType().setMavenSourceLayout().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -295,6 +327,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl.web", "Maven Dependencies");
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMavenInstall("org.xtext.example.mydsl.parent", "pom.xml");
 		consoleView().waitForMavenToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -309,9 +342,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_webIntegration_withGradle_plain() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_webIntegration_withGradle_plain'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().toggleWebIntegration().setGradleBuildType()
-				.finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+				.setGradleBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -323,6 +358,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runGradleTest("org.xtext.example.mydsl.parent", "build.gradle");
 		consoleView().waitForGradleToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -337,9 +373,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_webIntegration_withGradle_nested() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_webIntegration_withGradle_nested'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().toggleWebIntegration().setGradleBuildType()
-				.setMavenSourceLayout().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+				.setGradleBuildType().setMavenSourceLayout().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -350,6 +388,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runGradleTest("org.xtext.example.mydsl.parent", "build.gradle");
 		consoleView().waitForGradleToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -364,8 +403,10 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_webIntegration_withLSPRegular() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_webIntegration_withLSPRegular'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().setMavenBuildType()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().setMavenBuildType()
 				.setBuildLanguageServerRegular().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -377,6 +418,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.tests"));
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMavenInstall("org.xtext.example.mydsl.parent", "pom.xml");
 		consoleView().waitForMavenToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();
@@ -390,8 +432,10 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtextProject_webIntegration_withLSPFatJar() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xtextProject_webIntegration_withLSPFatJar'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().next().toggleEclipsePlugin().setMavenBuildType()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().setMavenBuildType()
 				.setBuildLanguageServerFatJar().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -406,6 +450,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.xtext.example.mydsl", "Maven Dependencies");
 
 		// run the maven build and wait for successful termination
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMavenInstall("org.xtext.example.mydsl.parent", "pom.xml");
 		consoleView().waitForMavenToFinishWithSuccess();
 		packageExplorer().refreshAllProjects();

@@ -13,15 +13,15 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swtbot.swt.finder.matchers.WidgetOfType;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotStyledText;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
 import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 
 public final class ConsoleViewAPI {
 
-	private static String previousLine = ""; // static to avoid multiple lines independent of instance count
-	
+	private static int counter = 0; // static to avoid multiple lines independent of instance count
+
 	private final XtextSWTBotView view;
 
 	ConsoleViewAPI(XtextSWTBotView view) {
@@ -44,30 +44,38 @@ public final class ConsoleViewAPI {
 	}
 
 	private void waitForFinish(String successText, String failText, long firstTimeout, long secondTimeout) {
+		long millis = System.currentTimeMillis();
 		try {
 			waitForText(successText, failText, firstTimeout);
 			if (view.bot().styledText().getText().contains(successText)) {
+				System.out.println("Success after: " + ((System.currentTimeMillis() - millis) / 1000) + "sec");
 				return;
 			}
 			if (view.bot().styledText().getText().contains(failText)) {
+				System.out.println("Fail after: " + ((System.currentTimeMillis() - millis) / 1000) + "sec");
 				throw new RuntimeException(view.bot().styledText().getText());
 			}
 		} catch (TimeoutException e) {
 			// wrong console activated!?
 		}
+		System.out.println("Retry after: " + ((System.currentTimeMillis() - millis) / 1000) + "sec");
 		// in case not the success nor the error message appears for some reason the wrong console might be shown
 		// activate the last console and check again
 		activateLastConsole();
 		waitForText(successText, failText, secondTimeout);
 		if (view.bot().styledText().getText().contains(successText)) {
+			System.out.println("Success after: " + ((System.currentTimeMillis() - millis) / 1000) + "sec");
 			return;
 		}
 		if (view.bot().styledText().getText().contains(failText)) {
+			System.out.println("Fail after: " + ((System.currentTimeMillis() - millis) / 1000) + "sec");
 			throw new RuntimeException(view.bot().styledText().getText());
 		}
 	}
 
 	private void waitForText(String successText, String failText, long timeout) {
+		System.out.println("Waiting");
+		counter = 0;
 		view.bot().waitUntil(new DefaultCondition() {
 
 			@Override
@@ -77,29 +85,58 @@ public final class ConsoleViewAPI {
 
 			@Override
 			public boolean test() throws Exception {
-				SWTBotStyledText styledText = view.bot().styledText();
 				// Build might run for several minutes ... send keep alive signal
-				int lineNumber = Math.max(0, styledText.getLineCount() - 1);
-				String lastLine = styledText.getTextOnLine(lineNumber);
-				if (lastLine.trim().isEmpty()) {
-					lineNumber = Math.max(0, styledText.getLineCount() - 2);
-					lastLine = styledText.getTextOnLine(lineNumber);
-				}
-				if (!previousLine.equals(lastLine)) {
-					System.out.println("Console: " + lastLine);
-					previousLine = lastLine;
+				counter++;
+				System.out.print(".");
+				if (counter >= 40) {
+					System.out.println();
+					counter = 0;
 				}
 				// check for both, success and error message, to fail without waiting for a timeout 
-				return styledText.getText().contains(successText) || styledText.getText().contains(failText);
+				String text = view.bot().styledText().getText();
+				return text.contains(successText) || text.contains(failText);
 			}
 		}, timeout, 1000);
+		System.out.println();
+		System.out.println(view.bot().styledText().getText());
 	}
 
 	private void activateLastConsole() {
+		System.out.println("Activate last console");
 		SWTBotToolbarDropDownButton button = view.toolbarDropDownButton("Display Selected Console");
 		if (button.isEnabled()) {
 			List<? extends SWTBotMenu> menuItems = button.menuItems(WidgetOfType.widgetOfType(MenuItem.class));
 			menuItems.get(menuItems.size() - 1).click();
 		}
+	}
+
+	public void resetAndClearAllConsoles() {
+		System.out.println("Reset and clear all consoles");
+		clickToolbarButton("Remove All Terminated Launches");
+		while (isToolbarButtonActive("Terminate")) {
+			clickToolbarButton("Terminate");
+			clickToolbarButton("Clear Console");
+			clickToolbarButton("Remove All Terminated Launches");
+		}
+		clickToolbarButton("Clear Console");
+	}
+
+	private boolean isToolbarButtonActive(String tooltip) {
+		return view.getToolbarButtons().stream().anyMatch(b -> tooltip.equals(b.getToolTipText()) && b.isVisible() && b.isEnabled());
+	}
+
+	private void clickToolbarButton(String tooltip) {
+		List<SWTBotToolbarButton> buttons = view.getToolbarButtons();
+		for (SWTBotToolbarButton b : buttons) {
+			if (tooltip.equals(b.getToolTipText())) {
+				if (b.isVisible() && b.isEnabled()) {
+					System.out.println(" - click button '" + tooltip + "'");
+					b.click();
+					view.bot().sleep(200); // Wait short time to ensure button states update accordingly
+				}
+				return;
+			}
+		}
+		System.out.println(" - no button found '" + tooltip + "'");
 	}
 }

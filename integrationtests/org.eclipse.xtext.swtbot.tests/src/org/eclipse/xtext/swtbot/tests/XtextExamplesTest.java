@@ -33,6 +33,7 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		mainMenu().openPackageExplorer();
 		closeAllShells();
 		closeAllEditors();
+		consoleView().resetAndClearAllConsoles();
 		deleteAllProjects();
 	}
 
@@ -40,11 +41,17 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 	public void tearDown() {
 		closeAllShells();
 		closeAllEditors();
+		consoleView().resetAndClearAllConsoles();
 		deleteAllProjects();
+		System.out.println("#####################################");
+		System.out.println();
+		System.out.println();
 	}
 
 	@Test
 	public void xbaseTutorial() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'xbaseTutorial'");
 		// create example projects
 		mainMenu().openNewProjectWizard().selectXtextExample("Xbase Tutorial").finish();
 		sleep(500); // wait for asynchronous updates
@@ -59,6 +66,8 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void domainModelExample() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'domainModelExample'");
 		// create example projects
 		mainMenu().openNewProjectWizard().selectXtextExample("Xtext Domain-Model Example").finish();
 		sleep(500); // wait for asynchronous updates
@@ -77,23 +86,6 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.eclipse.xtext.example.domainmodel" + ".tests");
 		packageExplorer().expand("org.eclipse.xtext.example.domainmodel" + ".ui");
 		packageExplorer().expand("org.eclipse.xtext.example.domainmodel" + ".ui.tests", "Plug-in Dependencies");
-
-		// remove code mining provider (oxygen target)
-		// TODO remove as soon as target platform is Photon+
-		packageExplorer().deleteFile("org.eclipse.xtext.example.domainmodel.ui", "src",
-				"org.eclipse.xtext.example.domainmodel.ui.codemining", "DomainmodelCodeMiningProvider.java");
-		packageExplorer()
-				.openWithTextEditor("org.eclipse.xtext.example.domainmodel.ui", "src-gen", "org.eclipse.xtext.example.domainmodel.ui",
-						"AbstractDomainmodelUiModule.java")
-				.deleteLine("import org.eclipse.xtext.example.domainmodel.ui.codemining.DomainmodelCodeMiningProvider;")
-				.deleteLine("import org.eclipse.xtext.ui.codemining.XtextCodeMiningReconcileStrategy;")
-				.deleteLine("import org.eclipse.jface.text.codemining.ICodeMiningProvider;").save();
-		packageExplorer().openJavaFile("org.eclipse.xtext.example.domainmodel.ui", "src-gen", "org.eclipse.xtext.example.domainmodel.ui",
-				"AbstractDomainmodelUiModule.java");
-		outlineView().deleteItem("AbstractDomainmodelUiModule", "configureCodeMinding(Binder) : void");
-		packageExplorer().openWithTextEditor("org.eclipse.xtext.example.domainmodel.ui", "plugin.xml")
-				.deleteRange("<extension point=\"org.eclipse.ui.workbench.texteditor.codeMiningProviders\">", "</extension>").save();
-		// end removing codemining
 
 		// work around PDE bug (missing log4j.jar)
 		touchFile("org.eclipse.xtext.example.domainmodel" + "/META-INF/MANIFEST.MF");
@@ -115,24 +107,11 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		oldBytes += calculateFolderSize("org.eclipse.xtext.example.domainmodel" + ".tests/src");
 		oldBytes += calculateFolderSize("org.eclipse.xtext.example.domainmodel" + ".ui/src");
 		oldBytes += calculateFolderSize("org.eclipse.xtext.example.domainmodel" + ".ui.tests/src");
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMWE2("org.eclipse.xtext.example.domainmodel", "src", "org.eclipse.xtext.example.domainmodel",
 				"GenerateDomainmodel.mwe2");
 		consoleView().waitForMWE2ToFinish();
 		waitForBuild();
-		// remove code mining provider (oxygen target)
-		// TODO remove as soon as target platform is Photon+
-		packageExplorer().deleteFile("org.eclipse.xtext.example.domainmodel.ui", "src",
-				"org.eclipse.xtext.example.domainmodel.ui.codemining", "DomainmodelCodeMiningProvider.java");
-		packageExplorer()
-				.openWithTextEditor("org.eclipse.xtext.example.domainmodel.ui", "src-gen", "org.eclipse.xtext.example.domainmodel.ui",
-						"AbstractDomainmodelUiModule.java")
-				.deleteLine("import org.eclipse.xtext.example.domainmodel.ui.codemining.DomainmodelCodeMiningProvider;")
-				.deleteLine("import org.eclipse.xtext.ui.codemining.XtextCodeMiningReconcileStrategy;")
-				.deleteLine("import org.eclipse.jface.text.codemining.ICodeMiningProvider;").save();
-		packageExplorer().openJavaFile("org.eclipse.xtext.example.domainmodel.ui", "src-gen", "org.eclipse.xtext.example.domainmodel.ui",
-				"AbstractDomainmodelUiModule.java");
-		outlineView().deleteItem("AbstractDomainmodelUiModule", "configureCodeMinding(Binder) : void");
-		// end removing codemining
 		long newBytes = calculateFolderSize("org.eclipse.xtext.example.domainmodel" + "/src");
 		newBytes += calculateFolderSize("org.eclipse.xtext.example.domainmodel" + ".ide/src");
 		newBytes += calculateFolderSize("org.eclipse.xtext.example.domainmodel" + ".tests/src");
@@ -148,11 +127,15 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void homeAutomationExample() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'homeAutomationExample'");
 		standardXtextExample("Xtext Home Automation Example", "org.eclipse.xtext.example.homeautomation", "GenerateRuleEngine.mwe2");
 	}
 
 	@Test
 	public void simpleArithmeticsExample() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'simpleArithmeticsExample'");
 		// create example projects
 		mainMenu().openNewProjectWizard().selectXtextExample("Xtext Simple Arithmetics Example").finish();
 		sleep(500); // wait for asynchronous updates
@@ -171,23 +154,6 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		packageExplorer().expand("org.eclipse.xtext.example.arithmetics" + ".tests");
 		packageExplorer().expand("org.eclipse.xtext.example.arithmetics" + ".ui");
 		packageExplorer().expand("org.eclipse.xtext.example.arithmetics" + ".ui.tests", "Plug-in Dependencies");
-
-		// remove code mining provider (oxygen target)
-		// TODO remove as soon as target platform is Photon+
-		packageExplorer().deleteFile("org.eclipse.xtext.example.arithmetics.ui", "src",
-				"org.eclipse.xtext.example.arithmetics.ui.codemining", "ArithmeticsCodeMiningProvider.java");
-		packageExplorer()
-				.openWithTextEditor("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
-						"AbstractArithmeticsUiModule.java")
-				.deleteLine("import org.eclipse.xtext.example.arithmetics.ui.codemining.ArithmeticsCodeMiningProvider;")
-				.deleteLine("import org.eclipse.xtext.ui.codemining.XtextCodeMiningReconcileStrategy;")
-				.deleteLine("import org.eclipse.jface.text.codemining.ICodeMiningProvider;").save();
-		packageExplorer().openJavaFile("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
-				"AbstractArithmeticsUiModule.java");
-		outlineView().deleteItem("AbstractArithmeticsUiModule", "configureCodeMinding(Binder) : void");
-		packageExplorer().openWithTextEditor("org.eclipse.xtext.example.arithmetics.ui", "plugin.xml")
-				.deleteRange("<extension point=\"org.eclipse.ui.workbench.texteditor.codeMiningProviders\">", "</extension>").save();
-		// end removing codemining
 
 		// work around PDE bug (missing log4j.jar)
 		touchFile("org.eclipse.xtext.example.arithmetics" + "/META-INF/MANIFEST.MF");
@@ -209,24 +175,11 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		oldBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".tests/src");
 		oldBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ui/src");
 		oldBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ui.tests/src");
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMWE2("org.eclipse.xtext.example.arithmetics", "src", "org.eclipse.xtext.example.arithmetics",
 				"GenerateArithmetics.mwe2");
 		consoleView().waitForMWE2ToFinish();
 		waitForBuild();
-		// remove code mining provider (oxygen target)
-		// TODO remove as soon as target platform is Photon+
-		packageExplorer().deleteFile("org.eclipse.xtext.example.arithmetics.ui", "src",
-				"org.eclipse.xtext.example.arithmetics.ui.codemining", "ArithmeticsCodeMiningProvider.java");
-		packageExplorer()
-				.openWithTextEditor("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
-						"AbstractArithmeticsUiModule.java")
-				.deleteLine("import org.eclipse.xtext.example.arithmetics.ui.codemining.ArithmeticsCodeMiningProvider;")
-				.deleteLine("import org.eclipse.xtext.ui.codemining.XtextCodeMiningReconcileStrategy;")
-				.deleteLine("import org.eclipse.jface.text.codemining.ICodeMiningProvider;").save();
-		packageExplorer().openJavaFile("org.eclipse.xtext.example.arithmetics.ui", "src-gen", "org.eclipse.xtext.example.arithmetics.ui",
-				"AbstractArithmeticsUiModule.java");
-		outlineView().deleteItem("AbstractArithmeticsUiModule", "configureCodeMinding(Binder) : void");
-		// end removing codemining
 		long newBytes = calculateFolderSize("org.eclipse.xtext.example.arithmetics" + "/src");
 		newBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".ide/src");
 		newBytes += calculateFolderSize("org.eclipse.xtext.example.arithmetics" + ".tests/src");
@@ -237,6 +190,8 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void stateMachineExample() throws Exception {
+		System.out.println();
+		System.out.println("Starting Test 'stateMachineExample'");
 		standardXtextExample("Xtext State-Machine Example", "org.eclipse.xtext.example.fowlerdsl", "GenerateStatemachine.mwe2");
 	}
 
@@ -280,6 +235,7 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		oldBytes += calculateFolderSize(projectName + ".tests/src");
 		oldBytes += calculateFolderSize(projectName + ".ui/src");
 		oldBytes += calculateFolderSize(projectName + ".ui.tests/src");
+		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runMWE2(projectName, "src", projectName, mweFileName);
 		consoleView().waitForMWE2ToFinish();
 		packageExplorer().refreshAllProjects();
