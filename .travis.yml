@@ -221,7 +221,7 @@ matrix:
     env: BUILDCMD=domainmodel-2.21.sh DISPLAY=:99.0
   - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.22.sh DISPLAY=:99.0
-  - jdk: openjdk8
+  - jdk: openjdk11
     env: BUILDCMD=domainmodel-2.23.sh DISPLAY=:99.0
 # The following environments are known to fail
 #  allow_failures:
