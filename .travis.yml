@@ -243,8 +243,6 @@ matrix:
   #- jdk: openjdk8
   #  env: BUILDCMD=greetings-tycho-2.25.sh DISPLAY=:99.0
   - jdk: openjdk8
-    env: BUILDCMD=greetings-tycho-2.25.sh DISPLAY=:99.0
-  - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
   - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.16.sh DISPLAY=:99.0
