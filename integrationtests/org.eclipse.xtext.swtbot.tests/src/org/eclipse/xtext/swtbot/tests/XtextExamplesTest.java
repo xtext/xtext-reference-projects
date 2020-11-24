@@ -162,7 +162,7 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 
 		// run all unit tests and check there are no test failures
-		runJunitTests("org.eclipse.xtext.example.arithmetics" + ".tests", "xtend-gen");
+		runJunitTests("org.eclipse.xtext.example.arithmetics" + ".tests", "src");
 		assertTrue(junitView().isTestrunErrorFree());
 
 		// run all plugin tests and check there are no test failures
