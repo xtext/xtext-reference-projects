@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2018 itemis AG (http://www.itemis.eu) and others.
+ * Copyright (c) 2018, 2020 itemis AG (http://www.itemis.eu) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -94,11 +94,15 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 
 		// run all unit tests and check there are no test failures
-		runJunitTests("org.eclipse.xtext.example.domainmodel" + ".tests", "xtend-gen");
+		runJunitTests("org.eclipse.xtext.example.domainmodel" + ".tests");
 		assertTrue(junitView().isTestrunErrorFree());
 
+		// running on the project does not work cause Java 8/11 problems
 		// run all plugin tests and check there are no test failures
-		runJunitPluginTests("org.eclipse.xtext.example.domainmodel" + ".ui.tests", "xtend-gen");
+		runJunitPluginTests("org.eclipse.xtext.example.domainmodel" + ".ui.tests","src");
+		assertTrue(junitView().isTestrunErrorFree());
+		// run all plugin tests and check there are no test failures
+		runJunitPluginTests("org.eclipse.xtext.example.domainmodel" + ".ui.tests","xtend-gen");
 		assertTrue(junitView().isTestrunErrorFree());
 
 		// check that after a regeneration the projects source folders have not changed
@@ -162,11 +166,11 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 
 		// run all unit tests and check there are no test failures
-		runJunitTests("org.eclipse.xtext.example.arithmetics" + ".tests", "src");
+		runJunitTests("org.eclipse.xtext.example.arithmetics" + ".tests");
 		assertTrue(junitView().isTestrunErrorFree());
 
 		// run all plugin tests and check there are no test failures
-		runJunitPluginTests("org.eclipse.xtext.example.arithmetics" + ".ui.tests", "xtend-gen");
+		runJunitPluginTests("org.eclipse.xtext.example.arithmetics" + ".ui.tests");
 		assertTrue(junitView().isTestrunErrorFree());
 
 		// check that after a regeneration the projects source folders have not changed
@@ -222,11 +226,11 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 
 		// run all unit tests and check there are no test failures
-		runJunitTests(projectName + ".tests", "xtend-gen");
+		runJunitTests(projectName + ".tests");
 		assertTrue(junitView().isTestrunErrorFree());
 
 		// run all plugin tests and check there are no test failures
-		runJunitPluginTests(projectName + ".ui.tests", "xtend-gen");
+		runJunitPluginTests(projectName + ".ui.tests");
 		assertTrue(junitView().isTestrunErrorFree());
 
 		// check that after a regeneration the projects source folders have not changed
