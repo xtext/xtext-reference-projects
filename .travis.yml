@@ -84,6 +84,12 @@ matrix:
     env: BUILDCMD=greetings-maven-2.24.sh
   - jdk: openjdk11
     env: BUILDCMD=greetings-tycho-2.24.sh DISPLAY=:99.0
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.25.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.25.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.25.sh DISPLAY=:99.0
   # Build with Java 11 against Java 11 targets
   - jdk: openjdk11 
     env: BUILDCMD=greetings-gradle-2.18-J11.sh
@@ -127,6 +133,12 @@ matrix:
     env: BUILDCMD=greetings-maven-2.24-J11.sh
   - jdk: openjdk11
     env: BUILDCMD=greetings-tycho-2.24-J11.sh DISPLAY=:99.0
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-gradle-2.25-J11.sh
+  - jdk: openjdk11 
+    env: BUILDCMD=greetings-maven-2.25-J11.sh
+  - jdk: openjdk11
+    env: BUILDCMD=greetings-tycho-2.25-J11.sh DISPLAY=:99.0
 # Java 11 "Oracle JDK"
 #  - env: JDK='Oracle JDK 11' BUILDCMD=greetings-gradle-2.14.sh
 #    install: . ./install-jdk.sh -F 11 -L BCL
@@ -157,6 +169,8 @@ matrix:
     env: BUILDCMD=greetings-gradle-2.23.sh
   - jdk: openjdk8 
     env: BUILDCMD=greetings-gradle-2.24.sh
+  - jdk: openjdk8 
+    env: BUILDCMD=greetings-gradle-2.25.sh
   - jdk: openjdk8
     env: BUILDCMD=greetings-maven-2.12.sh
   - jdk: openjdk8
@@ -183,6 +197,8 @@ matrix:
     env: BUILDCMD=greetings-maven-2.23.sh
   - jdk: openjdk8 
     env: BUILDCMD=greetings-maven-2.24.sh
+  - jdk: openjdk8 
+    env: BUILDCMD=greetings-maven-2.25.sh
   - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.14.sh DISPLAY=:99.0
   - jdk: openjdk8
@@ -223,6 +239,9 @@ matrix:
     env: BUILDCMD=greetings-tycho-2.23.sh DISPLAY=:99.0
   - jdk: openjdk8
     env: BUILDCMD=greetings-tycho-2.24.sh DISPLAY=:99.0
+  # test no longer run with java 8 thus build needs to be done with Java 11. see above 
+  #- jdk: openjdk8
+  #  env: BUILDCMD=greetings-tycho-2.25.sh DISPLAY=:99.0
   - jdk: openjdk8
     env: BUILDCMD=domainmodel-2.15.sh DISPLAY=:99.0
   - jdk: openjdk8
@@ -243,6 +262,8 @@ matrix:
     env: BUILDCMD=domainmodel-2.23.sh DISPLAY=:99.0
   - jdk: openjdk11
     env: BUILDCMD=domainmodel-2.24.sh DISPLAY=:99.0
+  - jdk: openjdk11
+    env: BUILDCMD=domainmodel-2.25.sh DISPLAY=:99.0
 # The following environments are known to fail
 #  allow_failures:
 #  - env: JDK='Oracle JDK 11'
