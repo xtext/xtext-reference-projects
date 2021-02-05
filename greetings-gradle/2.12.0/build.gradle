@@ -1,6 +1,6 @@
 buildscript {
 	repositories {
-		jcenter()
+		mavenCentral()
 	}
 	dependencies {
 		classpath 'org.xtext:xtext-gradle-plugin:1.0.15'
@@ -10,7 +10,7 @@ buildscript {
 subprojects {
 	ext.xtextVersion = '2.12.0'
 	repositories {
-		jcenter()
+		mavenCentral()
 	}
 	
 	apply plugin: 'java'
