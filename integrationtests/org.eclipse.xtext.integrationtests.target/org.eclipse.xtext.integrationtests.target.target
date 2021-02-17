@@ -43,10 +43,10 @@
 		<unit id="org.junit.platform.runner.source" version="1.7.0.v20201026-1537"/>
 		<unit id="org.opentest4j" version="1.2.0.v20190826-0900"/>
 		<unit id="org.opentest4j.source" version="1.2.0.v20190826-0900"/>
-		<unit id="org.objectweb.asm" version="9.0.0.v20201001-1419"/>
-		<unit id="org.objectweb.asm.source" version="9.0.0.v20201001-1419"/>
-		<unit id="org.objectweb.asm.tree" version="9.0.0.v20201001-1419"/>
-		<unit id="org.objectweb.asm.tree.source" version="9.0.0.v20201001-1419"/>
+		<unit id="org.objectweb.asm" version="9.1.0.v20210209-1849"/>
+		<unit id="org.objectweb.asm.source" version="9.1.0.v20210209-1849"/>
+		<unit id="org.objectweb.asm.tree" version="9.1.0.v20210209-1849"/>
+		<unit id="org.objectweb.asm.tree.source" version="9.1.0.v20210209-1849"/>
 		<repository location="https://download.eclipse.org/tools/orbit/downloads/2021-03"/>
 	</location>
 	
