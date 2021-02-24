@@ -15,7 +15,7 @@
         <unit id="org.eclipse.emf.mwe2.launch.ui" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.language" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.language.ui" version="0.0.0"/>
-        <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/milestones/S202102011009/"/>
+        <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.12.1/"/>
     </location>
     
    	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -27,20 +27,20 @@
 		<unit id="org.antlr.runtime.source" version="3.2.0.v201101311130"/>
 		<unit id="org.junit" version="4.12.0.v201504281640"/>
 		<unit id="org.junit.source" version="4.12.0.v201504281640"/>
-		<unit id="org.junit.jupiter.api" version="5.7.0.v20201026-1537"/>
-		<unit id="org.junit.jupiter.api.source" version="5.7.0.v20201026-1537"/>
-		<unit id="org.junit.jupiter.engine" version="5.7.0.v20201026-1537"/>
-		<unit id="org.junit.jupiter.engine.source" version="5.7.0.v20201026-1537"/>
-		<unit id="org.junit.jupiter.migrationsupport" version="5.7.0.v20201026-1537"/>
-		<unit id="org.junit.jupiter.migrationsupport.source" version="5.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.commons" version="1.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.commons.source" version="1.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.engine" version="1.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.engine.source" version="1.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.launcher" version="1.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.launcher.source" version="1.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.runner" version="1.7.0.v20201026-1537"/>
-		<unit id="org.junit.platform.runner.source" version="1.7.0.v20201026-1537"/>
+		<unit id="org.junit.jupiter.api" version="5.7.1.v20210222-1948"/>
+		<unit id="org.junit.jupiter.api.source" version="5.7.1.v20210222-1948"/>
+		<unit id="org.junit.jupiter.engine" version="5.7.1.v20210222-1948"/>
+		<unit id="org.junit.jupiter.engine.source" version="5.7.1.v20210222-1948"/>
+		<unit id="org.junit.jupiter.migrationsupport" version="5.7.1.v20210222-1948"/>
+		<unit id="org.junit.jupiter.migrationsupport.source" version="5.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.commons" version="1.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.commons.source" version="1.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.engine" version="1.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.engine.source" version="1.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.launcher" version="1.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.launcher.source" version="1.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.runner" version="1.7.1.v20210222-1948"/>
+		<unit id="org.junit.platform.runner.source" version="1.7.1.v20210222-1948"/>
 		<unit id="org.opentest4j" version="1.2.0.v20190826-0900"/>
 		<unit id="org.opentest4j.source" version="1.2.0.v20190826-0900"/>
 		<unit id="org.objectweb.asm" version="9.1.0.v20210209-1849"/>
