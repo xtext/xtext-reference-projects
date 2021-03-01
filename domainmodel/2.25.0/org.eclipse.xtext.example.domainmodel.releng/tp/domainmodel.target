@@ -18,7 +18,7 @@
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
-      <repository location="https://download.eclipse.org/modeling/tmf/xtext/updates/nightly"/>
+      <repository location="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.25.0"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.objectweb.asm" version="9.1.0.v20210209-1849"/>
