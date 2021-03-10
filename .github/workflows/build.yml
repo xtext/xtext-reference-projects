@@ -9,7 +9,7 @@ on:
 
 jobs:
   build_Gralde_J8:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: scripts/greetings-gradle-2.26.sh
   build_Gralde_J8_on_J11:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: scripts/greetings-gradle-2.26.sh
   build_Gralde_J11:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -39,7 +39,7 @@ jobs:
       - name: Build
         run: scripts/greetings-gradle-2.26-J11.sh
   build_Maven_J8:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -49,7 +49,7 @@ jobs:
       - name: Build
         run: scripts/greetings-maven-2.26.sh
   build_Maven_J8_on_J11:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -59,7 +59,7 @@ jobs:
       - name: Build
         run: scripts/greetings-maven-2.26.sh
   build_Maven_J11:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -69,7 +69,7 @@ jobs:
       - name: Build
         run: scripts/greetings-maven-2.26-J11.sh
   build_tycho_J8_on_J11:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -81,7 +81,7 @@ jobs:
         with:
           run: scripts/greetings-tycho-2.26.sh
   build_tycho_J11:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -93,7 +93,7 @@ jobs:
         with:
           run: scripts/greetings-tycho-2.26-J11.sh
   build_domain:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -105,7 +105,7 @@ jobs:
         with:
           run: scripts/domainmodel-2.26.sh
   build_integ_wizard:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -117,7 +117,7 @@ jobs:
         with:
           run: scripts/integrationtests-wizard.sh
   build_integ_xtend:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -129,7 +129,7 @@ jobs:
         with:
           run: scripts/integrationtests-xtend-examples.sh
   build_integ_xtext:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
