@@ -15,6 +15,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable;
+import org.eclipse.swtbot.swt.finder.results.VoidResult;
 import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
@@ -35,6 +37,12 @@ public class EclipseAPI {
 	}
 
 	public static MainMenuAPI mainMenu() {
+		UIThreadRunnable.syncExec(new VoidResult() {
+			@Override
+			public void run() {
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell().forceActive();
+			}
+			});
 		return new MainMenuAPI(bot);
 	}
 
