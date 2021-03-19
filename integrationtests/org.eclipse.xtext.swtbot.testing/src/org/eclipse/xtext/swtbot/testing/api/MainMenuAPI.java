@@ -89,6 +89,7 @@ public class MainMenuAPI {
 		XtextSWTBotShell dialog = bot.shell("Open Perspective");
 		dialog.bot().table().select(name);
 		dialog.bot().button("Open").click();
+		dialog.waitUntilClosed();
 	}
 
 	public PackageExplorerAPI openPackageExplorer() {
@@ -122,6 +123,7 @@ public class MainMenuAPI {
 		XtextSWTBotShell shell = bot.shell("Show View");
 		shell.bot().tree().expandNode(new String[] { category, viewName }).select();
 		shell.bot().button("Open").click();
+		shell.waitUntilClosed();
 		XtextSWTBotView view = bot.viewById(viewId);
 		view.setFocus();
 		return view;

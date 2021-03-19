@@ -8,7 +8,6 @@
 package org.eclipse.xtext.swtbot.testing.api;
 
 import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotText;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
@@ -40,9 +39,9 @@ public class RunConfigurationsDialogAPI {
 
 	public static class MavenBuildRunConfigurationAPI {
 
-		private final SWTBotShell shell;
+		private final XtextSWTBotShell shell;
 
-		public MavenBuildRunConfigurationAPI(SWTBotShell shell) {
+		public MavenBuildRunConfigurationAPI(XtextSWTBotShell shell) {
 			this.shell = shell;
 		}
 
@@ -83,15 +82,16 @@ public class RunConfigurationsDialogAPI {
 		public void run() {
 			System.out.println("Press 'Run'");
 			shell.bot().button("Run").click();
+			shell.waitUntilClosed();
 		}
 
 	}
 
 	public static class GradleBuildRunConfigurationAPI {
 
-		private final SWTBotShell shell;
+		private final XtextSWTBotShell shell;
 
-		public GradleBuildRunConfigurationAPI(SWTBotShell shell) {
+		public GradleBuildRunConfigurationAPI(XtextSWTBotShell shell) {
 			this.shell = shell;
 		}
 
@@ -129,6 +129,7 @@ public class RunConfigurationsDialogAPI {
 		public void run() {
 			System.out.println("Press 'Run'");
 			shell.bot().button("Run").click();
+			shell.waitUntilClosed(1000 * 30);
 		}
 	}
 
