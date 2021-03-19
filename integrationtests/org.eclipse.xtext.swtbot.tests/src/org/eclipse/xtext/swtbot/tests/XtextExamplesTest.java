@@ -14,6 +14,7 @@ import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.xtext.swtbot.testing.AbstractSwtBotTest;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,6 +25,11 @@ import org.junit.runner.RunWith;
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class XtextExamplesTest extends AbstractSwtBotTest {
+
+	@BeforeClass
+	public static void initialize() throws Exception {
+		AbstractSwtBotTest.initialize();
+	}
 
 	@Before
 	public void setUp() {
@@ -99,10 +105,10 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 
 		// running on the project does not work cause Java 8/11 problems
 		// run all plugin tests and check there are no test failures
-		runJunitPluginTests("org.eclipse.xtext.example.domainmodel" + ".ui.tests","src");
+		runJunitPluginTests("org.eclipse.xtext.example.domainmodel" + ".ui.tests", "src");
 		assertTrue(junitView().isTestrunErrorFree());
 		// run all plugin tests and check there are no test failures
-		runJunitPluginTests("org.eclipse.xtext.example.domainmodel" + ".ui.tests","xtend-gen");
+		runJunitPluginTests("org.eclipse.xtext.example.domainmodel" + ".ui.tests", "xtend-gen");
 		assertTrue(junitView().isTestrunErrorFree());
 
 		// check that after a regeneration the projects source folders have not changed

@@ -62,5 +62,5 @@ public class XtextSWTBot extends SWTBot {
 		Matcher matcher = allOf(widgetOfType(Tree.class));
 		return new XtextSWTBotTree((Tree) widget(matcher, index), matcher);
 	}
-
+	
 }

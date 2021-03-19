@@ -24,6 +24,7 @@ public class XtendFormatterPreferenceEditDialogAPI {
 
 	public void cancel() {
 		shell.bot().button("Cancel").click();
+		shell.waitUntilClosed();
 	}
 
 	public void activateBracesSection() {

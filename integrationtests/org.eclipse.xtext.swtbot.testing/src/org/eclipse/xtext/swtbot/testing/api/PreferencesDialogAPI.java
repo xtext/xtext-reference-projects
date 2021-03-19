@@ -25,6 +25,7 @@ public class PreferencesDialogAPI {
 	public void cancel() {
 		System.out.println("Press 'Cancel'");
 		shell.bot().button("Cancel").click();
+		shell.waitUntilClosed();
 	}
 
 	public XtendFormatterPreferencePageAPI activateXtendFormatterPage() {

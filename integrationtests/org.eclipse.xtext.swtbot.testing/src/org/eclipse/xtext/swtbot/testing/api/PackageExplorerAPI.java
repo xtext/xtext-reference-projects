@@ -116,7 +116,7 @@ public class PackageExplorerAPI {
 		SWTBot shellBot = shell.bot();
 		shellBot.checkBox().click();
 		shellBot.button("OK").click();
-		view.bot().waitUntil(shellCloses(shell), 30 * 1000);
+		shell.waitUntilClosed(1000 * 30);
 	}
 
 	private void deleteMavenProjects() {
@@ -142,7 +142,7 @@ public class PackageExplorerAPI {
 					XtextSWTBotShell shell = view.bot().shell("Delete Resources");
 					SWTBot shellBot = shell.bot();
 					shellBot.button("OK").click();
-					shell.bot().waitUntil(shellCloses(shell), 10 * 1000);
+					shell.waitUntilClosed(1000 * 10);
 				}
 			}
 			refreshAllProjects();
@@ -155,7 +155,7 @@ public class PackageExplorerAPI {
 					SWTBot shellBot = shell.bot();
 					shellBot.checkBox().click();
 					shellBot.button("OK").click();
-					shell.bot().waitUntil(shellCloses(shell), 10 * 1000);
+					shell.waitUntilClosed(1000 * 10);
 				}
 			}
 		}

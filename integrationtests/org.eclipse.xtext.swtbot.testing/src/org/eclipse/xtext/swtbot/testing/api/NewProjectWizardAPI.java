@@ -7,8 +7,6 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
-import static org.eclipse.swtbot.swt.finder.waits.Conditions.*;
-
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 
 public class NewProjectWizardAPI {
@@ -54,6 +52,7 @@ public class NewProjectWizardAPI {
 	public void cancel() {
 		System.out.println("Press 'Cancel'");
 		shell.bot().button("Cancel").click();
+		shell.waitUntilClosed();
 	}
 
 	public static class NewXtextExampleSecondPageWizardAPI {
@@ -67,7 +66,7 @@ public class NewProjectWizardAPI {
 		public void finish() {
 			System.out.println("Press 'Finish'");
 			shell.bot().button("Finish").click();
-			shell.bot().waitUntil(shellCloses(shell), 1000 * 60 * 2, 1000);
+			shell.waitUntilClosed(1000 * 60 * 2, 1000);
 		}
 
 	}
@@ -95,7 +94,7 @@ public class NewProjectWizardAPI {
 		public void finish() {
 			System.out.println("Press 'Finish'");
 			shell.bot().button("Finish").click();
-			shell.bot().waitUntil(shellCloses(shell), 1000 * 60 * 2, 1000);
+			shell.waitUntilClosed(1000 * 60 * 2, 1000);
 		}
 
 	}
@@ -177,7 +176,7 @@ public class NewProjectWizardAPI {
 		public void finish() {
 			System.out.println("Press 'Finish'");
 			shell.bot().button("Finish").click();
-			shell.bot().waitUntil(shellCloses(shell), 1000 * 60 * 2, 1000);
+			shell.waitUntilClosed(1000 * 60 * 2, 1000);
 		}
 
 	}

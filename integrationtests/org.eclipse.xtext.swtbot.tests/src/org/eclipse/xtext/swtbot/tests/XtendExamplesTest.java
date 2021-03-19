@@ -14,6 +14,7 @@ import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.xtext.swtbot.testing.AbstractSwtBotTest;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,6 +25,11 @@ import org.junit.runner.RunWith;
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class XtendExamplesTest extends AbstractSwtBotTest {
+
+	@BeforeClass
+	public static void initialize() throws Exception {
+		AbstractSwtBotTest.initialize();
+	}
 
 	@Before
 	public void setUp() {

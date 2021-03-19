@@ -7,8 +7,6 @@
  *******************************************************************************/
 package org.eclipse.xtext.swtbot.testing.api;
 
-import static org.eclipse.swtbot.swt.finder.waits.Conditions.*;
-
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
@@ -46,7 +44,7 @@ public class JUnitViewAPI {
 		SWTBot shellBot = shell.bot();
 		shellBot.button("Remove All").click();
 		shellBot.button("OK").click();
-		shellBot.waitUntil(shellCloses(shell));
+		shell.waitUntilClosed();
 	}
 
 	/** package projected by intention, usage is tricky ... use {@link EclipseAPI#runJunitTests(String...)} **/
