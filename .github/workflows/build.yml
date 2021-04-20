@@ -68,6 +68,18 @@ jobs:
           java-version: 11
       - name: Build
         run: scripts/greetings-maven-2.26-J11.sh
+  build_tycho_J8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build
+        uses: GabrielBB/xvfb-action@v1.4
+        with:
+          run: scripts/greetings-tycho-2.26.sh
   build_tycho_J8_on_J11:
     runs-on: ubuntu-latest
     steps:
