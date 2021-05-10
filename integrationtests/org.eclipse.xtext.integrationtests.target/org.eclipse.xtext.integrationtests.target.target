@@ -5,10 +5,14 @@
 
 	<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
-		<unit id="org.eclipse.xtend.feature.group" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/modeling/tmf/xtext/updates/composite/latest/"/>
+		<repository location="https://download.eclipse.org/modeling/tmf/xtext/updates/nightly/"/>
 	</location>
-	
+
+	<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.xtend.feature.group" version="0.0.0"/>
+		<repository location="https://download.eclipse.org/modeling/m2t/xpand/updates/releases/R201605260315/"/>
+	</location>
+
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
         <unit id="org.eclipse.emf.mwe2.lib" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="0.0.0"/>
@@ -17,7 +21,7 @@
         <unit id="org.eclipse.emf.mwe2.language.ui" version="0.0.0"/>
         <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.12.1/"/>
     </location>
-    
+
    	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="com.google.gson" version="2.8.6.v20201231-1626"/>
 		<unit id="com.google.gson.source" version="2.8.6.v20201231-1626"/>
