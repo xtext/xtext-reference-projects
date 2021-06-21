@@ -20,7 +20,7 @@ subprojects {
 	dependencies {
 		compile platform("org.eclipse.xtext:xtext-dev-bom:${xtextVersion}")
 	}
-
+	
 	apply plugin: 'org.xtext.xtend'
 	apply from: "${rootDir}/gradle/source-layout.gradle"
 	apply plugin: 'eclipse'
@@ -33,5 +33,14 @@ subprojects {
 	
 	configurations.all {
 		exclude group: 'asm'
+	}
+
+	configurations.all {
+		if (name.contains("Tooling")) {
+			dependencies {
+				add(name, "org.eclipse.xtend:org.eclipse.xtend.core:${xtextVersion}")
+				add(name, platform("org.eclipse.xtext:xtext-dev-bom:${xtextVersion}"))
+			}
+		}
 	}
 }
