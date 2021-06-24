@@ -49,7 +49,7 @@
 					</dependency>
 					<dependency>
 						<groupId>org.eclipse.xtext</groupId>
-						<artifactId>org.eclipse.xtext.xtext.generator</artifactId>
+						<artifactId>org.eclipse.xtext.xtext.generator.patched</artifactId>
 						<version>${xtextVersion}</version>
 					</dependency>
 					<dependency>
