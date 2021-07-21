@@ -13,4 +13,9 @@
 	<artifactId>org.eclipse.xtext.swtbot.testing</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
+	<properties>
+		<!-- https://github.com/eclipse/tycho/issues/192 -->
+		<surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
+	</properties>
+
 </project>
