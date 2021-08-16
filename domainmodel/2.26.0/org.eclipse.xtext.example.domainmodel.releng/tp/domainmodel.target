@@ -14,7 +14,7 @@
       <unit id="org.eclipse.emf.mwe.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="0.0.0"/>
-      <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/releases/2.12.1/"/>
+      <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/milestones/S202108160852/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
@@ -23,7 +23,8 @@
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.objectweb.asm" version="9.1.0.v20210209-1849"/>
       <unit id="org.objectweb.asm.tree" version="9.1.0.v20210209-1849"/>
-      <unit id="com.google.inject" version="3.0.0.v201605172100"/>
+      <unit id="com.google.inject" version="5.0.1.v20210324-2015"/>
+      <unit id="org.aopalliance" version="1.0.0.v201105210816"/>
       <unit id="org.apache.commons.cli" version="1.2.0.v201404270220"/>
       <unit id="com.google.guava" version="30.1.0.v20210127-2300"/>
       <unit id="io.github.classgraph" version="4.8.35.v20190528-1517"/>
