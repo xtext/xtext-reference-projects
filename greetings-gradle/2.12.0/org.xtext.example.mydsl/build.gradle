@@ -1,9 +1,25 @@
 dependencies {
 	testCompile "junit:junit:4.12"
-	testCompile "org.eclipse.xtext:org.eclipse.xtext.testing:${xtextVersion}"
-	testCompile "org.eclipse.xtext:org.eclipse.xtext.xbase.testing:${xtextVersion}"
-	compile "org.eclipse.xtext:org.eclipse.xtext:${xtextVersion}"
-	compile "org.eclipse.xtext:org.eclipse.xtext.xbase:${xtextVersion}"
+	testCompile("org.eclipse.xtext:org.eclipse.xtext.testing:${xtextVersion}") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.core.runtime'
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
+	testCompile("org.eclipse.xtext:org.eclipse.xtext.xbase.testing:${xtextVersion}") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.core.runtime'
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
+	compile("org.eclipse.xtext:org.eclipse.xtext:${xtextVersion}") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.core.runtime'
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
+	compile("org.eclipse.xtext:org.eclipse.xtext.xbase:${xtextVersion}") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.core.runtime'
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
+	compile("org.eclipse.platform:org.eclipse.core.runtime:3.19.0") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
+	compile "org.eclipse.platform:org.eclipse.equinox.common:3.13.0"
 }
 configurations {
 	mwe2 {
@@ -12,9 +28,18 @@ configurations {
 }
 
 dependencies {
-	mwe2 "org.eclipse.emf:org.eclipse.emf.mwe2.launch:2.9.0.201605261059"
-	mwe2 "org.eclipse.xtext:org.eclipse.xtext.common.types:${xtextVersion}"
-	mwe2 "org.eclipse.xtext:org.eclipse.xtext.xtext.generator:${xtextVersion}"
+	mwe2("org.eclipse.emf:org.eclipse.emf.mwe2.launch:2.9.0.201605261059") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.core.runtime'
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
+	mwe2("org.eclipse.xtext:org.eclipse.xtext.common.types:${xtextVersion}") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.core.runtime'
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
+	mwe2("org.eclipse.xtext:org.eclipse.xtext.xtext.generator:${xtextVersion}") {
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.core.runtime'
+		exclude group: 'org.eclipse.platform', module: 'org.eclipse.equinox.common'
+	}
 	mwe2 "org.eclipse.xtext:xtext-antlr-generator:[2.1.1, 3)"
 }
 
