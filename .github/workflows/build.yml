@@ -30,6 +30,17 @@ jobs:
           java-version: 11
       - name: Build
         run: scripts/greetings-gradle-2.26.sh
+  build_Gralde_J8_on_J17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Build
+        run: scripts/greetings-gradle-2.26.sh
   build_Gralde_J11:
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +50,17 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 11
+      - name: Build
+        run: scripts/greetings-gradle-2.26-J11.sh
+  build_Gralde_J11_on_J17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 17
       - name: Build
         run: scripts/greetings-gradle-2.26-J11.sh
   build_Maven_J8:
@@ -63,6 +85,17 @@ jobs:
           java-version: 11
       - name: Build
         run: scripts/greetings-maven-2.26.sh
+  build_Maven_J8_on_J17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Build
+        run: scripts/greetings-maven-2.26.sh
   build_Maven_J11:
     runs-on: ubuntu-latest
     steps:
@@ -72,6 +105,17 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 11
+      - name: Build
+        run: scripts/greetings-maven-2.26-J11.sh
+  build_Maven_J11_on_J17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 17
       - name: Build
         run: scripts/greetings-maven-2.26-J11.sh
   build_tycho_J8:
@@ -150,6 +194,21 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 11
+      - name: Build
+        env:
+          EXTRA_ARGS : "-Dtycho-version=2.5.0-SNAPSHOT -Ptycho_snapshots" 
+        uses: GabrielBB/xvfb-action@v1.5
+        with:
+          run: scripts/domainmodel-2.26.sh"
+  build_domain_tycho_25_J17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 17
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=2.5.0-SNAPSHOT -Ptycho_snapshots" 
