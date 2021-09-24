@@ -168,7 +168,7 @@ jobs:
           java-version: 11
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=2.5.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=2.6.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/greetings-tycho-2.26-J11.sh
@@ -196,7 +196,7 @@ jobs:
           java-version: 11
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=2.5.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=2.6.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/domainmodel-2.26.sh"
@@ -211,7 +211,7 @@ jobs:
           java-version: 17
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=2.5.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=2.6.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/domainmodel-2.26.sh"
