@@ -31,27 +31,27 @@
 		<unit id="org.antlr.runtime.source" version="3.2.0.v201101311130"/>
 		<unit id="org.junit" version="4.12.0.v201504281640"/>
 		<unit id="org.junit.source" version="4.12.0.v201504281640"/>
-		<unit id="org.junit.jupiter.api" version="5.7.1.v20210222-1948"/>
-		<unit id="org.junit.jupiter.api.source" version="5.7.1.v20210222-1948"/>
-		<unit id="org.junit.jupiter.engine" version="5.7.1.v20210222-1948"/>
-		<unit id="org.junit.jupiter.engine.source" version="5.7.1.v20210222-1948"/>
-		<unit id="org.junit.jupiter.migrationsupport" version="5.7.1.v20210222-1948"/>
-		<unit id="org.junit.jupiter.migrationsupport.source" version="5.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.commons" version="1.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.commons.source" version="1.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.engine" version="1.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.engine.source" version="1.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.launcher" version="1.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.launcher.source" version="1.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.runner" version="1.7.1.v20210222-1948"/>
-		<unit id="org.junit.platform.runner.source" version="1.7.1.v20210222-1948"/>
-		<unit id="org.opentest4j" version="1.2.0.v20190826-0900"/>
-		<unit id="org.opentest4j.source" version="1.2.0.v20190826-0900"/>
+		<unit id="org.junit.jupiter.api" version="5.8.1.v20211018-1956"/>
+		<unit id="org.junit.jupiter.api.source" version="5.8.1.v20211018-1956"/>
+		<unit id="org.junit.jupiter.engine" version="5.8.1.v20211018-1956"/>
+		<unit id="org.junit.jupiter.engine.source" version="5.8.1.v20211018-1956"/>
+		<unit id="org.junit.jupiter.migrationsupport" version="5.8.1.v20211018-1956"/>
+		<unit id="org.junit.jupiter.migrationsupport.source" version="5.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.commons" version="1.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.commons.source" version="1.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.engine" version="1.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.engine.source" version="1.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.launcher" version="1.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.launcher.source" version="1.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.runner" version="1.8.1.v20211018-1956"/>
+		<unit id="org.junit.platform.runner.source" version="1.8.1.v20211018-1956"/>
+		<unit id="org.opentest4j" version="1.2.0.v20211018-1956"/>
+		<unit id="org.opentest4j.source" version="1.2.0.v20211018-1956"/>
 		<unit id="org.objectweb.asm" version="9.2.0.v20210813-1119"/>
 		<unit id="org.objectweb.asm.source" version="9.2.0.v20210813-1119"/>
 		<unit id="org.objectweb.asm.tree" version="9.2.0.v20210813-1119"/>
 		<unit id="org.objectweb.asm.tree.source" version="9.2.0.v20210813-1119"/>
-		<repository location="https://download.eclipse.org/tools/orbit/downloads/2021-09"/>
+		<repository location="https://download.eclipse.org/tools/orbit/downloads/2021-12"/>
 	</location>
 	
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -66,12 +66,12 @@
 		<unit id="org.eclipse.emf.mwe2.lib" version="0.0.0"/>-->
 		<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.buildship.feature.group" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/releases/2021-06"/>
+		<repository location="https://download.eclipse.org/releases/2021-12"/>
 	</location>
 
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/modeling/emf/emf/builds/release/2.20"/>
+		<repository location="https://download.eclipse.org/modeling/emf/emf/builds/release/2.26"/>
 	</location>
 
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
