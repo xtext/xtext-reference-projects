@@ -51,7 +51,7 @@
 		<unit id="org.objectweb.asm.source" version="9.2.0.v20210813-1119"/>
 		<unit id="org.objectweb.asm.tree" version="9.2.0.v20210813-1119"/>
 		<unit id="org.objectweb.asm.tree.source" version="9.2.0.v20210813-1119"/>
-		<repository location="https://download.eclipse.org/tools/orbit/downloads/2021-12"/>
+		<repository location="https://download.eclipse.org/tools/orbit/downloads/2022-03"/>
 	</location>
 	
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
