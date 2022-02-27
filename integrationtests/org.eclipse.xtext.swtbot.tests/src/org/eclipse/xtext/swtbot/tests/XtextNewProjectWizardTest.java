@@ -109,6 +109,9 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		// check example projects are created
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.parent"));
+		
+		packageExplorer().mavenRefresh("org.xtext.example.mydsl.parent");
+		waitForBuild();
 
 		// expand projects to get more meaningful screenshots for trouble shooting
 		packageExplorer().expand("org.xtext.example.mydsl");
@@ -224,6 +227,9 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.tests"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.ui"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.ui.tests"));
+		
+		packageExplorer().mavenRefresh("org.xtext.example.mydsl.parent");
+		waitForBuild();
 
 		// expand projects to get more meaningful screenshots for trouble shooting
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
@@ -264,6 +270,9 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 		// expand projects to get more meaningful screenshots for trouble shooting
 		packageExplorer().expand("org.xtext.example.mydsl", "Plug-in Dependencies");
+		
+		packageExplorer().mavenRefresh("org.xtext.example.mydsl.parent");
+		waitForBuild();
 
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
@@ -295,7 +304,10 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.parent"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.tests"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
-
+		
+		packageExplorer().mavenRefresh("org.xtext.example.mydsl.parent");
+		waitForBuild();
+		
 		// expand projects to get more meaningful screenshots for trouble shooting
 		packageExplorer().expand("org.xtext.example.mydsl.web", "Maven Dependencies");
 
@@ -328,6 +340,9 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.ide"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.parent"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
+		
+		packageExplorer().mavenRefresh("org.xtext.example.mydsl.parent");
+		waitForBuild();
 
 		// expand projects to get more meaningful screenshots for trouble shooting
 		packageExplorer().expand("org.xtext.example.mydsl.web", "Maven Dependencies");
@@ -422,6 +437,9 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.ide"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.parent"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.tests"));
+		
+		packageExplorer().mavenRefresh("org.xtext.example.mydsl.parent");
+		waitForBuild();
 
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
@@ -451,6 +469,9 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.ide"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.parent"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.tests"));
+		
+		packageExplorer().mavenRefresh("org.xtext.example.mydsl.parent");
+		waitForBuild();
 
 		// expand projects to get more meaningful screenshots for trouble shooting
 		packageExplorer().expand("org.xtext.example.mydsl", "Maven Dependencies");
