@@ -189,6 +189,14 @@ public class PackageExplorerAPI {
 		view.bot().tree().expandNode(path);
 		return this;
 	}
+	
+	public PackageExplorerAPI mavenRefresh(String path) {
+		System.out.println("Maven Refresh in 'Package Explorer' " + path);
+		view.bot().tree().expandNode(path).contextMenu("Maven").menu("Update Project...").click();
+		view.bot().shell("Update Maven Project").bot().checkBox("Force Update of Snapshots/Releases").select();
+		view.bot().shell("Update Maven Project").bot().button("OK").click();
+		return this;
+	}
 
 	/** package projected by intention, usage is tricky ... use {@link EclipseAPI#runJunitTests(String...)} **/
 	PackageExplorerAPI runJUnitTests(String... path) {
