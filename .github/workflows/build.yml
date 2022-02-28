@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: 8
       - name: Build
-        run: scripts/greetings-gradle-2.26.sh
+        run: scripts/greetings-gradle-2.27.sh
   build_Gralde_J8_on_J11:
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-gradle-2.26.sh
+        run: scripts/greetings-gradle-2.27.sh
   build_Gralde_J8_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +40,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-gradle-2.26.sh
+        run: scripts/greetings-gradle-2.27.sh
   build_Gralde_J11:
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-gradle-2.26-J11.sh
+        run: scripts/greetings-gradle-2.27-J11.sh
   build_Gralde_J11_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -62,7 +62,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-gradle-2.26-J11.sh
+        run: scripts/greetings-gradle-2.27-J11.sh
   build_Maven_J8:
     runs-on: ubuntu-latest
     steps:
@@ -73,7 +73,7 @@ jobs:
           distribution: 'temurin'
           java-version: 8
       - name: Build
-        run: scripts/greetings-maven-2.26.sh
+        run: scripts/greetings-maven-2.27.sh
   build_Maven_J8_on_J11:
     runs-on: ubuntu-latest
     steps:
@@ -84,7 +84,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-maven-2.26.sh
+        run: scripts/greetings-maven-2.27.sh
   build_Maven_J8_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -95,7 +95,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-maven-2.26.sh
+        run: scripts/greetings-maven-2.27.sh
   build_Maven_J11:
     runs-on: ubuntu-latest
     steps:
@@ -106,7 +106,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-maven-2.26-J11.sh
+        run: scripts/greetings-maven-2.27-J11.sh
   build_Maven_J11_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -117,7 +117,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-maven-2.26-J11.sh
+        run: scripts/greetings-maven-2.27-J11.sh
   build_tycho_J8:
     runs-on: ubuntu-latest
     steps:
@@ -130,7 +130,7 @@ jobs:
       - name: Build
         uses: GabrielBB/xvfb-action@v1.5
         with:
-          run: scripts/greetings-tycho-2.26.sh
+          run: scripts/greetings-tycho-2.27.sh
   build_tycho_J8_on_J11:
     runs-on: ubuntu-latest
     steps:
@@ -143,7 +143,7 @@ jobs:
       - name: Build
         uses: GabrielBB/xvfb-action@v1.5
         with:
-          run: scripts/greetings-tycho-2.26.sh
+          run: scripts/greetings-tycho-2.27.sh
   build_tycho_J11:
     runs-on: ubuntu-latest
     steps:
@@ -156,7 +156,7 @@ jobs:
       - name: Build
         uses: GabrielBB/xvfb-action@v1.5
         with:
-          run: scripts/greetings-tycho-2.26-J11.sh
+          run: scripts/greetings-tycho-2.27-J11.sh
   build_tycho_J11_tycho_27:
     runs-on: ubuntu-latest
     steps:
@@ -171,7 +171,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=2.7.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
-          run: scripts/greetings-tycho-2.26-J11.sh
+          run: scripts/greetings-tycho-2.27-J11.sh
   build_domain:
     runs-on: ubuntu-latest
     steps:
@@ -184,7 +184,7 @@ jobs:
       - name: Build
         uses: GabrielBB/xvfb-action@v1.5
         with:
-          run: scripts/domainmodel-2.26.sh
+          run: scripts/domainmodel-2.27.sh
   build_domain_tycho_27:
     runs-on: ubuntu-latest
     steps:
@@ -199,7 +199,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=2.7.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
-          run: scripts/domainmodel-2.26.sh"
+          run: scripts/domainmodel-2.27.sh"
   build_domain_tycho_27_J17:
     runs-on: ubuntu-latest
     steps:
@@ -214,7 +214,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=2.7.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
-          run: scripts/domainmodel-2.26.sh"
+          run: scripts/domainmodel-2.27.sh"
   build_integ_wizard:
     runs-on: ubuntu-latest
     steps:
