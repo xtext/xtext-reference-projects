@@ -157,7 +157,7 @@ jobs:
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/greetings-tycho-2.27-J11.sh
-  build_tycho_J11_tycho_27:
+  build_tycho_J11_tycho_30:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -168,7 +168,7 @@ jobs:
           java-version: 11
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=2.7.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=3.0.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/greetings-tycho-2.27-J11.sh
@@ -185,7 +185,7 @@ jobs:
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/domainmodel-2.27.sh
-  build_domain_tycho_27:
+  build_domain_tycho_30:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -196,11 +196,11 @@ jobs:
           java-version: 11
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=2.7.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=3.0.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/domainmodel-2.27.sh"
-  build_domain_tycho_27_J17:
+  build_domain_tycho_30_J17:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -211,7 +211,7 @@ jobs:
           java-version: 17
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=2.7.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=3.0.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.5
         with:
           run: scripts/domainmodel-2.27.sh"
