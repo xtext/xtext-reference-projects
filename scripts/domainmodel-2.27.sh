@@ -1,7 +1,7 @@
 cd domainmodel/2.27.0/org.eclipse.xtext.example.domainmodel.releng
 
 TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-$GITHUB_WORKSPACE}"
-TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-../../}"
+TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-../../../}"
 
 export PROFILES=
 export SETTINGS="-s $TRAVIS_BUILD_DIR/settings.xml"
