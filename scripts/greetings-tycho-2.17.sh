@@ -1,6 +1,6 @@
 cd greetings-tycho/2.17.0
 
-export PROFILES=-Pxtext_snapshots
+export PROFILES=
 export SETTINGS="-s $TRAVIS_BUILD_DIR/settings.xml"
 export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
 
