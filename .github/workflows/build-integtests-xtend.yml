@@ -1,0 +1,23 @@
+name: Build Integtests Xtend Examples Latest
+
+on: 
+  push:
+  pull_request:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 4 * * *'
+
+jobs:
+  build_integ_xtend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 11
+      - name: Build
+        uses: GabrielBB/xvfb-action@v1.6
+        with:
+          run: scripts/integrationtests-xtend-examples.sh

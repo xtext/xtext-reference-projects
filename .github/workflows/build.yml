@@ -1,4 +1,4 @@
-name: Build Latest
+name: Build Projects Latest
 
 on: 
   push:
@@ -215,43 +215,3 @@ jobs:
         uses: GabrielBB/xvfb-action@v1.6
         with:
           run: scripts/domainmodel-2.27.sh"
-  build_integ_wizard:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'temurin'
-          java-version: 11
-      - name: Build
-        uses: GabrielBB/xvfb-action@v1.6
-        with:
-          run: scripts/integrationtests-wizard.sh
-  build_integ_xtend:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'temurin'
-          java-version: 11
-      - name: Build
-        uses: GabrielBB/xvfb-action@v1.6
-        with:
-          run: scripts/integrationtests-xtend-examples.sh
-  build_integ_xtext:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'temurin'
-          java-version: 11
-      - name: Build
-        uses: GabrielBB/xvfb-action@v1.6
-        with:
-          run: scripts/integrationtests-xtext-examples.sh
-
