@@ -28,7 +28,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -49,7 +49,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -70,7 +70,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -140,7 +140,7 @@ def runScript(javaVersion, theScript) {
       }
     }
     tools {
-      maven "apache-maven-3.8.4"
+      maven "apache-maven-3.8.5"
       jdk "${javaVersion}"
     }
     environment {

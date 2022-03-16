@@ -29,7 +29,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk8-latest"
           }
           environment {
@@ -50,7 +50,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk8-latest"
           }
           environment {
@@ -71,7 +71,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk8-latest"
           }
           environment {
@@ -92,7 +92,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -113,7 +113,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -134,7 +134,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -155,7 +155,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -176,7 +176,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -197,7 +197,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -218,7 +218,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk11-latest"
           }
           environment {
@@ -239,7 +239,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk17-latest"
           }
           environment {
@@ -260,7 +260,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk17-latest"
           }
           environment {
@@ -281,7 +281,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk17-latest"
           }
           environment {
@@ -302,7 +302,7 @@ pipeline {
             }
           }
           tools {
-            maven "apache-maven-3.8.4"
+            maven "apache-maven-3.8.5"
             jdk "temurin-jdk17-latest"
           }
           environment {
@@ -372,7 +372,7 @@ def runScript(javaVersion, theScript) {
       }
     }
     tools {
-      maven "apache-maven-3.8.4"
+      maven "apache-maven-3.8.5"
       jdk "${javaVersion}"
     }
     environment {
@@ -419,7 +419,7 @@ def runScript(javaVersion, theScript) {
 //           }
 //         }
 //         tools {
-//           maven "apache-maven-3.8.4"
+//           maven "apache-maven-3.8.5"
 //           jdk "temurin-jdk8-latest"
 //         }
 //         environment {
@@ -496,7 +496,7 @@ def runScript(javaVersion, theScript) {
 //       }
 //     }
 //     tools {
-//       maven "apache-maven-3.8.4"
+//       maven "apache-maven-3.8.5"
 //       jdk "${javaVersion}"
 //     }
 //     environment {
