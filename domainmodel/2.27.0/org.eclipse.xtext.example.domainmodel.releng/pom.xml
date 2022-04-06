@@ -104,7 +104,7 @@
 							<requirement>
 								<type>eclipse-plugin</type>
 								<id>org.eclipse.xtext.logging</id>
-								<versionRange>1.2.15</versionRange>
+								<versionRange>1.2.19</versionRange>
 							</requirement>
 						</extraRequirements>
 					</dependency-resolution>
@@ -162,7 +162,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>2.5</version>
+					<version>3.2.0</version>
 					<configuration>
 						<filesets>
 							<fileset>
