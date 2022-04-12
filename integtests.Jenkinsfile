@@ -24,7 +24,7 @@ pipeline {
         stage('Build scripts/integrationtests-wizard.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -45,7 +45,7 @@ pipeline {
         stage('Build scripts/integrationtests-xtend-examples.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -66,7 +66,7 @@ pipeline {
         stage('Build scripts/integrationtests-xtext-examples.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -136,7 +136,7 @@ def runScript(javaVersion, theScript) {
   stage(script + " on " + javaVersion) {
     agent {
       kubernetes {
-        inheritFrom 'centos-7'
+        inheritFrom 'centos-8'
       }
     }
     tools {

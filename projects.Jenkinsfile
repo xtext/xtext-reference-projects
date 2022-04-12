@@ -25,7 +25,7 @@ pipeline {
         stage('Build scripts/greetings-gradle-2.27.sh on temurin-jdk8-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -46,7 +46,7 @@ pipeline {
         stage('Build scripts/greetings-maven-2.27.sh on temurin-jdk8-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -67,7 +67,7 @@ pipeline {
         stage('Build scripts/greetings-tycho-2.27.sh on temurin-jdk8-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -88,7 +88,7 @@ pipeline {
         stage('Build scripts/greetings-gradle-2.27.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -109,7 +109,7 @@ pipeline {
         stage('Build scripts/greetings-gradle-2.27-J11.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -130,7 +130,7 @@ pipeline {
         stage('Build scripts/greetings-maven-2.27.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -151,7 +151,7 @@ pipeline {
         stage('Build scripts/greetings-maven-2.27-J11.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -172,7 +172,7 @@ pipeline {
         stage('Build scripts/greetings-tycho-2.27.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -193,7 +193,7 @@ pipeline {
         stage('Build scripts/greetings-tycho-2.27-J11.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -214,7 +214,7 @@ pipeline {
         stage('Build scripts/domainmodel-2.27.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -235,7 +235,7 @@ pipeline {
         stage('Build scripts/greetings-maven-2.27.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -256,7 +256,7 @@ pipeline {
         stage('Build scripts/greetings-maven-2.27-J11.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -277,7 +277,7 @@ pipeline {
         stage('Build scripts/greetings-tycho-2.27-J11.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -298,7 +298,7 @@ pipeline {
         stage('Build scripts/domainmodel-2.27.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
-              inheritFrom 'centos-7'
+              inheritFrom 'centos-8'
             }
           }
           tools {
@@ -368,7 +368,7 @@ def runScript(javaVersion, theScript) {
   stage(script + " on " + javaVersion) {
     agent {
       kubernetes {
-        inheritFrom 'centos-7'
+        inheritFrom 'centos-8'
       }
     }
     tools {
@@ -415,7 +415,7 @@ def runScript(javaVersion, theScript) {
 //       matrix {
 //         agent {
 //           kubernetes {
-//             inheritFrom 'centos-7'
+//             inheritFrom 'centos-8'
 //           }
 //         }
 //         tools {
@@ -492,7 +492,7 @@ def runScript(javaVersion, theScript) {
 //   stage(script + " on " + javaVersion) {
 //     agent {
 //       kubernetes {
-//         inheritFrom 'centos-7'
+//         inheritFrom 'centos-8'
 //       }
 //     }
 //     tools {
