@@ -22,7 +22,7 @@ pipeline {
     stage('do the tests') {
       parallel {
 
-        stage('Build scripts/greetings-gradle-2.27.sh on temurin-jdk8-latest') {
+        stage('Build scripts/greetings-gradle-2.28.sh on temurin-jdk8-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -39,11 +39,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-gradle-2.27.sh'
+              sh 'scripts/greetings-gradle-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.27.sh on temurin-jdk8-latest') {
+        stage('Build scripts/greetings-maven-2.28.sh on temurin-jdk8-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -60,11 +60,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.27.sh'
+              sh 'scripts/greetings-maven-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-tycho-2.27.sh on temurin-jdk8-latest') {
+        stage('Build scripts/greetings-tycho-2.28.sh on temurin-jdk8-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -81,11 +81,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-tycho-2.27.sh'
+              sh 'scripts/greetings-tycho-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-gradle-2.27.sh on temurin-jdk11-latest') {
+        stage('Build scripts/greetings-gradle-2.28.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -102,11 +102,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-gradle-2.27.sh'
+              sh 'scripts/greetings-gradle-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-gradle-2.27-J11.sh on temurin-jdk11-latest') {
+        stage('Build scripts/greetings-gradle-2.28-J11.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -123,11 +123,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-gradle-2.27-J11.sh'
+              sh 'scripts/greetings-gradle-2.28-J11.sh'
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.27.sh on temurin-jdk11-latest') {
+        stage('Build scripts/greetings-maven-2.28.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -144,11 +144,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.27.sh'
+              sh 'scripts/greetings-maven-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.27-J11.sh on temurin-jdk11-latest') {
+        stage('Build scripts/greetings-maven-2.28-J11.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -165,11 +165,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.27-J11.sh'
+              sh 'scripts/greetings-maven-2.28-J11.sh'
             }
           }
         }
-        stage('Build scripts/greetings-tycho-2.27.sh on temurin-jdk11-latest') {
+        stage('Build scripts/greetings-tycho-2.28.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -186,11 +186,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-tycho-2.27.sh'
+              sh 'scripts/greetings-tycho-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-tycho-2.27-J11.sh on temurin-jdk11-latest') {
+        stage('Build scripts/greetings-tycho-2.28-J11.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -207,11 +207,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-tycho-2.27-J11.sh'
+              sh 'scripts/greetings-tycho-2.28-J11.sh'
             }
           }
         }
-        stage('Build scripts/domainmodel-2.27.sh on temurin-jdk11-latest') {
+        stage('Build scripts/domainmodel-2.28.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -228,11 +228,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/domainmodel-2.27.sh'
+              sh 'scripts/domainmodel-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.27.sh on temurin-jdk17-latest') {
+        stage('Build scripts/greetings-maven-2.28.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -249,11 +249,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.27.sh'
+              sh 'scripts/greetings-maven-2.28.sh'
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.27-J11.sh on temurin-jdk17-latest') {
+        stage('Build scripts/greetings-maven-2.28-J11.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -270,11 +270,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.27-J11.sh'
+              sh 'scripts/greetings-maven-2.28-J11.sh'
             }
           }
         }
-        stage('Build scripts/greetings-tycho-2.27-J11.sh on temurin-jdk17-latest') {
+        stage('Build scripts/greetings-tycho-2.28-J11.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -291,11 +291,11 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-tycho-2.27-J11.sh'
+              sh 'scripts/greetings-tycho-2.28-J11.sh'
             }
           }
         }
-        stage('Build scripts/domainmodel-2.27.sh on temurin-jdk17-latest') {
+        stage('Build scripts/domainmodel-2.28.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -312,7 +312,7 @@ pipeline {
           steps {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/domainmodel-2.27.sh'
+              sh 'scripts/domainmodel-2.28.sh'
             }
           }
         }
@@ -429,7 +429,7 @@ def runScript(javaVersion, theScript) {
 //         axes {
 //           axis {
 //             name 'SCRIPT'
-//             values 'scripts/greetings-maven-2.27.sh','scripts/greetings-tycho-2.27.sh','scripts/greetings-gradle-2.27.sh'
+//             values 'scripts/greetings-maven-2.28.sh','scripts/greetings-tycho-2.28.sh','scripts/greetings-gradle-2.28.sh'
 //           } //a axis
 //         } // axes
 //         stages {
