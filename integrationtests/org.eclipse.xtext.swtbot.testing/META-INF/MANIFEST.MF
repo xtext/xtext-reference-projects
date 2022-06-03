@@ -64,7 +64,6 @@ Require-Bundle: org.eclipse.swtbot.eclipse.core;bundle-version="2.1.1",
  org.eclipse.m2e.lifecyclemapping.defaults,
  org.eclipse.buildship.branding,
  org.eclipse.buildship.core,
- org.eclipse.buildship.stsmigration,
  org.eclipse.buildship.ui
 Export-Package: org.eclipse.xtext.swtbot.testing,
  org.eclipse.xtext.swtbot.testing.api
