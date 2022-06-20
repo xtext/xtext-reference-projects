@@ -97,6 +97,11 @@
 								<versionRange>1.0.0</versionRange>
 							</requirement>
 							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.slf4j.binding.simple</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
 								<type>eclipse-feature</type>
 								<id>org.eclipse.platform</id>
 								<versionRange>3.6</versionRange>
