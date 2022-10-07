@@ -22,7 +22,7 @@ pipeline {
     stage('do the tests') {
       parallel {
 
-        stage('Build scripts/greetings-gradle-2.29.sh on temurin-jdk8-latest') {
+        stage('Build scripts/greetings-gradle-2.29.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -30,7 +30,7 @@ pipeline {
           }
           tools {
             maven "apache-maven-3.8.6"
-            jdk "temurin-jdk8-latest"
+            jdk "temurin-jdk17-latest"
           }
           environment {
             EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
@@ -43,7 +43,7 @@ pipeline {
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.29.sh on temurin-jdk8-latest') {
+        stage('Build scripts/greetings-maven-2.29.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -51,7 +51,7 @@ pipeline {
           }
           tools {
             maven "apache-maven-3.8.6"
-            jdk "temurin-jdk8-latest"
+            jdk "temurin-jdk17-latest"
           }
           environment {
             EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
@@ -64,7 +64,7 @@ pipeline {
             }
           }
         }
-        stage('Build scripts/greetings-tycho-2.29.sh on temurin-jdk8-latest') {
+        stage('Build scripts/greetings-tycho-2.29.sh on temurin-jdk17-latest') {
           agent {
             kubernetes {
               inheritFrom 'centos-8'
@@ -72,7 +72,7 @@ pipeline {
           }
           tools {
             maven "apache-maven-3.8.6"
-            jdk "temurin-jdk8-latest"
+            jdk "temurin-jdk17-latest"
           }
           environment {
             EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
@@ -82,27 +82,6 @@ pipeline {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
               sh 'scripts/greetings-tycho-2.29.sh'
-            }
-          }
-        }
-        stage('Build scripts/greetings-gradle-2.29.sh on temurin-jdk11-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk11-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-gradle-2.29.sh'
             }
           }
         }
@@ -127,27 +106,6 @@ pipeline {
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.29.sh on temurin-jdk11-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk11-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.29.sh'
-            }
-          }
-        }
         stage('Build scripts/greetings-maven-2.29-J11.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
@@ -166,27 +124,6 @@ pipeline {
             checkout scm
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
               sh 'scripts/greetings-maven-2.29-J11.sh'
-            }
-          }
-        }
-        stage('Build scripts/greetings-tycho-2.29.sh on temurin-jdk11-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk11-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-tycho-2.29.sh'
             }
           }
         }
@@ -232,91 +169,6 @@ pipeline {
             }
           }
         }
-        stage('Build scripts/greetings-maven-2.29.sh on temurin-jdk17-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk17-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.29.sh'
-            }
-          }
-        }
-        stage('Build scripts/greetings-maven-2.29-J11.sh on temurin-jdk17-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk17-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-maven-2.29-J11.sh'
-            }
-          }
-        }
-        stage('Build scripts/greetings-tycho-2.29-J11.sh on temurin-jdk17-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk17-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/greetings-tycho-2.29-J11.sh'
-            }
-          }
-        }
-        stage('Build scripts/domainmodel-2.29.sh on temurin-jdk17-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk17-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/domainmodel-2.29.sh'
-            }
-          }
-        }
-
       } // parallel
     }
     

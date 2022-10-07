@@ -8,29 +8,7 @@ on:
     - cron:  '0 4 * * *'
 
 jobs:
-  build_Gralde_J8:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 8
-      - name: Build
-        run: scripts/greetings-gradle-2.29.sh
-  build_Gralde_J8_on_J11:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 11
-      - name: Build
-        run: scripts/greetings-gradle-2.29.sh
-  build_Gralde_J8_on_J17:
+  build_Gralde_J17:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -63,29 +41,7 @@ jobs:
           java-version: 17
       - name: Build
         run: scripts/greetings-gradle-2.29-J11.sh
-  build_Maven_J8:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 8
-      - name: Build
-        run: scripts/greetings-maven-2.29.sh
-  build_Maven_J8_on_J11:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 11
-      - name: Build
-        run: scripts/greetings-maven-2.29.sh
-  build_Maven_J8_on_J17:
+  build_Maven_J17:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -118,28 +74,15 @@ jobs:
           java-version: 17
       - name: Build
         run: scripts/greetings-maven-2.29-J11.sh
-  build_tycho_J8:
+  build_tycho_J17:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 1.8
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 8
-      - name: Build
-        uses: GabrielBB/xvfb-action@v1.6
-        with:
-          run: scripts/greetings-tycho-2.29.sh
-  build_tycho_J8_on_J11:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 11
+          java-version: 17
       - name: Build
         uses: GabrielBB/xvfb-action@v1.6
         with:
@@ -157,7 +100,7 @@ jobs:
         uses: GabrielBB/xvfb-action@v1.6
         with:
           run: scripts/greetings-tycho-2.29-J11.sh
-  build_tycho_J11_tycho_30:
+  build_tycho_J17_tycho_30:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -171,8 +114,8 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=3.0.0" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/greetings-tycho-2.29-J11.sh
-  build_tycho_J11_tycho_31:
+          run: scripts/greetings-tycho-2.29.sh
+  build_tycho_J17_tycho_31:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -186,7 +129,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=3.1.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/greetings-tycho-2.29-J11.sh
+          run: scripts/greetings-tycho-2.29.sh
   build_domain:
     runs-on: ubuntu-latest
     steps:
