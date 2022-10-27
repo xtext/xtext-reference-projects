@@ -130,6 +130,21 @@ jobs:
         uses: GabrielBB/xvfb-action@v1.6
         with:
           run: scripts/greetings-tycho-2.29.sh
+  build_tycho_J17_tycho_40:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Build
+        env:
+          EXTRA_ARGS : "-Dtycho-version=4.0.0-SNAPSHOT -Ptycho_snapshots" 
+        uses: GabrielBB/xvfb-action@v1.6
+        with:
+          run: scripts/greetings-tycho-2.29.sh
   build_domain:
     runs-on: ubuntu-latest
     steps:
@@ -170,6 +185,21 @@ jobs:
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=3.1.0-SNAPSHOT -Ptycho_snapshots" 
+        uses: GabrielBB/xvfb-action@v1.6
+        with:
+          run: scripts/domainmodel-2.29.sh"
+  build_domain_tycho_40_J17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Build
+        env:
+          EXTRA_ARGS : "-Dtycho-version=4.0.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
           run: scripts/domainmodel-2.29.sh"
