@@ -9,6 +9,6 @@
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipse.xtext.xtext.wizard.cli.CliProjectsCreatorMain"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-targetDir=${project_loc:xtext-reference-projects}/greetings-gradle/2.29.0&#10;-languageName=org.xtext.example.mydsl.MyDsl&#10;-baseName=org.xtext.example.mydsl&#10;-extension=mydsl&#10;-enabledProjects=GenericIDE,RuntimeTest&#10;-buildSystem=GRADLE&#10;-sourceLayout=MAVEN&#10;-languageServer=FATJAR&#10;-xtextVersion=2.29.0-SNAPSHOT&#10;-projectLayout=HIERARCHICAL&#10;-javaVersion=JAVA17"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-targetDir=${project_loc:xtext-reference-projects}/greetings-gradle/2.30.0&#10;-languageName=org.xtext.example.mydsl.MyDsl&#10;-baseName=org.xtext.example.mydsl&#10;-extension=mydsl&#10;-enabledProjects=GenericIDE,RuntimeTest&#10;-buildSystem=GRADLE&#10;-sourceLayout=MAVEN&#10;-languageServer=FATJAR&#10;-xtextVersion=2.30.0-SNAPSHOT&#10;-projectLayout=HIERARCHICAL&#10;-javaVersion=JAVA17"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.eclipse.xtext.xtext.wizard"/>
 </launchConfiguration>

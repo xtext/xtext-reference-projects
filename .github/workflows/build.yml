@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-gradle-2.29.sh
+        run: scripts/greetings-gradle-2.30.sh
   build_Gralde_J11:
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-gradle-2.29-J11.sh
+        run: scripts/greetings-gradle-2.30-J11.sh
   build_Gralde_J11_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +40,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-gradle-2.29-J11.sh
+        run: scripts/greetings-gradle-2.30-J11.sh
   build_Maven_J17:
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-maven-2.29.sh
+        run: scripts/greetings-maven-2.30.sh
   build_Maven_J11:
     runs-on: ubuntu-latest
     steps:
@@ -62,7 +62,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-maven-2.29-J11.sh
+        run: scripts/greetings-maven-2.30-J11.sh
   build_Maven_J11_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -73,7 +73,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-maven-2.29-J11.sh
+        run: scripts/greetings-maven-2.30-J11.sh
   build_tycho_J17:
     runs-on: ubuntu-latest
     steps:
@@ -86,7 +86,7 @@ jobs:
       - name: Build
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/greetings-tycho-2.29.sh
+          run: scripts/greetings-tycho-2.30.sh
   build_tycho_J11:
     runs-on: ubuntu-latest
     steps:
@@ -99,7 +99,7 @@ jobs:
       - name: Build
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/greetings-tycho-2.29-J11.sh
+          run: scripts/greetings-tycho-2.30-J11.sh
   build_tycho_J17_tycho_30:
     runs-on: ubuntu-latest
     steps:
@@ -114,7 +114,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=3.0.0" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/greetings-tycho-2.29.sh
+          run: scripts/greetings-tycho-2.30.sh
   build_tycho_J17_tycho_31:
     runs-on: ubuntu-latest
     steps:
@@ -129,7 +129,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=3.1.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/greetings-tycho-2.29.sh
+          run: scripts/greetings-tycho-2.30.sh
   build_tycho_J17_tycho_40:
     runs-on: ubuntu-latest
     steps:
@@ -144,7 +144,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=4.0.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/greetings-tycho-2.29.sh
+          run: scripts/greetings-tycho-2.30.sh
   build_domain:
     runs-on: ubuntu-latest
     steps:
@@ -157,7 +157,7 @@ jobs:
       - name: Build
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/domainmodel-2.29.sh
+          run: scripts/domainmodel-2.30.sh
   build_domain_tycho_30_J17:
     runs-on: ubuntu-latest
     steps:
@@ -172,7 +172,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=3.0.0" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/domainmodel-2.29.sh"
+          run: scripts/domainmodel-2.30.sh"
   build_domain_tycho_31_J17:
     runs-on: ubuntu-latest
     steps:
@@ -187,7 +187,7 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=3.1.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/domainmodel-2.29.sh"
+          run: scripts/domainmodel-2.30.sh"
   build_domain_tycho_40_J17:
     runs-on: ubuntu-latest
     steps:
@@ -202,4 +202,4 @@ jobs:
           EXTRA_ARGS : "-Dtycho-version=4.0.0-SNAPSHOT -Ptycho_snapshots" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
-          run: scripts/domainmodel-2.29.sh"
+          run: scripts/domainmodel-2.30.sh"
