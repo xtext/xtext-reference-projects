@@ -18,6 +18,4 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        uses: GabrielBB/xvfb-action@v1.6
-        with:
-          run: scripts/integrationtests-xtext-examples.sh
+        run: xvfb-run scripts/integrationtests-xtext-examples.sh
