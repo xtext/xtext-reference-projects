@@ -111,7 +111,7 @@ jobs:
           java-version: 17
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=3.0.0" 
+          EXTRA_ARGS : "-Dtycho-version=3.0.1" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
           run: scripts/greetings-tycho-2.30.sh
@@ -169,7 +169,7 @@ jobs:
           java-version: 17
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=3.0.0" 
+          EXTRA_ARGS : "-Dtycho-version=3.0.1" 
         uses: GabrielBB/xvfb-action@v1.6
         with:
           run: scripts/domainmodel-2.30.sh"
