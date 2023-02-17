@@ -144,7 +144,7 @@ jobs:
           java-version: 17
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=3.0.2" 
+          EXTRA_ARGS : "-Dtycho-version=3.0.3" 
         run: xvfb-run scripts/domainmodel-2.30.sh
   build_domain_tycho_40_J17:
     runs-on: ubuntu-latest
