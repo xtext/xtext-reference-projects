@@ -19,8 +19,6 @@ pipeline {
 
   // Build stages
   stages {
-    stage('do the tests') {
-      parallel {
 
         stage('Build scripts/greetings-gradle-2.31.sh on temurin-jdk17-latest') {
           agent {
@@ -169,8 +167,6 @@ pipeline {
             }
           }
         }
-      } // parallel
-    }
     
   }
 

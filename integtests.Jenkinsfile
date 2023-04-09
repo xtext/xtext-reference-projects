@@ -19,8 +19,6 @@ pipeline {
 
   // Build stages
   stages {
-    stage('do the tests') {
-      parallel {
         stage('Build scripts/integrationtests-wizard.sh on temurin-jdk11-latest') {
           agent {
             kubernetes {
@@ -84,9 +82,6 @@ pipeline {
             }
           }
         }
-
-      }
-    }
     
   }
 
