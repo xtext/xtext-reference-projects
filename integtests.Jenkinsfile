@@ -19,70 +19,69 @@ pipeline {
 
   // Build stages
   stages {
-        stage('Build scripts/integrationtests-wizard.sh on temurin-jdk11-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk11-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/integrationtests-wizard.sh'
-            }
-          }
+    stage('Build scripts/integrationtests-wizard.sh on temurin-jdk11-latest') {
+      agent {
+        kubernetes {
+          inheritFrom 'centos-8'
         }
-        stage('Build scripts/integrationtests-xtend-examples.sh on temurin-jdk11-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk11-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/integrationtests-xtend-examples.sh'
-            }
-          }
+      }
+      tools {
+        maven "apache-maven-3.8.6"
+        jdk "temurin-jdk11-latest"
+      }
+      environment {
+        EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
+        MAVEN_OPTS="-Xmx512m"
+      }
+      steps {
+        checkout scm
+        wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
+          sh 'scripts/integrationtests-wizard.sh'
         }
-        stage('Build scripts/integrationtests-xtext-examples.sh on temurin-jdk11-latest') {
-          agent {
-            kubernetes {
-              inheritFrom 'centos-8'
-            }
-          }
-          tools {
-            maven "apache-maven-3.8.6"
-            jdk "temurin-jdk11-latest"
-          }
-          environment {
-            EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-            MAVEN_OPTS="-Xmx512m"
-          }
-          steps {
-            checkout scm
-            wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-              sh 'scripts/integrationtests-xtext-examples.sh'
-            }
-          }
+      }
+    }
+    stage('Build scripts/integrationtests-xtend-examples.sh on temurin-jdk11-latest') {
+      agent {
+        kubernetes {
+          inheritFrom 'centos-8'
         }
-    
+      }
+      tools {
+        maven "apache-maven-3.8.6"
+        jdk "temurin-jdk11-latest"
+      }
+      environment {
+        EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
+        MAVEN_OPTS="-Xmx512m"
+      }
+      steps {
+        checkout scm
+        wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
+          sh 'scripts/integrationtests-xtend-examples.sh'
+        }
+      }
+    }
+    stage('Build scripts/integrationtests-xtext-examples.sh on temurin-jdk11-latest') {
+      agent {
+        kubernetes {
+          inheritFrom 'centos-8'
+        }
+      }
+      tools {
+        maven "apache-maven-3.8.6"
+        jdk "temurin-jdk11-latest"
+      }
+      environment {
+        EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
+        MAVEN_OPTS="-Xmx512m"
+      }
+      steps {
+        checkout scm
+        wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
+          sh 'scripts/integrationtests-xtext-examples.sh'
+        }
+      }
+    }
   }
 
   post {
