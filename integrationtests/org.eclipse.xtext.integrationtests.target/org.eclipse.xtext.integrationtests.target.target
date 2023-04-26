@@ -31,22 +31,22 @@
 		<unit id="org.antlr.runtime.source" version="3.2.0.v20220404-1927"/>
 		<unit id="org.junit" version="4.13.2.v20211018-1956"/>
 		<unit id="org.junit.source" version="4.13.2.v20211018-1956"/>
-		<unit id="junit-jupiter-api" version="5.9.2"/>
-		<unit id="junit-jupiter-api.source" version="5.9.2"/>
-		<unit id="junit-jupiter-engine" version="5.9.2"/>
-		<unit id="junit-jupiter-engine.source" version="5.9.2"/>
-		<unit id="junit-jupiter-migrationsupport" version="5.9.2"/>
-		<unit id="junit-jupiter-migrationsupport.source" version="5.9.2"/>
-		<unit id="junit-jupiter-params" version="5.9.2"/>
-		<unit id="junit-jupiter-params.source" version="5.9.2"/>
-		<unit id="junit-platform-commons" version="1.9.2"/>
-		<unit id="junit-platform-commons.source" version="1.9.2"/>
-		<unit id="junit-platform-engine" version="1.9.2"/>
-		<unit id="junit-platform-engine.source" version="1.9.2"/>
-		<unit id="junit-platform-launcher" version="1.9.2"/>
-		<unit id="junit-platform-launcher.source" version="1.9.2"/>
-		<unit id="junit-platform-runner" version="1.9.2"/>
-		<unit id="junit-platform-runner" version="1.9.2"/>
+		<unit id="junit-jupiter-api" version="0.0.0"/>
+		<unit id="junit-jupiter-api.source" version="0.0.0"/>
+		<unit id="junit-jupiter-engine" version="0.0.0"/>
+		<unit id="junit-jupiter-engine.source" version="0.0.0"/>
+		<unit id="junit-jupiter-migrationsupport" version="0.0.0"/>
+		<unit id="junit-jupiter-migrationsupport.source" version="0.0.0"/>
+		<unit id="junit-jupiter-params" version="0.0.0"/>
+		<unit id="junit-jupiter-params.source" version="0.0.0"/>
+		<unit id="junit-platform-commons" version="0.0.0"/>
+		<unit id="junit-platform-commons.source" version="0.0.0"/>
+		<unit id="junit-platform-engine" version="0.0.0"/>
+		<unit id="junit-platform-engine.source" version="0.0.0"/>
+		<unit id="junit-platform-launcher" version="0.0.0"/>
+		<unit id="junit-platform-launcher.source" version="0.0.0"/>
+		<unit id="junit-platform-runner" version="0.0.0"/>
+		<unit id="junit-platform-runner" version="0.0.0"/>
 		<unit id="org.opentest4j" version="1.2.0"/>
 		<unit id="org.opentest4j.source" version="1.2.0"/>
 		<unit id="org.objectweb.asm" version="9.5.0"/>
