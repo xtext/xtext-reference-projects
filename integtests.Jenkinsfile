@@ -1,5 +1,9 @@
 pipeline {
-  agent none
+  agent {
+    kubernetes {
+      inheritFrom 'centos-8'
+    }
+  }
 
   triggers {
     // only on master branch / 30 minutes before nightly sign-and-deploy
