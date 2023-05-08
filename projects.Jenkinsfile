@@ -24,11 +24,6 @@ pipeline {
   // Build stages
   stages {
     stage('Build scripts/greetings-gradle-2.31.sh on temurin-jdk17-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
       tools {
         maven "apache-maven-3.8.6"
         jdk "temurin-jdk17-latest"
@@ -45,11 +40,6 @@ pipeline {
       }
     }
     stage('Build scripts/greetings-maven-2.31.sh on temurin-jdk17-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
       tools {
         maven "apache-maven-3.8.6"
         jdk "temurin-jdk17-latest"
@@ -66,11 +56,6 @@ pipeline {
       }
     }
     stage('Build scripts/greetings-tycho-2.31.sh on temurin-jdk17-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
       tools {
         maven "apache-maven-3.8.6"
         jdk "temurin-jdk17-latest"
@@ -87,11 +72,6 @@ pipeline {
       }
     }
     stage('Build scripts/greetings-gradle-2.31-J11.sh on temurin-jdk11-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
       tools {
         maven "apache-maven-3.8.6"
         jdk "temurin-jdk11-latest"
@@ -108,11 +88,6 @@ pipeline {
       }
     }
     stage('Build scripts/greetings-maven-2.31-J11.sh on temurin-jdk11-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
       tools {
         maven "apache-maven-3.8.6"
         jdk "temurin-jdk11-latest"
@@ -129,11 +104,6 @@ pipeline {
       }
     }
     stage('Build scripts/greetings-tycho-2.31-J11.sh on temurin-jdk11-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
       tools {
         maven "apache-maven-3.8.6"
         jdk "temurin-jdk11-latest"
@@ -150,11 +120,6 @@ pipeline {
       }
     }
     stage('Build scripts/domainmodel-2.31.sh on temurin-jdk17-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
       tools {
         maven "apache-maven-3.8.6"
         jdk "temurin-jdk17-latest"
@@ -214,29 +179,29 @@ def javaVersion() {
   return Integer.parseInt(params.JDK_VERSION.replaceAll(".*-jdk(\\d+).*", "\$1"))
 }
 
-def runScript(javaVersion, theScript) {
-  stage(script + " on " + javaVersion) {
-    agent {
-      kubernetes {
-        inheritFrom 'centos-8'
-      }
-    }
-    tools {
-      maven "apache-maven-3.8.6"
-      jdk "${javaVersion}"
-    }
-    environment {
-      EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
-    }
-    steps {
-      checkout scm
-      wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-        // TODO the following scripts should run independent and fail at the end only
-        sh "${theScript}"
-      }
-    }
-  }
-}
+// def runScript(javaVersion, theScript) {
+//   stage(script + " on " + javaVersion) {
+//     agent {
+//       kubernetes {
+//         inheritFrom 'centos-8'
+//       }
+//     }
+//     tools {
+//       maven "apache-maven-3.8.6"
+//       jdk "${javaVersion}"
+//     }
+//     environment {
+//       EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
+//     }
+//     steps {
+//       checkout scm
+//       wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
+//         // TODO the following scripts should run independent and fail at the end only
+//         sh "${theScript}"
+//       }
+//     }
+//   }
+// }
 
 
 

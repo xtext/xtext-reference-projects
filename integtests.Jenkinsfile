@@ -21,18 +21,14 @@ pipeline {
     timeout(time: 90, unit: 'MINUTES')
   }
 
+  tools {
+    maven "apache-maven-3.8.6"
+    jdk "temurin-jdk17-latest"
+  }
+
   // Build stages
   stages {
     stage('Build scripts/integrationtests-wizard.sh on temurin-jdk17-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
-      tools {
-        maven "apache-maven-3.8.6"
-        jdk "temurin-jdk17-latest"
-      }
       environment {
         EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
         MAVEN_OPTS="-Xmx512m"
@@ -45,15 +41,6 @@ pipeline {
       }
     }
     stage('Build scripts/integrationtests-xtend-examples.sh on temurin-jdk17-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
-      tools {
-        maven "apache-maven-3.8.6"
-        jdk "temurin-jdk17-latest"
-      }
       environment {
         EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
         MAVEN_OPTS="-Xmx512m"
@@ -66,15 +53,6 @@ pipeline {
       }
     }
     stage('Build scripts/integrationtests-xtext-examples.sh on temurin-jdk17-latest') {
-      agent {
-        kubernetes {
-          inheritFrom 'centos-8'
-        }
-      }
-      tools {
-        maven "apache-maven-3.8.6"
-        jdk "temurin-jdk17-latest"
-      }
       environment {
         EXTRA_ARGS = "-Dmaven.repo.local=.m2 -Dtycho.localArtifacts=ignore"
         MAVEN_OPTS="-Xmx512m"
