@@ -118,6 +118,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+      - name: Set up Maven 3.9.1
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.9.1
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=4.0.0-SNAPSHOT -Ptycho_snapshots" 
@@ -155,6 +159,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+      - name: Set up Maven 3.9.1
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.9.1
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=4.0.0-SNAPSHOT -Ptycho_snapshots" 
