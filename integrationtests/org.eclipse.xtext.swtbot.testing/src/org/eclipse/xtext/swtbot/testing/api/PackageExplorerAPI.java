@@ -60,7 +60,7 @@ public class PackageExplorerAPI {
 		view.bot().tree().expandNode(path).select().contextMenu("Run As").menu("Run Configurations...").click();
 		RunConfigurationsDialogAPI dialog = new RunConfigurationsDialogAPI(view.bot().shell("Run Configurations"));
 		dialog.newMavenBuildRunConfiguration().setBaseDirectoryToProject(path[0]).setGoals("clean install").enableUpdateSnapshots()
-				.useLocalRepository().apply().run();
+				.useLocalRepository().disableP2Mirrors().apply().run();
 	}
 
 	public void runGradleTest(String... path) {
