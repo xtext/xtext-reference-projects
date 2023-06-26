@@ -72,6 +72,16 @@ public class RunConfigurationsDialogAPI {
 			dialogBot.button("OK").click();
 			return this;
 		}
+		
+		public MavenBuildRunConfigurationAPI disableP2Mirrors() {
+			System.out.println("Disable P2 Mirrors");
+			shell.bot().button("Add...").click();
+			SWTBot dialogBot = shell.bot().shell("Add Parameter").bot();
+			dialogBot.text(0).setText("tycho.disableP2Mirrors");
+			dialogBot.text(1).setText("true");
+			dialogBot.button("OK").click();
+			return this;
+		}
 
 		public MavenBuildRunConfigurationAPI apply() {
 			System.out.println("Press 'Apply'");
