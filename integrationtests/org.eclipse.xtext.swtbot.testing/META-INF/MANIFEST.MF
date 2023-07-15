@@ -60,6 +60,7 @@ Require-Bundle: org.eclipse.swtbot.eclipse.core;bundle-version="2.1.1",
  org.eclipse.xtext.common.types.shared,
  org.eclipse.buildship.branding,
  org.eclipse.buildship.core,
- org.eclipse.buildship.ui
+ org.eclipse.buildship.ui,
+ org.eclipse.ui.console
 Export-Package: org.eclipse.xtext.swtbot.testing,
  org.eclipse.xtext.swtbot.testing.api
