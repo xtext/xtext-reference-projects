@@ -29,8 +29,10 @@ subprojects {
 	group = 'org.xtext.example.mydsl'
 	version = '1.0.0-SNAPSHOT'
 
-	sourceCompatibility = '17'
-	targetCompatibility = '17'
+	java {
+		sourceCompatibility = JavaVersion.VERSION_17
+		targetCompatibility = JavaVersion.VERSION_17
+	}
 
 	configurations.all {
 		exclude group: 'asm'
