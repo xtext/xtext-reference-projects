@@ -98,7 +98,7 @@
 							</requirement>
 							<requirement>
 								<type>eclipse-plugin</type>
-								<id>org.slf4j.binding.simple</id>
+								<id>slf4j.simple</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
 							<requirement>
