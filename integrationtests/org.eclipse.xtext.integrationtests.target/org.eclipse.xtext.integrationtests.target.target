@@ -14,7 +14,7 @@
         <unit id="org.eclipse.emf.mwe2.launch.ui" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.language" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.language.ui" version="0.0.0"/>
-        <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/milestones/S202310290844/"/>
+        <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/milestones/S202311100605/"/>
     </location>
 
    	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
