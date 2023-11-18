@@ -96,19 +96,6 @@ jobs:
           java-version: 11
       - name: Build
         run: xvfb-run scripts/greetings-tycho-2.33-J11.sh
-  build_tycho_J17_tycho_275:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 17
-      - name: Build
-        env:
-          EXTRA_ARGS : "-Dtycho-version=2.7.5" 
-        run: xvfb-run scripts/greetings-tycho-2.33.sh
   build_tycho_J17_tycho_40:
     runs-on: ubuntu-latest
     steps:
@@ -153,19 +140,6 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: xvfb-run scripts/domainmodel-2.33.sh
-  build_domain_tycho_30_J17:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 17
-      - name: Build
-        env:
-          EXTRA_ARGS : "-Dtycho-version=3.0.5" 
         run: xvfb-run scripts/domainmodel-2.33.sh
   build_domain_tycho_40_J17:
     runs-on: ubuntu-latest
