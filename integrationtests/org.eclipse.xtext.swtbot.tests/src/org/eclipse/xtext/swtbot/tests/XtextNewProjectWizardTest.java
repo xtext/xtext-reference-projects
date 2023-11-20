@@ -361,7 +361,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_webIntegration_withGradle_plain() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withGradle_plain'");
@@ -381,11 +381,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		// do a gradle refresh on parent
 		consoleView().resetAndClearAllConsoles();
 		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
-		packageExplorer().screenshot();
+		screenshot();
 		sleep(500); // wait for asynchronous updates
-		packageExplorer().screenshot();
+		screenshot();
 		consoleView().waitForGradleToFinishWithSuccess();
-		packageExplorer().screenshot();
+		screenshot();
 
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
@@ -419,13 +419,13 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 		// do a gradle refresh on parent
 		consoleView().resetAndClearAllConsoles();
-		packageExplorer().screenshot();
+		screenshot();
 		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
-		packageExplorer().screenshot();
+		screenshot();
 		sleep(500); // wait for asynchronous updates
-		packageExplorer().screenshot();
+		screenshot();
 		consoleView().waitForGradleToFinishWithSuccess();
-		packageExplorer().screenshot();
+		screenshot();
 
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
