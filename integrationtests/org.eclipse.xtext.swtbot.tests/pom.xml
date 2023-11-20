@@ -20,7 +20,7 @@
 				<configuration>
 					<useUIThread>false</useUIThread>
 					<useUIHarness>true</useUIHarness>
-					<argLine>${memory-settings} ${os-jvm-flags} ${surefire-jvmargs} -Dorg.eclipse.swtbot.keyboard.layout=EN_US -Dorg.eclipse.swtbot.playback.delay=20</argLine>
+					<argLine>${memory-settings} ${os-jvm-flags} ${surefire-jvmargs} -Dorg.eclipse.swtbot.keyboard.layout=EN_US -Dorg.eclipse.swtbot.playback.delay=20 -Dorg.eclipse.swtbot.search.timeout=20000</argLine>
 					<appArgLine>-pluginCustomization ${basedir}/pluginCustomization.ini</appArgLine>
 					<includes>
 						<include>**/*Test.java</include>
