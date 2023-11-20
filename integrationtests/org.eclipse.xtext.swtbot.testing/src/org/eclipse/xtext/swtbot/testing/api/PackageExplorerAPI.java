@@ -103,15 +103,19 @@ public class PackageExplorerAPI {
 
 	public void deleteAllProjects() {
 		System.out.println("Delete all projects");
+		EclipseAPI.screenshot();
 		if (isTreeEmpty())
 			return;
 		EclipseAPI.waitForBuild();
 		refreshAllProjects(); // avoid dialog with refresh message + collapse all projects
+		EclipseAPI.screenshot();
 		deleteMavenProjects();
 		if (isTreeEmpty())
 			return;
+		EclipseAPI.screenshot();
 		SWTBotTreeItem[] allItems = view.bot().tree().getAllItems();
 		EclipseAPI.waitForBuild();
+		EclipseAPI.screenshot();
 		view.bot().tree().select(allItems).contextMenu("Delete").click();
 		XtextSWTBotShell shell = view.bot().shell("Delete Resources");
 		SWTBot shellBot = shell.bot();
@@ -134,6 +138,8 @@ public class PackageExplorerAPI {
 	private void deleteMavenProject(String projectNamePrefix) {
 		String parentProjectName = projectNamePrefix + ".parent";
 		if (projectExist(parentProjectName)) {
+			EclipseAPI.screenshot();
+			System.out.println("deleting subprojects of " + parentProjectName);
 			// delete subprojects without deleting from disk
 			collapseAllProjects();
 			for (SWTBotTreeItem i : view.bot().tree().getAllItems()) {
@@ -147,10 +153,12 @@ public class PackageExplorerAPI {
 				}
 			}
 			refreshAllProjects();
+			EclipseAPI.screenshot();
 			// delete parent project and delete all resources
 			for (SWTBotTreeItem i : view.bot().tree().getAllItems()) {
 				String actualProject = i.getText();
 				if (parentProjectName.equals(actualProject)) {
+					EclipseAPI.screenshot();
 					view.bot().tree().select(actualProject).contextMenu("Delete").click();
 					XtextSWTBotShell shell = view.bot().shell("Delete Resources");
 					SWTBot shellBot = shell.bot();
@@ -159,6 +167,9 @@ public class PackageExplorerAPI {
 					shell.waitUntilClosed(1000 * 10);
 				}
 			}
+		} else {
+			EclipseAPI.screenshot();
+			System.out.println(parentProjectName + " not found");
 		}
 	}
 
