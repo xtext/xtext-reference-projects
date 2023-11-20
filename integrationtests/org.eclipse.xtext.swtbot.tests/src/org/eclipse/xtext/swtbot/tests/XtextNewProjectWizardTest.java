@@ -381,7 +381,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		// do a gradle refresh on parent
 		consoleView().resetAndClearAllConsoles();
 		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
+		packageExplorer().screenshot();
+		sleep(500); // wait for asynchronous updates
+		packageExplorer().screenshot();
 		consoleView().waitForGradleToFinishWithSuccess();
+		packageExplorer().screenshot();
 
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
@@ -415,8 +419,13 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 
 		// do a gradle refresh on parent
 		consoleView().resetAndClearAllConsoles();
+		packageExplorer().screenshot();
 		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
+		packageExplorer().screenshot();
+		sleep(500); // wait for asynchronous updates
+		packageExplorer().screenshot();
 		consoleView().waitForGradleToFinishWithSuccess();
+		packageExplorer().screenshot();
 
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
