@@ -111,6 +111,7 @@ public class PackageExplorerAPI {
 		if (isTreeEmpty())
 			return;
 		SWTBotTreeItem[] allItems = view.bot().tree().getAllItems();
+		EclipseAPI.waitForBuild();
 		view.bot().tree().select(allItems).contextMenu("Delete").click();
 		XtextSWTBotShell shell = view.bot().shell("Delete Resources");
 		SWTBot shellBot = shell.bot();
