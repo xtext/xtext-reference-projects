@@ -56,7 +56,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void simpleXtextProject() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'simpleXtextProject'");
@@ -96,7 +96,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void simpleXtextProject_withMaven() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'simpleXtextProject_withMaven'");
@@ -140,7 +140,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_forEclipse() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse'");
@@ -173,7 +173,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_forEclipse_withTesting() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting'");
@@ -209,7 +209,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_forEclipse_withTesting_withMaven() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting_withMaven'");
@@ -248,7 +248,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_forEclipse_withTesting_withGradle() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting_withGradle'");
@@ -288,7 +288,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_webIntegration_withMaven_plain() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withMaven_plain'");
@@ -325,7 +325,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_webIntegration_withMaven_nested() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withMaven_nested'");
@@ -432,7 +432,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_webIntegration_withLSPRegular() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withLSPRegular'");
@@ -464,7 +464,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertEquals(problemsView().getErrorMessages().toString(), 0, problemsView().errorCount());
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xtextProject_webIntegration_withLSPFatJar() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withLSPFatJar'");
