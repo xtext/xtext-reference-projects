@@ -95,6 +95,11 @@ public class PackageExplorerAPI {
 		return new JavaEditorAPI(new XtextSWTWorkbenchBot().editorByTitle(path[path.length - 1]));
 	}
 
+	public void refreshGradleProject(String name) {
+		System.out.println("Refresh Gradle project for " + name);
+		view.bot().tree().expandNode(name).select().contextMenu("Gradle").menu("Refresh Gradle Project").click();
+	}
+
 	public void deleteFile(String... path) {
 		System.out.println("Delete file " + Arrays.toString(path));
 		view.bot().tree().expandNode(path).select().contextMenu("Delete").click();

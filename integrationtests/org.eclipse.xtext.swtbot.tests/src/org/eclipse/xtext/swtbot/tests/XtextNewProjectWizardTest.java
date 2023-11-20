@@ -378,6 +378,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.tests"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
 
+		// do a gradle refresh on parent
+		consoleView().resetAndClearAllConsoles();
+		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
+		consoleView().waitForGradleToFinishWithSuccess();
+
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
 		packageExplorer().runGradleTest("org.xtext.example.mydsl.parent", "build.gradle");
@@ -407,6 +412,11 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.ide"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.parent"));
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
+
+		// do a gradle refresh on parent
+		consoleView().resetAndClearAllConsoles();
+		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
+		consoleView().waitForGradleToFinishWithSuccess();
 
 		// run the maven build and wait for successful termination
 		consoleView().resetAndClearAllConsoles();
