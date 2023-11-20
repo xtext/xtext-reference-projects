@@ -116,7 +116,7 @@ public class PackageExplorerAPI {
 		SWTBot shellBot = shell.bot();
 		shellBot.checkBox().click();
 		shellBot.button("OK").click();
-		shell.waitUntilClosed(1000 * 30);
+		shell.waitUntilClosed();
 	}
 
 	private void deleteMavenProjects() {
