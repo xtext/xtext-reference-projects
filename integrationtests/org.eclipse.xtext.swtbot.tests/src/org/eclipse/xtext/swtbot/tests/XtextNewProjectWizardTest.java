@@ -379,10 +379,10 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
 
 		// do a gradle refresh on parent
+		packageExplorer().refreshAllProjects();
+		waitForBuild();
 		consoleView().resetAndClearAllConsoles();
 		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
-		sleep(500); // wait for asynchronous updates
-		waitForBuild();
 		consoleView().waitForGradleToFinishWithSuccess();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -418,10 +418,10 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		assertTrue(packageExplorer().projectExist("org.xtext.example.mydsl.web"));
 
 		// do a gradle refresh on parent
+		packageExplorer().refreshAllProjects();
+		waitForBuild();
 		consoleView().resetAndClearAllConsoles();
 		packageExplorer().refreshGradleProject("org.xtext.example.mydsl.parent");
-		sleep(500); // wait for asynchronous updates
-		waitForBuild();
 		consoleView().waitForGradleToFinishWithSuccess();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
