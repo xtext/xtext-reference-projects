@@ -139,24 +139,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
-      - name: Build
-        run: xvfb-run scripts/domainmodel-2.34.sh
-  build_domain_tycho_40_J17:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 17
       - name: Set up Maven 3.9.1
         uses: stCarolas/setup-maven@v4.5
         with:
           maven-version: 3.9.1
       - name: Build
-        env:
-          EXTRA_ARGS : "-Dtycho-version=4.0.1" 
         run: xvfb-run scripts/domainmodel-2.34.sh
   build_domain_tycho_50_J17:
     runs-on: ubuntu-latest
