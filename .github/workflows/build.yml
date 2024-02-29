@@ -105,28 +105,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
-      - name: Build
-        run: xvfb-run scripts/greetings-tycho-2.35.sh
-  build_tycho_J11:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: 11
-      - name: Build
-        run: xvfb-run scripts/greetings-tycho-2.35-J11.sh
-  build_tycho_J17_tycho_40:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: 17
       - name: Set up Maven 3.9.1
         uses: stCarolas/setup-maven@v4.5
         with:
@@ -137,7 +115,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
