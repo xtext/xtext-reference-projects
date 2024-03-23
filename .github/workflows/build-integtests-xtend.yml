@@ -17,5 +17,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+      - name: Set up Maven 3.9.1
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.9.1
       - name: Build
         run: xvfb-run scripts/integrationtests-xtend-examples.sh
