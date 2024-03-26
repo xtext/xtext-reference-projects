@@ -1,4 +1,6 @@
 cd "$(pwd)/integrationtests"
+ls -la /opt/hostedtoolcache/
+cat ~/.m2/settings.xml
 TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-$GITHUB_WORKSPACE}"
 TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-../}"
 export SETTINGS="-s $TRAVIS_BUILD_DIR/settings.xml"
