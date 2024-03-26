@@ -1,5 +1,6 @@
 cd "$(pwd)/integrationtests"
 ls -la /opt/hostedtoolcache/
+ls -la /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
 cat ~/.m2/settings.xml
 TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-$GITHUB_WORKSPACE}"
 TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-../}"
