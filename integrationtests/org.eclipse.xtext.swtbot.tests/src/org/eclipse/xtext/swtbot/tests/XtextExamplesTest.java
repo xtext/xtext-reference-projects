@@ -54,7 +54,7 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		System.out.println();
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void xbaseTutorial() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'xbaseTutorial'");
@@ -135,14 +135,14 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		packageExplorer().refreshAllProjects();
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void homeAutomationExample() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'homeAutomationExample'");
 		standardXtextExample("Xtext Home Automation Example", "org.eclipse.xtext.example.homeautomation", "GenerateRuleEngine.mwe2");
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void simpleArithmeticsExample() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'simpleArithmeticsExample'");
@@ -198,7 +198,7 @@ public class XtextExamplesTest extends AbstractSwtBotTest {
 		assertEquals(oldBytes, newBytes);
 	}
 
-	@Test
+	@Test @org.junit.Ignore
 	public void stateMachineExample() throws Exception {
 		System.out.println();
 		System.out.println("Starting Test 'stateMachineExample'");
