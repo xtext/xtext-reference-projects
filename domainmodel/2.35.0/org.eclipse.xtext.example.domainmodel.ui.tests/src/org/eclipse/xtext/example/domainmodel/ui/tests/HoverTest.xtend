@@ -38,7 +38,7 @@ class HoverTest extends AbstractHoverTest {
 			entity Foo {
 				bar : List<String>
 			}
-		'''.hasHoverOver("java.util.List", '''An ordered collection (also known as a <i>sequence</i>''')
+		'''.hasHoverOver("java.util.List", '''An ordered collection''')
 	}
 
 	@Test def hover_over_link_in_javadoc() {
@@ -47,7 +47,7 @@ class HoverTest extends AbstractHoverTest {
 			 * {@link java.util.List}
 			 */
 			 entity Foo {}
-		'''.hasHoverOver("java.util.List", '''An ordered collection (also known as a <i>sequence</i>''')
+		'''.hasHoverOver("java.util.List", '''An ordered collection''')
 	}
 
 	@Test def hover_over_java_typed_property() {
