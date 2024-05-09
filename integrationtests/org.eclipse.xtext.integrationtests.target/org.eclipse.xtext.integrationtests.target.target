@@ -14,14 +14,15 @@
         <unit id="org.eclipse.emf.mwe2.launch.ui" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.language" version="0.0.0"/>
         <unit id="org.eclipse.emf.mwe2.language.ui" version="0.0.0"/>
-        <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/milestones/S202404260736/"/>
+        <!-- https://download.eclipse.org/modeling/emft/mwe/updates/milestones/S202404260736/ -->
+        <repository location="https://download.eclipse.org/modeling/emft/mwe/updates/nightly/"/>
     </location>
 
    	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
    		<unit id="com.google.gson" version="2.10.1"/>
    		<unit id="com.google.gson.source" version="2.10.1"/>
-		<unit id="com.google.guava" version="33.1.0.jre"/>
-		<unit id="com.google.guava.source" version="33.1.0.jre"/>
+		<unit id="com.google.guava" version="33.2.0.jre"/>
+		<unit id="com.google.guava.source" version="33.2.0.jre"/>
 		<unit id="com.google.guava.failureaccess" version="1.0.2"/>
 		<unit id="com.google.guava.failureaccess.source" version="1.0.2"/>
 		<unit id="org.antlr.runtime" version="3.2.0.v20230929-1400"/>
