@@ -30,6 +30,17 @@ jobs:
           java-version: 21
       - name: Build
         run: scripts/greetings-gradle-2.35.sh
+  build_Gralde_J21:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Build
+        run: scripts/greetings-gradle-2.35-J21.sh
   build_Gralde_J11:
     runs-on: ubuntu-latest
     steps:
@@ -74,6 +85,17 @@ jobs:
           java-version: 21
       - name: Build
         run: scripts/greetings-maven-2.35.sh    
+  build_Maven_J21:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Build
+        run: scripts/greetings-maven-2.35-J21.sh 
   build_Maven_J11:
     runs-on: ubuntu-latest
     steps:
@@ -126,6 +148,21 @@ jobs:
           maven-version: 3.9.1
       - name: Build
         run: xvfb-run scripts/greetings-tycho-2.35.sh
+  build_tycho_J21:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Set up Maven 3.9.1
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.9.1
+      - name: Build
+        run: xvfb-run scripts/greetings-tycho-2.35-J21.sh
   build_tycho_J11:
     runs-on: ubuntu-latest
     steps:
