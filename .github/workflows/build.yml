@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-gradle-2.36.sh
+        run: scripts/greetings-gradle-2.37.sh
   build_Gralde_J17_on_J21:
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Build
-        run: scripts/greetings-gradle-2.36.sh
+        run: scripts/greetings-gradle-2.37.sh
   build_Gralde_J21:
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +40,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Build
-        run: scripts/greetings-gradle-J21-2.36.sh
+        run: scripts/greetings-gradle-J21-2.37.sh
   build_Gralde_J11:
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-gradle-J11-2.36.sh
+        run: scripts/greetings-gradle-J11-2.37.sh
   build_Gralde_J11_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -62,7 +62,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-gradle-J11-2.36.sh
+        run: scripts/greetings-gradle-J11-2.37.sh
   build_Maven_J17:
     runs-on: ubuntu-latest
     steps:
@@ -73,7 +73,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-maven-2.36.sh
+        run: scripts/greetings-maven-2.37.sh
   build_Maven_J17_on_J21:
     runs-on: ubuntu-latest
     steps:
@@ -84,7 +84,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Build
-        run: scripts/greetings-maven-2.36.sh    
+        run: scripts/greetings-maven-2.37.sh    
   build_Maven_J21:
     runs-on: ubuntu-latest
     steps:
@@ -95,7 +95,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Build
-        run: scripts/greetings-maven-J21-2.36.sh 
+        run: scripts/greetings-maven-J21-2.37.sh 
   build_Maven_J11:
     runs-on: ubuntu-latest
     steps:
@@ -106,7 +106,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: scripts/greetings-maven-J11-2.36.sh
+        run: scripts/greetings-maven-J11-2.37.sh
   build_Maven_J11_on_J17:
     runs-on: ubuntu-latest
     steps:
@@ -117,7 +117,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-maven-J11-2.36.sh
+        run: scripts/greetings-maven-J11-2.37.sh
   build_tycho_J17:
     runs-on: ubuntu-latest
     steps:
@@ -132,7 +132,7 @@ jobs:
         with:
           maven-version: 3.9.1
       - name: Build
-        run: xvfb-run scripts/greetings-tycho-2.36.sh
+        run: xvfb-run scripts/greetings-tycho-2.37.sh
   build_tycho_J17_on_J21:
     runs-on: ubuntu-latest
     steps:
@@ -147,7 +147,7 @@ jobs:
         with:
           maven-version: 3.9.1
       - name: Build
-        run: xvfb-run scripts/greetings-tycho-2.36.sh
+        run: xvfb-run scripts/greetings-tycho-2.37.sh
   build_tycho_J21:
     runs-on: ubuntu-latest
     steps:
@@ -162,7 +162,7 @@ jobs:
         with:
           maven-version: 3.9.1
       - name: Build
-        run: xvfb-run scripts/greetings-tycho-J21-2.36.sh
+        run: xvfb-run scripts/greetings-tycho-J21-2.37.sh
   build_tycho_J11:
     runs-on: ubuntu-latest
     steps:
@@ -173,7 +173,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Build
-        run: xvfb-run scripts/greetings-tycho-J11-2.36.sh
+        run: xvfb-run scripts/greetings-tycho-J11-2.37.sh
   build_tycho_J17_tycho_50:
     runs-on: ubuntu-latest
     steps:
@@ -190,7 +190,7 @@ jobs:
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=5.0.0-SNAPSHOT -Ptycho_snapshots" 
-        run: xvfb-run scripts/greetings-tycho-2.36.sh
+        run: xvfb-run scripts/greetings-tycho-2.37.sh
   build_domain:
     runs-on: ubuntu-latest
     steps:
@@ -205,7 +205,7 @@ jobs:
         with:
           maven-version: 3.9.1
       - name: Build
-        run: xvfb-run scripts/domainmodel-2.36.sh
+        run: xvfb-run scripts/domainmodel-2.37.sh
   build_domain_J21:
     runs-on: ubuntu-latest
     steps:
@@ -220,7 +220,7 @@ jobs:
         with:
           maven-version: 3.9.1
       - name: Build
-        run: xvfb-run scripts/domainmodel-2.36.sh
+        run: xvfb-run scripts/domainmodel-2.37.sh
   build_domain_tycho_50_J17:
     runs-on: ubuntu-latest
     steps:
@@ -237,4 +237,4 @@ jobs:
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=5.0.0-SNAPSHOT -Ptycho_snapshots" 
-        run: xvfb-run scripts/domainmodel-2.36.sh
+        run: xvfb-run scripts/domainmodel-2.37.sh
