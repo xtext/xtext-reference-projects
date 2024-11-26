@@ -85,9 +85,9 @@ public class NewProjectWizardAPI {
 			return new NewXtextProjectWizardConfigurationPageAPI(shell);
 		}
 
-		public NewXtextProjectWizardMainPageAPI selectJava11() {
-			System.out.println("Select Java 11");
-			shell.bot().comboBox().setSelection("JavaSE-11");
+		public NewXtextProjectWizardMainPageAPI selectJava17() {
+			System.out.println("Select Java 17");
+			shell.bot().comboBox().setSelection("JavaSE-17");
 			return this;
 		}
 		

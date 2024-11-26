@@ -4,7 +4,7 @@ Bundle-Name: Xtext SWTBot Testing
 Bundle-SymbolicName: org.eclipse.xtext.swtbot.testing
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.eclipse.ui.swtbot.testing
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Import-Package: org.junit;version="4.13.2",
  org.junit.rules;version="4.13.2",
  org.junit.runner;version="4.13.2",
