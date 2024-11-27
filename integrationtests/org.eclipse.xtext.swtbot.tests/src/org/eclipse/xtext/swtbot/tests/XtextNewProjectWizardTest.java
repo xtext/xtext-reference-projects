@@ -61,7 +61,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'simpleXtextProject'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleGenericIdeSupport()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().toggleGenericIdeSupport()
 				.toggleTestingSupport().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -101,7 +101,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'simpleXtextProject_withMaven'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleGenericIdeSupport()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().toggleGenericIdeSupport()
 				.toggleTestingSupport().setMavenBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -145,7 +145,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleFeature().toggleUpdateSite()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleFeature().toggleUpdateSite()
 				.toggleTestingSupport().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -178,7 +178,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -214,7 +214,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting_withMaven'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleFeature().toggleUpdateSite().setMavenBuildType()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleFeature().toggleUpdateSite().setMavenBuildType()
 				.finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -253,7 +253,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_forEclipse_withTesting_withGradle'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleUpdateSite().setGradleBuildType().finish();
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleUpdateSite().setGradleBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
 
@@ -293,7 +293,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withMaven_plain'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().toggleWebIntegration()
 				.setMavenBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -330,7 +330,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withMaven_nested'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().toggleWebIntegration()
 				.setMavenBuildType().setMavenSourceLayout().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -366,7 +366,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withGradle_plain'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().toggleWebIntegration()
 				.setGradleBuildType().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -397,7 +397,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withGradle_nested'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().toggleWebIntegration()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().toggleWebIntegration()
 				.setGradleBuildType().setMavenSourceLayout().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -427,7 +427,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withLSPRegular'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().setMavenBuildType()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().setMavenBuildType()
 				.setBuildLanguageServerRegular().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();
@@ -459,7 +459,7 @@ public class XtextNewProjectWizardTest extends AbstractSwtBotTest {
 		System.out.println();
 		System.out.println("Starting Test 'xtextProject_webIntegration_withLSPFatJar'");
 		// create xtext project
-		mainMenu().openNewProjectWizard().selectXtextProject().selectJava11().next().toggleEclipsePlugin().setMavenBuildType()
+		mainMenu().openNewProjectWizard().selectXtextProject().selectJava17().next().toggleEclipsePlugin().setMavenBuildType()
 				.setBuildLanguageServerFatJar().finish();
 		sleep(500); // wait for asynchronous updates
 		waitForBuild();

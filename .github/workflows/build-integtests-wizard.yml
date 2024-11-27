@@ -17,6 +17,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+      - name: Set up Maven 3.9.9
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
       - name: Build
         run: xvfb-run scripts/integrationtests-wizard.sh
       - name: Archive UI Tests Screenshots
