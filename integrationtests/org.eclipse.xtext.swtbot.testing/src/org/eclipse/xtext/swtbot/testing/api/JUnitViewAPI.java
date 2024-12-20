@@ -9,6 +9,7 @@ package org.eclipse.xtext.swtbot.testing.api;
 
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
@@ -32,8 +33,29 @@ public class JUnitViewAPI {
 		boolean result = atLeastOneTestIsRun() && errorCount() == 0 && failureCount() == 0;
 		System.out.println("Check if test run is error free: '" + result + "'");
 		if (!result) {
-			for (SWTBotTreeItem item : view.bot().tree().getAllItems())
-				System.out.println("  " + item.getText());
+			// for each test case in the view
+			for (SWTBotTreeItem testCase : view.bot().tree().getAllItems()) {
+				SWTBotTreeItem[] items = testCase.getItems();
+				// for each test in the test case
+				for (SWTBotTreeItem test : items) {
+					// select it
+					test.select();
+					SWTBotTable failureTrace = view.bot().table();
+					int rowCount = failureTrace.rowCount();
+					// and see whether the "Failure Trace" table gets populated;
+					// if it is, that test has failed
+					if (rowCount > 0) {
+						System.out.println();
+						System.out.println("FAILED TEST: " + test.getText());
+						System.out.println("FAILURE TRACE:");
+						for (int r = 0; r < rowCount; r++) {
+							System.out.println(failureTrace.getTableItem(r).getText());
+						}
+						System.out.println("END FAILURE TRACE of: " + test.getText());
+					}
+				}
+			}
+			System.out.println();
 		}
 		return result;
 	}
