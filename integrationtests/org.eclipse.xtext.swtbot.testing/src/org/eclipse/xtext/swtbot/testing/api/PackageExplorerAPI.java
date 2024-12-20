@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
@@ -21,6 +22,7 @@ import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotShell;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTWorkbenchBot;
+import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil;
 
 public class PackageExplorerAPI {
 
@@ -102,6 +104,15 @@ public class PackageExplorerAPI {
 	}
 
 	public void deleteAllProjects() {
+		System.out.println("Delete all projects");
+		try {
+			IResourcesSetupUtil.cleanWorkspace();
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void deleteAllProjectsWithEclipse() {
 		System.out.println("Delete all projects");
 		if (isTreeEmpty())
 			return;
