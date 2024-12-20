@@ -35,6 +35,8 @@ public class JUnitViewAPI {
 		if (!result) {
 			// for each test case in the view
 			for (SWTBotTreeItem testCase : view.bot().tree().getAllItems()) {
+				System.out.println();
+				System.out.println("TEST CASE: " + testCase.getText());
 				SWTBotTreeItem[] items = testCase.getItems();
 				// for each test in the test case
 				for (SWTBotTreeItem test : items) {
@@ -42,16 +44,18 @@ public class JUnitViewAPI {
 					test.select();
 					SWTBotTable failureTrace = view.bot().table();
 					int rowCount = failureTrace.rowCount();
+					String testText = test.getText();
 					// and see whether the "Failure Trace" table gets populated;
 					// if it is, that test has failed
-					if (rowCount > 0) {
+					if (rowCount > 0 && !testText.isBlank()) {
+						// sometimes the testText is empty and we get it at the next iteration
 						System.out.println();
-						System.out.println("FAILED TEST: " + test.getText());
+						System.out.println("FAILED TEST: " + testText);
 						System.out.println("FAILURE TRACE:");
 						for (int r = 0; r < rowCount; r++) {
 							System.out.println(failureTrace.getTableItem(r).getText());
 						}
-						System.out.println("END FAILURE TRACE of: " + test.getText());
+						System.out.println("END FAILURE TRACE of: " + testText);
 					}
 				}
 			}
