@@ -40,8 +40,8 @@
 				<dependencies>
 					<dependency>
 						<groupId>org.eclipse.xtext</groupId>
-						<artifactId>xtext-antlr-generator</artifactId>
-						<version>2.1.1</version>
+						<artifactId>org.eclipse.xtext.xtext.generator.dependencies</artifactId>
+						<version>${xtextVersion}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
