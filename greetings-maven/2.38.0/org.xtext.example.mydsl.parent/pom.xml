@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<xtextVersion>2.38.0-SNAPSHOT</xtextVersion>
+		<xtextVersion>2.38.0</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
