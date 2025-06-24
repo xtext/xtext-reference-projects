@@ -34,4 +34,4 @@ jobs:
         if: ${{ failure() || cancelled() }}
         with:
           name: logs-${{ runner.os }}
-          path: 'integrationtests/**/target/**/*.log*'
+          path: '**/.log*'
