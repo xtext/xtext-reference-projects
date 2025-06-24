@@ -29,9 +29,3 @@ jobs:
         with:
           name: screenshots-${{ runner.os }}
           path: '**/screenshots'
-      - name: Archive Integration Test Logs
-        uses: actions/upload-artifact@v4
-        if: ${{ failure() || cancelled() }}
-        with:
-          name: logs-${{ runner.os }}
-          path: '**/.log*'
