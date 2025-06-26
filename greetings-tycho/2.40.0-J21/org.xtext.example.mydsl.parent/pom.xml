@@ -8,7 +8,7 @@
 
 	<properties>
 		<xtextVersion>2.40.0-SNAPSHOT</xtextVersion>
-		<mwe2Version>2.22.0</mwe2Version>
+		<mwe2Version>2.23.0.M0</mwe2Version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
@@ -134,7 +134,7 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.eclipse.xtend</groupId>
+					<groupId>org.eclipse.xtext</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
 					<version>${xtextVersion}</version>
 					<executions>
