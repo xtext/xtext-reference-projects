@@ -11,7 +11,7 @@
 	<packaging>eclipse-plugin</packaging>
 
 	<properties>
-		<mwe2Version>2.22.0</mwe2Version>
+		<mwe2Version>2.23.0.M0</mwe2Version>
 	</properties>
 
 	<build>
@@ -50,7 +50,7 @@
 				</dependencies>
 			</plugin>
 			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
+				<groupId>org.eclipse.xtext</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
 			</plugin>
 
