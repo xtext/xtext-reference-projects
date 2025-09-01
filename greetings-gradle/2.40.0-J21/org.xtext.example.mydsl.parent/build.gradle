@@ -9,15 +9,9 @@ buildscript {
 }
 
 subprojects {
-	ext.xtextVersion = '2.40.0-SNAPSHOT'
+	ext.xtextVersion = '2.40.0'
 	repositories {
 		mavenCentral()
-		maven {
-			url = 'https://central.sonatype.com/repository/maven-snapshots'
-		}
-		maven {
-			url = 'https://oss.sonatype.org/content/repositories/snapshots'
-		}
 	}
 
 	apply plugin: 'java-library'
