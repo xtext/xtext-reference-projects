@@ -9,6 +9,6 @@
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipse.xtext.xtext.wizard.cli.CliProjectsCreatorMain"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-targetDir=${project_loc:xtext-reference-projects}/greetings-maven/2.40.0-J21&#10;-languageName=org.xtext.example.mydsl.MyDsl&#10;-baseName=org.xtext.example.mydsl&#10;-extension=mydsl&#10;-enabledProjects=GenericIDE,RuntimeTest&#10;-buildSystem=MAVEN&#10;-sourceLayout=MAVEN&#10;-languageServer=FATJAR&#10;-xtextVersion=2.40.0-SNAPSHOT&#10;-projectLayout=FLAT&#10;-javaVersion=JAVA21"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-targetDir=${project_loc:xtext-reference-projects}/greetings-maven/2.41.0-J21&#10;-languageName=org.xtext.example.mydsl.MyDsl&#10;-baseName=org.xtext.example.mydsl&#10;-extension=mydsl&#10;-enabledProjects=GenericIDE,RuntimeTest&#10;-buildSystem=MAVEN&#10;-sourceLayout=MAVEN&#10;-languageServer=FATJAR&#10;-xtextVersion=2.41.0-SNAPSHOT&#10;-projectLayout=FLAT&#10;-javaVersion=JAVA21"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.eclipse.xtext.xtext.wizard"/>
 </launchConfiguration>
