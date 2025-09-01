@@ -34,7 +34,7 @@
 		<moduleProperties></moduleProperties>
 		<systemProperties></systemProperties>
 		<tycho.testArgLine>-Xmx512m</tycho.testArgLine>
-		<xtextVersion>${project.version}</xtextVersion>
+		<xtextVersion>2.40.0</xtextVersion>
 	</properties>
 	<modules>
 		<module>tp</module>
