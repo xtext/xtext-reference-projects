@@ -119,7 +119,7 @@ jobs:
           maven-version: 3.9.1
       - name: Build
         run: xvfb-run scripts/greetings-tycho-J21-2.41.sh
-  build_tycho_J21_tycho_50:
+  build_tycho_J21_tycho_50x:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -134,7 +134,7 @@ jobs:
           maven-version: 3.9.9
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=5.0.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=5.0.1-SNAPSHOT -Ptycho_snapshots" 
         run: xvfb-run scripts/greetings-tycho-J21-2.41.sh
   build_domain_J21:
     runs-on: ubuntu-latest
@@ -151,7 +151,7 @@ jobs:
           maven-version: 3.9.1
       - name: Build
         run: xvfb-run scripts/domainmodel-2.41.sh
-  build_domain_tycho_50_J21:
+  build_domain_tycho_50x_J21:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -166,5 +166,5 @@ jobs:
           maven-version: 3.9.9
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=5.0.0-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=5.0.1-SNAPSHOT -Ptycho_snapshots" 
         run: xvfb-run scripts/domainmodel-2.41.sh
