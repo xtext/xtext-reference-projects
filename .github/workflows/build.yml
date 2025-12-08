@@ -134,7 +134,7 @@ jobs:
           maven-version: 3.9.9
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=5.0.1-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=5.0.2-SNAPSHOT -Ptycho_snapshots" 
         run: xvfb-run scripts/greetings-tycho-J21-2.42.sh
   build_domain_J21:
     runs-on: ubuntu-latest
@@ -166,5 +166,5 @@ jobs:
           maven-version: 3.9.9
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=5.0.1-SNAPSHOT -Ptycho_snapshots" 
+          EXTRA_ARGS : "-Dtycho-version=5.0.2-SNAPSHOT -Ptycho_snapshots" 
         run: xvfb-run scripts/domainmodel-2.42.sh
