@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: xvfb-run scripts/integrationtests-xtext-examples.sh
       - name: Archive UI Tests Screenshots
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: ${{ failure() || cancelled() }}
         with:
           name: samples-screenshots-${{ runner.os }}
