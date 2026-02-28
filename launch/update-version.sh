@@ -27,8 +27,14 @@ sed -i '' "s/domainmodel-2\.${PREV_MINOR_VERSION}\.sh/domainmodel-${VERSION}.sh/
 # Update launch files
 echo "Updating launch files..."
 for file in "$ROOT_DIR/launch"/refproject-greetings-*.launch; do
-    sed -i '' "s/greetings-2\.${PREV_MINOR_VERSION}\.0-J21/greetings-${VERSION}.0-J21/g" "$file"
-    sed -i '' "s/greetings-2\.${PREV_MINOR_VERSION}\.0/greetings-${VERSION}.0/g" "$file"
+    # Update targetDir paths
+    sed -i '' "s/greetings-gradle\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-gradle\/${VERSION}.0-J21/g" "$file"
+    sed -i '' "s/greetings-gradle\/2\.${PREV_MINOR_VERSION}\.0/greetings-gradle\/${VERSION}.0/g" "$file"
+    sed -i '' "s/greetings-maven\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-maven\/${VERSION}.0-J21/g" "$file"
+    sed -i '' "s/greetings-maven\/2\.${PREV_MINOR_VERSION}\.0/greetings-maven\/${VERSION}.0/g" "$file"
+    sed -i '' "s/greetings-tycho\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-tycho\/${VERSION}.0-J21/g" "$file"
+    sed -i '' "s/greetings-tycho\/2\.${PREV_MINOR_VERSION}\.0/greetings-tycho\/${VERSION}.0/g" "$file"
+    # Update xtextVersion
     sed -i '' "s/xtextVersion=2\.${PREV_MINOR_VERSION}\.0-SNAPSHOT/xtextVersion=2.${MINOR_VERSION}.0-SNAPSHOT/g" "$file"
 done
 

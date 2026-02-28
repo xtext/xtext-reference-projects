@@ -40,7 +40,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Build
-        run: scripts/greetings-gradle-J21-2.42.sh
+        run: scripts/greetings-gradle-J21-2.43.sh
   build_Maven_J17:
     runs-on: ubuntu-latest
     steps:
