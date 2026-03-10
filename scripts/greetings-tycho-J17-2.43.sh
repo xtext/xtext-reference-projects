@@ -1,4 +1,4 @@
-cd greetings-tycho/2.43.0
+cd greetings-tycho/2.43.0-J17
 
 TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-$GITHUB_WORKSPACE}"
 TRAVIS_BUILD_DIR="${TRAVIS_BUILD_DIR:-../../}"
