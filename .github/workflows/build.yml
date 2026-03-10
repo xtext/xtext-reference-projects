@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
       - name: Build
-        run: scripts/greetings-gradle-J17-2.43-J17.sh
+        run: scripts/greetings-gradle-J17-2.43.sh
   build_Gralde_J17_on_J21:
     runs-on: ubuntu-latest
     steps:
