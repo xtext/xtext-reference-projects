@@ -1,3 +1,8 @@
+if ["$TRAVIS_BUILD_DIR" eq ""]
+then
+  export TRAVIS_BUILD_DIR=$(pwd)
+fi
+
 cd greetings-maven/2.43.0-J25
 
 export PROFILES=-Ptycho_snapshots
