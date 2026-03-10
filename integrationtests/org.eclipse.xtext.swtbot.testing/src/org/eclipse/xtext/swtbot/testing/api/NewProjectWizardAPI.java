@@ -90,6 +90,12 @@ public class NewProjectWizardAPI {
 			shell.bot().comboBox().setSelection("JavaSE-17");
 			return this;
 		}
+
+		public NewXtextProjectWizardMainPageAPI selectJava21() {
+			System.out.println("Select Java 21");
+			shell.bot().comboBox().setSelection("JavaSE-21");
+			return this;
+		}
 		
 		public void finish() {
 			System.out.println("Press 'Finish'");
