@@ -13,7 +13,7 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<!-- Tycho settings -->
-		<tycho-version>4.0.13</tycho-version>
+		<tycho-version>5.0.2</tycho-version>
 		<!-- Define overridable properties for tycho-surefire-plugin -->
 		<platformSystemProperties></platformSystemProperties>
 		<moduleProperties></moduleProperties>
@@ -239,7 +239,7 @@
 		<repository>
 			<name>Central Portal Snapshots</name>
 			<id>central-portal-snapshots</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<url>https://ci.eclipse.org/xtext/job/xtext/job/cd-big-bump/lastSuccessfulBuild/artifact/build/maven-repository/</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
@@ -295,7 +295,7 @@
 		<pluginRepository>
 			<name>Central Portal Snapshots</name>
 			<id>central-portal-snapshots</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<url>https://ci.eclipse.org/xtext/job/xtext/job/cd-big-bump/lastSuccessfulBuild/artifact/build/maven-repository/</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>

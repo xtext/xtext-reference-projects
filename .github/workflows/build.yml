@@ -136,6 +136,43 @@ jobs:
         env:
           EXTRA_ARGS : "-Dtycho-version=5.0.3-SNAPSHOT -Ptycho_snapshots"
         run: xvfb-run scripts/greetings-tycho-J21-2.43.sh
+  build_Gradle_J25:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 25
+      - name: Build
+        run: scripts/greetings-gradle-J25-2.43.sh
+  build_Maven_J25:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 25
+      - name: Build
+        run: scripts/greetings-maven-J25-2.43.sh
+  build_tycho_J25:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 25
+      - name: Set up Maven 3.9.1
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.1
+      - name: Build
+        run: xvfb-run scripts/greetings-tycho-J25-2.43.sh
   build_domain_J21:
     runs-on: ubuntu-latest
     steps:
