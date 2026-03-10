@@ -39,10 +39,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
-      - name: Set up Maven 3.9.1
+      - name: Set up Maven 3.9.13
         uses: stCarolas/setup-maven@v5
         with:
-          maven-version: 3.9.1
+          maven-version: 3.9.13
       - name: Build
         run: xvfb-run scripts/greetings-tycho-J21-2.43.sh
   build_tycho_J21_tycho_50x:
@@ -54,10 +54,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
-      - name: Set up Maven 3.9.9
+      - name: Set up Maven 3.9.13
         uses: stCarolas/setup-maven@v5
         with:
-          maven-version: 3.9.9
+          maven-version: 3.9.13
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=5.0.3-SNAPSHOT -Ptycho_snapshots"
@@ -93,10 +93,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 25
-      - name: Set up Maven 3.9.1
+      - name: Set up Maven 3.9.13
         uses: stCarolas/setup-maven@v5
         with:
-          maven-version: 3.9.1
+          maven-version: 3.9.13
       - name: Build
         run: xvfb-run scripts/greetings-tycho-J25-2.43.sh
   build_domain_J21:
@@ -108,10 +108,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
-      - name: Set up Maven 3.9.1
+      - name: Set up Maven 3.9.13
         uses: stCarolas/setup-maven@v5
         with:
-          maven-version: 3.9.1
+          maven-version: 3.9.13
       - name: Build
         run: xvfb-run scripts/domainmodel-2.43.sh
   build_domain_tycho_50x_J21:
@@ -123,10 +123,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
-      - name: Set up Maven 3.9.9
+      - name: Set up Maven 3.9.13
         uses: stCarolas/setup-maven@v5
         with:
-          maven-version: 3.9.9
+          maven-version: 3.9.13
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=5.0.3-SNAPSHOT -Ptycho_snapshots"
