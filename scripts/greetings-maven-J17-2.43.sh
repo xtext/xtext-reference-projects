@@ -3,7 +3,7 @@ then
   export TRAVIS_BUILD_DIR=$(pwd)
 fi
 
-cd greetings-maven/2.43.0
+cd greetings-maven/2.43.0-J17
 
 export PROFILES=-Ptycho_snapshots
 export SETTINGS="-s $TRAVIS_BUILD_DIR/settings.xml"
