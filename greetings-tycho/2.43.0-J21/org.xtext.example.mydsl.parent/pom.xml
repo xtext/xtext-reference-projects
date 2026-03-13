@@ -239,7 +239,7 @@
 		<repository>
 			<name>Central Portal Snapshots</name>
 			<id>central-portal-snapshots</id>
-			<url>https://ci.eclipse.org/xtext/job/xtext/job/cd-big-bump/lastSuccessfulBuild/artifact/build/maven-repository/</url>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
@@ -295,7 +295,7 @@
 		<pluginRepository>
 			<name>Central Portal Snapshots</name>
 			<id>central-portal-snapshots</id>
-			<url>https://ci.eclipse.org/xtext/job/xtext/job/cd-big-bump/lastSuccessfulBuild/artifact/build/maven-repository/</url>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
