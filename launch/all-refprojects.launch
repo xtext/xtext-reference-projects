@@ -4,31 +4,31 @@
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.0.adoptIfRunning" value="false"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.0.enabled" value="true"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.0.mode" value="inherit"/>
-<stringAttribute key="org.eclipse.debug.core.launchGroup.0.name" value="refproject-greetings-gradle-j17"/>
+<stringAttribute key="org.eclipse.debug.core.launchGroup.0.name" value="refproject-greetings-gradle-j21"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.1.action" value="NONE"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.1.adoptIfRunning" value="false"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.1.enabled" value="true"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.1.mode" value="inherit"/>
-<stringAttribute key="org.eclipse.debug.core.launchGroup.1.name" value="refproject-greetings-maven-j17"/>
+<stringAttribute key="org.eclipse.debug.core.launchGroup.1.name" value="refproject-greetings-maven-j21"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.2.action" value="NONE"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.2.adoptIfRunning" value="false"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.2.enabled" value="true"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.2.mode" value="inherit"/>
-<stringAttribute key="org.eclipse.debug.core.launchGroup.2.name" value="refproject-greetings-tycho-j17"/>
+<stringAttribute key="org.eclipse.debug.core.launchGroup.2.name" value="refproject-greetings-tycho-j21"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.3.action" value="NONE"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.3.adoptIfRunning" value="false"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.3.enabled" value="true"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.3.mode" value="inherit"/>
-<stringAttribute key="org.eclipse.debug.core.launchGroup.3.name" value="refproject-greetings-gradle-j21"/>
+<stringAttribute key="org.eclipse.debug.core.launchGroup.3.name" value="refproject-greetings-gradle-j25"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.4.action" value="NONE"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.4.adoptIfRunning" value="false"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.4.enabled" value="true"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.4.mode" value="inherit"/>
-<stringAttribute key="org.eclipse.debug.core.launchGroup.4.name" value="refproject-greetings-maven-j21"/>
+<stringAttribute key="org.eclipse.debug.core.launchGroup.4.name" value="refproject-greetings-maven-j25"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.5.action" value="NONE"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.5.adoptIfRunning" value="false"/>
 <booleanAttribute key="org.eclipse.debug.core.launchGroup.5.enabled" value="true"/>
 <stringAttribute key="org.eclipse.debug.core.launchGroup.5.mode" value="inherit"/>
-<stringAttribute key="org.eclipse.debug.core.launchGroup.5.name" value="refproject-greetings-tycho-j21"/>
+<stringAttribute key="org.eclipse.debug.core.launchGroup.5.name" value="refproject-greetings-tycho-j25"/>
 
 </launchConfiguration>
