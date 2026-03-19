@@ -20,8 +20,7 @@
 
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>
-		<maven.compiler.source>21</maven.compiler.source>
-		<maven.compiler.target>21</maven.compiler.target>
+		<maven.compiler.release>21</maven.compiler.release>
 		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
 		<sign.skip>true</sign.skip>
 	</properties>
