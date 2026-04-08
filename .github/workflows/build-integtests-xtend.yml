@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Set up Maven 3.9.13
-        uses: stCarolas/setup-maven@v5
+        uses: stCarolas/setup-maven@v5.1
         with:
           maven-version: 3.9.13
       - name: Build
