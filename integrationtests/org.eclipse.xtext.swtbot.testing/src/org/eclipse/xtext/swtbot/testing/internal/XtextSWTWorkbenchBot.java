@@ -16,7 +16,7 @@ import java.util.*;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.finders.WorkbenchContentsFinder;
-import org.eclipse.swtbot.eclipse.finder.waits.WaitForShell;
+import org.eclipse.swtbot.eclipse.finder.waits.WaitForObjectCondition;
 import org.eclipse.swtbot.eclipse.finder.waits.WaitForView;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.ui.IViewReference;
@@ -44,7 +44,7 @@ public class XtextSWTWorkbenchBot extends SWTWorkbenchBot {
 	@Override
 	public XtextSWTBotShell shell(String text, int index) {
 		Matcher<Shell> withTextMatcher = withText(text);
-		WaitForShell waitForShell = waitForShell(withTextMatcher);
+		WaitForObjectCondition<Shell> waitForShell = waitForShell(withTextMatcher);
 		waitUntilWidgetAppears(waitForShell);
 		return new XtextSWTBotShell(waitForShell.getAllMatches().get(index));
 	}
