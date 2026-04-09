@@ -42,6 +42,7 @@ public class NewProjectWizardAPI {
 	public NewXtextExampleSecondPageWizardAPI selectXtendExample(String exampleLabel) {
 		System.out.println("Select Xtend example '" + exampleLabel + "'");
 		// workaround for SWTBot/Tree bug
+		shell.bot().tree().expandNode("Xtend").collapse();
 		shell.bot().tree().expandNode("Xtend", "Examples").collapse();
 		shell.bot().tree().expandNode("Xtend", "Examples", exampleLabel).select();
 		System.out.println("Press 'Next >'");
