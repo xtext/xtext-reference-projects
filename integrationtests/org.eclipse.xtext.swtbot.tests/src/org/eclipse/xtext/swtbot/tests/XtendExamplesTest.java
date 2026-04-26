@@ -54,6 +54,7 @@ public class XtendExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtendActiveAnnotationExamples() throws Exception {
+		sleep(500);
 		System.out.println();
 		System.out.println("Starting Test 'xtendActiveAnnotationExamples'");
 		// create example projects
@@ -79,6 +80,7 @@ public class XtendExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtendIntroductoryExamples() throws Exception {
+		sleep(500);
 		System.out.println();
 		System.out.println("Starting Test 'xtendIntroductoryExamples'");
 		standardXtendExample("Xtend Introductory Examples", "xtend-examples");
@@ -86,6 +88,7 @@ public class XtendExamplesTest extends AbstractSwtBotTest {
 
 	@Test
 	public void xtendSolutionsForEuler() throws Exception {
+		sleep(500);
 		System.out.println();
 		System.out.println("Starting Test 'xtendSolutionsForEuler'");
 		standardXtendExample("Xtend Solutions for Euler", "xtend-euler");
