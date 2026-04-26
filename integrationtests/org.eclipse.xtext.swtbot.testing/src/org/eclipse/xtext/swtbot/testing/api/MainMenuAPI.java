@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -72,7 +73,10 @@ public class MainMenuAPI {
 
 	public NewProjectWizardAPI openNewProjectWizard() {
 		System.out.println("Open 'New Project Wizard'");
-		bot.menu("File").menu("New").menu("Project...").click();
+		SWTBotMenu menu = bot.menu("File");
+		SWTBotMenu menu2 = menu.menu("New");
+		SWTBotMenu menu3 = menu2.menu("Project...");
+		menu3.click();
 		return new NewProjectWizardAPI(bot.shell("New Project"));
 	}
 
