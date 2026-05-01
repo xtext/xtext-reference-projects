@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTBotView;
 import org.eclipse.xtext.swtbot.testing.internal.XtextSWTWorkbenchBot;
@@ -61,6 +62,7 @@ public class EclipseAPI {
 	public static void closeAllShells() {
 		System.out.println("Close all shells");
 		bot.closeAllShells();
+		activateWorkbenchShell();
 	}
 
 	public static void closeAllEditors() {
@@ -144,6 +146,19 @@ public class EclipseAPI {
 		XtextSWTBotView view = bot.viewById(viewId);
 		view.setFocus();
 		return view;
+	}
+
+	private static void activateWorkbenchShell() {
+		Display.getDefault().syncExec(() -> {
+			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			if (window == null && PlatformUI.getWorkbench().getWorkbenchWindowCount() > 0) {
+				window = PlatformUI.getWorkbench().getWorkbenchWindows()[0];
+			}
+			if (window != null && !window.getShell().isDisposed()) {
+				window.getShell().forceActive();
+				window.getShell().setActive();
+			}
+		});
 	}
 
 }
