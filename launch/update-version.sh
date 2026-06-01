@@ -48,15 +48,12 @@ EOF
 
 # greetings-maven-J21-X.XX.sh
 cat > "$ROOT_DIR/scripts/greetings-maven-J21-${VERSION}.sh" << EOF
-if [ "\$TRAVIS_BUILD_DIR" = "" ]
-then
-  export TRAVIS_BUILD_DIR=\$(pwd)
-fi
+REPO_DIR="\${GITHUB_WORKSPACE:-\$(pwd)}"
 
 cd greetings-maven/2.${MINOR_VERSION}.0-J21
 
 export PROFILES=-Ptycho_snapshots
-export SETTINGS="-s \$TRAVIS_BUILD_DIR/settings.xml"
+export SETTINGS="-s \$REPO_DIR/settings.xml"
 export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
 
 mvn -B -f org.xtext.example.mydsl.parent/pom.xml \$DISABLE_DOWNLOAD_PROGRESS \$SETTINGS \$PROFILES -Djava-21 clean install
@@ -66,11 +63,10 @@ EOF
 cat > "$ROOT_DIR/scripts/greetings-tycho-J21-${VERSION}.sh" << EOF
 cd greetings-tycho/2.${MINOR_VERSION}.0-J21
 
-TRAVIS_BUILD_DIR="\${TRAVIS_BUILD_DIR:-\$GITHUB_WORKSPACE}"
-TRAVIS_BUILD_DIR="\${TRAVIS_BUILD_DIR:-../../}"
+REPO_DIR="\${GITHUB_WORKSPACE:-../../}"
 
 export PROFILES=
-export SETTINGS="-s \$TRAVIS_BUILD_DIR/settings.xml"
+export SETTINGS="-s \$REPO_DIR/settings.xml"
 export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
 
 mvn -B -f org.xtext.example.mydsl.parent/pom.xml \$DISABLE_DOWNLOAD_PROGRESS \$SETTINGS \$PROFILES -Djava-21 -Dtycho.showEclipseLog=true clean install \$EXTRA_ARGS
@@ -85,15 +81,12 @@ EOF
 
 # greetings-maven-J25-X.XX.sh
 cat > "$ROOT_DIR/scripts/greetings-maven-J25-${VERSION}.sh" << EOF
-if [ "\$TRAVIS_BUILD_DIR" = "" ]
-then
-  export TRAVIS_BUILD_DIR=\$(pwd)
-fi
+REPO_DIR="\${GITHUB_WORKSPACE:-\$(pwd)}"
 
 cd greetings-maven/2.${MINOR_VERSION}.0-J25
 
 export PROFILES=-Ptycho_snapshots
-export SETTINGS="-s \$TRAVIS_BUILD_DIR/settings.xml"
+export SETTINGS="-s \$REPO_DIR/settings.xml"
 export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
 
 mvn -B -f org.xtext.example.mydsl.parent/pom.xml \$DISABLE_DOWNLOAD_PROGRESS \$SETTINGS \$PROFILES -Djava-25 clean install
@@ -103,11 +96,10 @@ EOF
 cat > "$ROOT_DIR/scripts/greetings-tycho-J25-${VERSION}.sh" << EOF
 cd greetings-tycho/2.${MINOR_VERSION}.0-J25
 
-TRAVIS_BUILD_DIR="\${TRAVIS_BUILD_DIR:-\$GITHUB_WORKSPACE}"
-TRAVIS_BUILD_DIR="\${TRAVIS_BUILD_DIR:-../../}"
+REPO_DIR="\${GITHUB_WORKSPACE:-../../}"
 
 export PROFILES=
-export SETTINGS="-s \$TRAVIS_BUILD_DIR/settings.xml"
+export SETTINGS="-s \$REPO_DIR/settings.xml"
 export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
 
 mvn -B -f org.xtext.example.mydsl.parent/pom.xml \$DISABLE_DOWNLOAD_PROGRESS \$SETTINGS \$PROFILES -Djava-25 -Dtycho.showEclipseLog=true clean install \$EXTRA_ARGS
@@ -117,11 +109,10 @@ EOF
 cat > "$ROOT_DIR/scripts/domainmodel-${VERSION}.sh" << EOF
 cd domainmodel/2.${MINOR_VERSION}.0/org.eclipse.xtext.example.domainmodel.releng
 
-TRAVIS_BUILD_DIR="\${TRAVIS_BUILD_DIR:-\$GITHUB_WORKSPACE}"
-TRAVIS_BUILD_DIR="\${TRAVIS_BUILD_DIR:-../../../}"
+REPO_DIR="\${GITHUB_WORKSPACE:-../../../}"
 
 export PROFILES=
-export SETTINGS="-s \$TRAVIS_BUILD_DIR/settings.xml"
+export SETTINGS="-s \$REPO_DIR/settings.xml"
 export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
 
 mvn -B \$DISABLE_DOWNLOAD_PROGRESS \$SETTINGS \$PROFILES -Dtycho.showEclipseLog=true clean install \$EXTRA_ARGS
