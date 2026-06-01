@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Build
-        run: scripts/greetings-gradle-J21-2.43.sh
+        run: scripts/greetings-gradle-J21-2.44.sh
   build_Maven_J21:
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
           java-version: 21
       - name: Build
-        run: scripts/greetings-maven-J21-2.43.sh 
+        run: scripts/greetings-maven-J21-2.44.sh 
   build_tycho_J21:
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +44,7 @@ jobs:
         with:
           maven-version: 3.9.13
       - name: Build
-        run: xvfb-run scripts/greetings-tycho-J21-2.43.sh
+        run: xvfb-run scripts/greetings-tycho-J21-2.44.sh
   build_tycho_J21_tycho_50x:
     runs-on: ubuntu-latest
     steps:
@@ -61,7 +61,7 @@ jobs:
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=5.0.3-SNAPSHOT -Ptycho_snapshots"
-        run: xvfb-run scripts/greetings-tycho-J21-2.43.sh
+        run: xvfb-run scripts/greetings-tycho-J21-2.44.sh
   build_Gradle_J25:
     runs-on: ubuntu-latest
     steps:
@@ -72,7 +72,7 @@ jobs:
           distribution: 'temurin'
           java-version: 25
       - name: Build
-        run: scripts/greetings-gradle-J25-2.43.sh
+        run: scripts/greetings-gradle-J25-2.44.sh
   build_Maven_J25:
     runs-on: ubuntu-latest
     steps:
@@ -83,7 +83,7 @@ jobs:
           distribution: 'temurin'
           java-version: 25
       - name: Build
-        run: scripts/greetings-maven-J25-2.43.sh
+        run: scripts/greetings-maven-J25-2.44.sh
   build_tycho_J25:
     runs-on: ubuntu-latest
     steps:
@@ -98,7 +98,7 @@ jobs:
         with:
           maven-version: 3.9.13
       - name: Build
-        run: xvfb-run scripts/greetings-tycho-J25-2.43.sh
+        run: xvfb-run scripts/greetings-tycho-J25-2.44.sh
   build_domain_J21:
     runs-on: ubuntu-latest
     steps:
@@ -113,7 +113,7 @@ jobs:
         with:
           maven-version: 3.9.13
       - name: Build
-        run: xvfb-run scripts/domainmodel-2.43.sh
+        run: xvfb-run scripts/domainmodel-2.44.sh
   build_domain_J25:
     runs-on: ubuntu-latest
     steps:
@@ -128,7 +128,7 @@ jobs:
         with:
           maven-version: 3.9.13
       - name: Build
-        run: xvfb-run scripts/domainmodel-2.43.sh
+        run: xvfb-run scripts/domainmodel-2.44.sh
   build_domain_tycho_50x_J21:
     runs-on: ubuntu-latest
     steps:
@@ -145,4 +145,4 @@ jobs:
       - name: Build
         env:
           EXTRA_ARGS : "-Dtycho-version=5.0.3-SNAPSHOT -Ptycho_snapshots"
-        run: xvfb-run scripts/domainmodel-2.43.sh
+        run: xvfb-run scripts/domainmodel-2.44.sh
