@@ -143,12 +143,6 @@ public class NewProjectWizardAPI {
 			return this;
 		}
 
-		public NewXtextProjectWizardConfigurationPageAPI toggleWebIntegration() {
-			System.out.println("Toggle 'Web Integration'");
-			shell.bot().checkBox("Web Integration").click();
-			return this;
-		}
-
 		public NewXtextProjectWizardConfigurationPageAPI setMavenBuildType() {
 			System.out.println("Set 'Maven Build Type'");
 			shell.bot().comboBox(0).setSelection("Maven");
