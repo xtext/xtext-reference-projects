@@ -15,9 +15,6 @@ subprojects {
 		maven {
 			url = 'https://central.sonatype.com/repository/maven-snapshots'
 		}
-		maven {
-			url = 'https://oss.sonatype.org/content/repositories/snapshots'
-		}
 	}
 
 	apply plugin: 'java-library'
