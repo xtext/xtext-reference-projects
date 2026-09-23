@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Script to update/create version reference projects
-# Usage: ./update-version.sh [version] (default: 2.44)
+# Usage: ./update-version.sh [version] (default: 2.45)
 
 set -e
 
-VERSION=${1:-2.44}
+VERSION=${1:-2.45}
 MAJOR_VERSION=$(echo "$VERSION" | cut -d. -f1)
 MINOR_VERSION=$(echo "$VERSION" | cut -d. -f2)
 PREV_MINOR_VERSION=$((MINOR_VERSION - 1))
