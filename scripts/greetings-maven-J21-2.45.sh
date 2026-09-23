@@ -1,0 +1,9 @@
+REPO_DIR="${GITHUB_WORKSPACE:-$(pwd)}"
+
+cd greetings-maven/2.45.0-J21
+
+export PROFILES=-Ptycho_snapshots
+export SETTINGS="-s $REPO_DIR/settings.xml"
+export DISABLE_DOWNLOAD_PROGRESS=-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn 
+
+mvn -B -f org.xtext.example.mydsl.parent/pom.xml $DISABLE_DOWNLOAD_PROGRESS $SETTINGS $PROFILES -Djava-21 clean install
