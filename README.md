@@ -9,9 +9,9 @@ Only recent Xtext releases are kept here; reference projects for versions older 
   - create a new project via the wizard and commit the generated files
   - the generated project should be located under [projectName]-[buildSystem]/[xtextVersion]/
   - generate the language and commit the generated source files
-- add the project to the travis build
+- add the project to the CI build
   - create a shell script in the scripts folder
-  - in the `.travis.yml` file, edit `matrix` and add a `BUILDCMD` entry for the shell script
+  - in `.github/workflows/build.yml`, add a job that sets up the required JDK and runs the shell script
 - add the wizard configuration used to generate the project to this README file
 
 ### Wizard configuration
@@ -26,10 +26,10 @@ Only recent Xtext releases are kept here; reference projects for versions older 
 | Generic IDE Support                   | YES              | YES             | YES             |
 | Testing Support                       | YES              | YES             | YES             |
 | Preferred Build System                | Gradle           | Maven           | Maven           |
-| Build Language Server (Xtext >= 2.13) | Fat Jar          | Regular         | Fat Jar         |
+| Build Language Server                | Fat Jar          | Fat Jar         | App             |
 | Source Layout                         | Maven/Gradle     | Maven/Gradle    | Plain           |
 
-Projects might be configured for Java 8 or Java 9. Projects that target for Java 9 get a suffix '-J9'.
+Projects are generated for Java 17. Projects that target a newer Java version get a suffix: '-J21' for Java 21 and '-J25' for Java 25.
 
 ### Troubleshooting
   

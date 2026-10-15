@@ -5,6 +5,22 @@
 
 set -e
 
+# In-place replacement that works with both BSD sed (macOS) and GNU sed (Linux).
+# The usual "sed -i ''" idiom is BSD-only and makes GNU sed fail, while "sed -i" loses
+# the file suffix on BSD. Writing to a temp file and copying it back avoids both, so
+# GNU sed (gsed) is not required on macOS. The copy preserves inode and permissions.
+# mktemp is given an explicit template because BSD mktemp requires one, while GNU mktemp
+# also accepts it.
+sed_replace() {
+    local script="$1"
+    local file="$2"
+    local tmp
+    tmp="$(mktemp "${TMPDIR:-/tmp}/update-version.XXXXXX")"
+    sed "$script" "$file" > "$tmp"
+    cat "$tmp" > "$file"
+    rm -f "$tmp"
+}
+
 VERSION=${1:-2.45}
 MAJOR_VERSION=$(echo "$VERSION" | cut -d. -f1)
 MINOR_VERSION=$(echo "$VERSION" | cut -d. -f2)
@@ -20,20 +36,20 @@ echo "Updating launch files..."
 
 for file in "$ROOT_DIR/launch"/refproject-greetings-*-j21.launch; do
     # Update targetDir paths for J21
-    sed -i '' "s/greetings-gradle\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-gradle\/${VERSION}.0-J21/g" "$file"
-    sed -i '' "s/greetings-maven\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-maven\/${VERSION}.0-J21/g" "$file"
-    sed -i '' "s/greetings-tycho\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-tycho\/${VERSION}.0-J21/g" "$file"
+    sed_replace "s/greetings-gradle\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-gradle\/${VERSION}.0-J21/g" "$file"
+    sed_replace "s/greetings-maven\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-maven\/${VERSION}.0-J21/g" "$file"
+    sed_replace "s/greetings-tycho\/2\.${PREV_MINOR_VERSION}\.0-J21/greetings-tycho\/${VERSION}.0-J21/g" "$file"
     # Update xtextVersion
-    sed -i '' "s/xtextVersion=2\.${PREV_MINOR_VERSION}\.0-SNAPSHOT/xtextVersion=2.${MINOR_VERSION}.0-SNAPSHOT/g" "$file"
+    sed_replace "s/xtextVersion=2\.${PREV_MINOR_VERSION}\.0-SNAPSHOT/xtextVersion=2.${MINOR_VERSION}.0-SNAPSHOT/g" "$file"
 done
 
 for file in "$ROOT_DIR/launch"/refproject-greetings-*-j25.launch; do
     # Update targetDir paths for J25
-    sed -i '' "s/greetings-gradle\/2\.${PREV_MINOR_VERSION}\.0-J25/greetings-gradle\/${VERSION}.0-J25/g" "$file"
-    sed -i '' "s/greetings-maven\/2\.${PREV_MINOR_VERSION}\.0-J25/greetings-maven\/${VERSION}.0-J25/g" "$file"
-    sed -i '' "s/greetings-tycho\/2\.${PREV_MINOR_VERSION}\.0-J25/greetings-tycho\/${VERSION}.0-J25/g" "$file"
+    sed_replace "s/greetings-gradle\/2\.${PREV_MINOR_VERSION}\.0-J25/greetings-gradle\/${VERSION}.0-J25/g" "$file"
+    sed_replace "s/greetings-maven\/2\.${PREV_MINOR_VERSION}\.0-J25/greetings-maven\/${VERSION}.0-J25/g" "$file"
+    sed_replace "s/greetings-tycho\/2\.${PREV_MINOR_VERSION}\.0-J25/greetings-tycho\/${VERSION}.0-J25/g" "$file"
     # Update xtextVersion
-    sed -i '' "s/xtextVersion=2\.${PREV_MINOR_VERSION}\.0-SNAPSHOT/xtextVersion=2.${MINOR_VERSION}.0-SNAPSHOT/g" "$file"
+    sed_replace "s/xtextVersion=2\.${PREV_MINOR_VERSION}\.0-SNAPSHOT/xtextVersion=2.${MINOR_VERSION}.0-SNAPSHOT/g" "$file"
 done
 
 # Create new script files
