@@ -1,6 +1,8 @@
 # xtext-reference-projects
 A collection of xtext sample projects for build integration tests
 
+Only recent Xtext releases are kept here; reference projects for versions older than 2.41 are dropped.
+
 ### Setting up a new project
 
 - create the project 
