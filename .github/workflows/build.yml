@@ -39,13 +39,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
-      - name: Set up Maven 3.9.13
+      - name: Set up Maven 3.9.16
         uses: stCarolas/setup-maven@v5.1
         with:
-          maven-version: 3.9.13
+          maven-version: 3.9.16
       - name: Build
         run: xvfb-run scripts/greetings-tycho-J21-2.45.sh
-  build_tycho_J25_tycho_50x:
+  build_tycho_J25_tycho_505:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -54,13 +54,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 25
-      - name: Set up Maven 3.9.13
+      - name: Set up Maven 3.9.16
         uses: stCarolas/setup-maven@v5.1
         with:
-          maven-version: 3.9.13
+          maven-version: 3.9.16
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=5.0.3-SNAPSHOT -Ptycho_snapshots"
+          EXTRA_ARGS : "-Dtycho-version=5.0.5-SNAPSHOT -Ptycho_snapshots"
         run: xvfb-run scripts/greetings-tycho-J25-2.45.sh
   build_Gradle_J25:
     runs-on: ubuntu-latest
@@ -93,10 +93,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 25
-      - name: Set up Maven 3.9.13
+      - name: Set up Maven 3.9.16
         uses: stCarolas/setup-maven@v5.1
         with:
-          maven-version: 3.9.13
+          maven-version: 3.9.16
       - name: Build
         run: xvfb-run scripts/greetings-tycho-J25-2.45.sh
   build_domain_J25:
@@ -108,13 +108,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 25
-      - name: Set up Maven 3.9.13
+      - name: Set up Maven 3.9.16
         uses: stCarolas/setup-maven@v5.1
         with:
-          maven-version: 3.9.13
+          maven-version: 3.9.16
       - name: Build
         run: xvfb-run scripts/domainmodel-2.45.sh
-  build_domain_J25_tycho_50x:
+  build_domain_J25_tycho_505:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -123,11 +123,28 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 25
-      - name: Set up Maven 3.9.13
+      - name: Set up Maven 3.9.16
         uses: stCarolas/setup-maven@v5.1
         with:
-          maven-version: 3.9.13
+          maven-version: 3.9.16
       - name: Build
         env:
-          EXTRA_ARGS : "-Dtycho-version=5.0.3-SNAPSHOT -Ptycho_snapshots"
+          EXTRA_ARGS : "-Dtycho-version=5.0.5-SNAPSHOT -Ptycho_snapshots"
+        run: xvfb-run scripts/domainmodel-2.45.sh
+  build_domain_J25_tycho_600:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up JDK 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: 25
+      - name: Set up Maven 3.9.16
+        uses: stCarolas/setup-maven@v5.1
+        with:
+          maven-version: 3.9.16
+      - name: Build
+        env:
+          EXTRA_ARGS : "-Dtycho-version=6.0.0-SNAPSHOT -Ptycho_snapshots"
         run: xvfb-run scripts/domainmodel-2.45.sh

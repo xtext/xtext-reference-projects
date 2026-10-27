@@ -17,10 +17,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 25
-      - name: Set up Maven 3.9.13
+      - name: Set up Maven 3.9.16
         uses: stCarolas/setup-maven@v5.1
         with:
-          maven-version: 3.9.13
+          maven-version: 3.9.16
       - name: Build
         run: xvfb-run scripts/integrationtests-xtext-examples.sh
       - name: Archive UI Tests Screenshots
