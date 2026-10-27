@@ -16,7 +16,7 @@ Only recent Xtext releases are kept here; reference projects for versions older 
 
 ### CI build
 
-- `.github/workflows/build.yml` builds the reference projects, currently for the latest release (2.45) on Java 21 and Java 25. The Tycho jobs use Maven 3.9.16 and `xvfb-run`; three jobs additionally build against the Tycho snapshot repository via `EXTRA_ARGS` (2.45 `greetings` and `domainmodel` with Tycho `5.0.5-SNAPSHOT`, and `domainmodel` with `6.0.0-SNAPSHOT`).
+- `.github/workflows/build.yml` builds the reference projects, currently for the latest release (2.45) on Java 21 and Java 25. The Tycho jobs use Maven 3.9.16 and `xvfb-run`; four jobs additionally build against the Tycho snapshot repository via `EXTRA_ARGS` (2.45 `greetings` and `domainmodel` with Tycho `5.0.5-SNAPSHOT`, and `greetings` and `domainmodel` with `6.0.0-SNAPSHOT`).
 - `.github/workflows/build-integtests-wizard.yml`, `build-integtests-xtext.yml` and `build-integtests-xtend.yml` run the SWTBot integration tests on Java 25 under `xvfb-run` and archive screenshots on failure.
 
 ### Creating or updating a project
